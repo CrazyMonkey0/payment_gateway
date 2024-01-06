@@ -14,7 +14,10 @@ class Profile(models.Model):
 
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    api_key = models.CharField(max_length=255, blank=True, null=True)
+    app = models.CharField(
+        max_length=255, unique=True, blank=True, null=True)
+    api_key = models.CharField(
+        max_length=255, unique=True, blank=True, null=True)
     bank_account = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self) -> str:
