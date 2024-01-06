@@ -16,6 +16,12 @@
                 <li {% if section == "dashboard" %} class="selected" {% endif %}>
                     <a href="{% url 'dashboard' %}">Main panel</a>
                 </li>
+                <li>
+                    <a href="{% url 'profile %}">Data</a>
+                </li>
+                <li>
+                    <a href="{% url 'edit_profile' %}">Edit tprofile</a>
+                </li>
             </ul>
             {% endif %}
 

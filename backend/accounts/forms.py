@@ -1,5 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import Profile
+import uuid
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -37,3 +39,38 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError(
                 'An account with such an email already exists.')
         return cd['email']
+
+
+class ProfileForm(forms.ModelForm):
+    """
+    Django form to handle user profile data.
+
+    Attributes:
+        app (CharField): Field for entering the application name.
+        bank_account (CharField): Field for entering the bank account number.
+
+    Methods:
+        save(self, commit=True):
+            Method to save profile data. It also generates an API key if not assigned yet.
+
+    """
+    class Meta:
+        model = Profile
+        fields = ['app', 'bank_account']
+
+    def save(self, commit=True):
+        """
+        Method to save profile data. It also generates an API key if not assigned yet.
+
+        Parameters:
+            commit (bool, optional): Flag indicating whether the data should be saved in the database. Default is True.
+
+        Returns:
+            Profile: Instance of the saved profile.
+        """
+        instance = super().save(commit=False)
+        if instance.api_key is None:
+            instance.api_key = str(uuid.uuid4())
+            if commit:
+                instance.save()
+            return instance

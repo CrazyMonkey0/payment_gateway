@@ -23,4 +23,8 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     # URL path to registration
     path('register/', views.register, name='register'),
+    # URL path to show profil data about the user
+    path('profile/', views.show_profile, name='show_profile'),
+    # URL path to create profile and generated api-key
+    path('profile/edit/', views.edit_profile, name='edit_profile'),
 ]
