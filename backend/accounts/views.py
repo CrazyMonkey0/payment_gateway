@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Profile
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, ProfileForm
 
 
 def register(request):
@@ -21,9 +22,6 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
 
-            # Create user profile
-            Profile.objects.create(user=new_user)
-
             # Render the registration success page
             return render(request,
                           'accounts/register_done.html',
@@ -36,3 +34,22 @@ def register(request):
     return render(request,
                   'accounts/register.html',
                   {'user_form': user_form})
+
+
+@login_required
+def dashboard(request):
+    """
+    View displaying the user's dashboard.
+
+    Accessible only to authenticated users. Redirects to the login page
+    if the user is not authenticated.
+
+    Parameters:
+    - request (HttpRequest): The request object.
+
+    Returns:
+    - HttpResponse: Rendered HTML response for the user's dashboard.
+    """
+    return render(request,
+                  'accounts/dashboard.html',
+                  {'section': 'dashboard'})
