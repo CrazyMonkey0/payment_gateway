@@ -4,7 +4,7 @@
 
     <head>
         <title>{% block title %}{% endblock %}</title>
-        <link href="{% static "css/base.css" %}" rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
     </head>
 
     <body>
@@ -17,7 +17,7 @@
                     <a href="{% url 'dashboard' %}">Main panel</a>
                 </li>
                 <li>
-                    <a href="{% url 'profile %}">Data</a>
+                    <a href="{% url 'show_profile' %}">Data</a>
                 </li>
                 <li>
                     <a href="{% url 'edit_profile' %}">Edit tprofile</a>
