@@ -16,11 +16,11 @@
                 <li {% if section == "dashboard" %} class="selected" {% endif %}>
                     <a href="{% url 'dashboard' %}">Main panel</a>
                 </li>
-                <li>
-                    <a href="{% url 'show_profile' %}">Data</a>
+                <li {% if section == "show_profile" %} class="selected" {% endif %}>
+                    <a href="{% url 'show_profile' %}">Profile</a>
                 </li>
-                <li>
-                    <a href="{% url 'edit_profile' %}">Edit tprofile</a>
+                <li {% if section == "edit_profile" %} class="selected" {% endif %}>
+                    <a href="{% url 'edit_profile' %}">Edit profile</a>
                 </li>
             </ul>
             {% endif %}
@@ -30,7 +30,7 @@
                 Hello {{ request.user.username }}
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
-                    <button type="submit">Log-out</button>
+                    <input type="submit" value="Log-out">
                 </form>
                 {% else %}
                 <a href="{% url 'login' %}">Log in</a>

@@ -3,16 +3,41 @@
 {% block title %}cre{% endblock %}
 
 {% block content %}
-<h1>Profile information</h1>
-{% if profile.api_key is None%}
-<p>Profile data is empty in order to use the application and
-    be able to generate api-key fill in <a href="{% url 'edit_profile '%}">this data</a></p>
+<div id="profile">
+    <h1>Profile information</h1>
+    {% if profile.api_key is None%}
+    <p>Profile data is empty in order to use the application and
+        be able to generate api-key fill in <a href="{% url 'edit_profile '%}">this data</a></p>
 
-{% else %}
+    {% else %}
 
-<h2>{{ profile.app }}</h2>
-<h3>bank_account</h3>: {{ profile.bank_account }}
-<h3>api-key</h3>: {{ profile.api_key }}
-{% endif %}
+    <table>
+        <tr>
+            <td>
+                <h3>Name app:</h3>
+            </td>
+            <td>
+                {{ profile.app }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Bank_account:</h3>
+            </td>
+            <td>
+                {{ profile.bank_account }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>API_KEY:</h3>
+            </td>
+            <td>
+                {{ profile.api_key }}
+            </td>
+        </tr>
+    </table>
+    {% endif %}
 
+</div>
 {% endblock %}

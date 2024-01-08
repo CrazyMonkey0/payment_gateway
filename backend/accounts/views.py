@@ -64,7 +64,8 @@ def show_profile(request):
         HttpResponse: Rendered 'accounts/profile.html' template with profile information.
     """
     profile = get_object_or_404(Profile, user=request.user)
-    return render(request, 'accounts/profile.html', {'profile': profile})
+    return render(request, 'accounts/profile.html', {'section': 'show_profile',
+                                                     'profile': profile})
 
 
 @login_required
@@ -85,4 +86,5 @@ def edit_profile(request):
     else:
         form = ProfileForm()
 
-    return render(request, 'accounts/edit_profile.html', {'form': form})
+    return render(request, 'accounts/edit_profile.html', {'section': 'edit_profile',
+                                                          'form': form})
