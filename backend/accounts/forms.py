@@ -59,18 +59,20 @@ class ProfileForm(forms.ModelForm):
         fields = ['app', 'bank_account']
 
     def save(self, commit=True):
-        """
-        Method to save profile data. It also generates an API key if not assigned yet.
+        """Saves the instance of the object to the database.
 
-        Parameters:
-            commit (bool, optional): Flag indicating whether the data should be saved in the database. Default is True.
+        :param commit: Flag indicating whether to commit the changes to the database immediately.
+                    Defaults to True.
+        :type commit: bool
+        :return: The saved instance of the object.
 
-        Returns:
-            Profile: Instance of the saved profile.
+        This method performs the save operation for the instance of the object in the database.
+        If the instance does not have an API key (api_key), a new UUID key is generated and assigned
+        to the instance before saving.
         """
         instance = super().save(commit=False)
         if instance.api_key is None:
             instance.api_key = str(uuid.uuid4())
-            if commit:
-                instance.save()
-            return instance
+        if commit:
+            instance.save()
+        return instance
