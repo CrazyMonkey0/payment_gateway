@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}cre{% endblock %}
+
+{% block content %}
+<div id="profile">
+    <h1>Profile information</h1>
+    {% if profile.api_key is None%}
+    <p>Profile data is empty in order to use the application and
+        be able to generate api-key fill in <a href="{% url 'edit_profile '%}">this data</a></p>
+
+    {% else %}
+
+    <table>
+        <tr>
+            <td>
+                <h3>Name app:</h3>
+            </td>
+            <td>
+                {{ profile.app }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Bank_account:</h3>
+            </td>
+            <td>
+                {{ profile.bank_account }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>API_KEY:</h3>
+            </td>
+            <td>
+                {{ profile.api_key }}
+            </td>
+        </tr>
+    </table>
+    {% endif %}
+
+</div>
+{% endblock %}

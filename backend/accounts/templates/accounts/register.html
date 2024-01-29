@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Create account{% endblock %}
+
+{% block content %}
+<div class="register">
+    <h1>Create account</h1>
+    <h4>Fill out the form below to register:</h4>
+    <form action="." method="post">
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td>{{ user_form.username }}</td>
+            </tr>
+            <tr>
+                <td>First name:</td>
+                <td>{{ user_form.first_name }}</td>
+            </tr>
+            <tr>
+                <td>Last name:</td>
+                <td>{{ user_form.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Email address:</td>
+                <td>{{ user_form.email }}</td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>{{ user_form.password }}</td>
+            </tr>
+            <tr>
+                <td>Repeat password:</td>
+                <td>{{ user_form.password2 }}</td>
+            </tr>
+            <tr>
+                {% csrf_token %}
+                <td><input type="submit" value="Create account"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+{% endblock %}

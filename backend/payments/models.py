@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from accounts.models import Profile
 
 
 class Client(models.Model):
@@ -57,7 +58,7 @@ class Order(models.Model):
 
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+    user = models.ForeignKey(Profile,
                              on_delete=models.CASCADE,)
 
     total = models.DecimalField(max_digits=10, decimal_places=2, default=0)

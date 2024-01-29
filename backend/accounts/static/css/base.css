@@ -1,0 +1,185 @@
+body {
+    background-color: rgb(220, 214, 224);
+    color: rgb(17, 17, 17);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(17, 17, 17);
+    transition: color 0.3s;
+}
+
+table {
+    margin: 20px;
+    padding: 20px;
+    padding-bottom: 60px;
+    background-color: #f0f0f0;
+    border: 11px solid #ccc;
+    border-radius: 10px;
+    position: relative;
+
+}
+
+input {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 20px;
+    margin-top: 10px;
+    margin-right: 60px;
+    border: none;
+    border-radius: 20px;
+    float: right;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 20px;
+    margin-top: 10px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #040505;
+}
+
+a:hover {
+    color: #7e510e;
+}
+
+#header {
+    display: flex;
+    padding-top: 10px;
+}
+
+#content {
+    width: 100%;
+}
+
+#content h1 {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 70px;
+}
+
+#dashboard {
+    text-align: center;
+}
+
+#edit {
+    padding-left: 35px;
+
+}
+
+#edit input[type="submit"] {
+    position: absolute;
+    bottom: 20px;
+    right: 90px;
+}
+
+#edit h3 {
+    font-size: 13px;
+    padding-left: 31px;
+}
+
+#edit .edit_form {
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+#profile table h3 {
+    padding: 0px 20px;
+
+}
+
+#login {
+    padding-left: 20px;
+}
+
+#login input[type="submit"] {
+    position: absolute;
+    bottom: 20px;
+    right: 90px;
+}
+
+.logo {
+    display: block;
+}
+
+.menu {
+    display: flex;
+    width: 75%;
+}
+
+.menu li {
+    margin-left: 120px;
+    list-style: none;
+}
+
+.selected a {
+    color: #b94d1b;
+}
+
+.user {
+    color: #007bff;
+    font-size: 15px;
+    text-align: center;
+}
+
+.user a {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    background-color: #ccc;
+}
+
+.register {
+    padding-left: 35px;
+}
+
+.register h4 {
+    padding-left: 120px;
+}
+
+.register input[type="submit"] {
+    position: absolute;
+    bottom: 20px;
+    right: 90px;
+}
+
+.register table td {
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+}
+
+.register p {
+    text-align: center;
+}
+
+.pass {
+    text-align: center;
+}
+
+.pass form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pass input[type="email"] {
+    padding-top: 10px;
+    margin-bottom: 6px;
+    margin-left: 15px;
+}
+
+.pass input[type="submit"] {
+    position: absolute;
+    bottom: 20px;
+    right: 90px;
+}

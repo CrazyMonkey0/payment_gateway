@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <div id="header">
+
+            <span class="logo">Payment_gateway</span>
+            {% if request.user.is_authenticated %}
+            <ul class="menu">
+                <li {% if section == "dashboard" %} class="selected" {% endif %}>
+                    <a href="{% url 'dashboard' %}">Main panel</a>
+                </li>
+                <li {% if section == "show_profile" %} class="selected" {% endif %}>
+                    <a href="{% url 'show_profile' %}">Profile</a>
+                </li>
+                <li {% if section == "edit_profile" %} class="selected" {% endif %}>
+                    <a href="{% url 'edit_profile' %}">Edit profile</a>
+                </li>
+            </ul>
+            {% endif %}
+
+            <span class="user">
+                {% if request.user.is_authenticated %}
+                Hello {{ request.user.username }}
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="submit" value="Log-out">
+                </form>
+                {% else %}
+                <a href="{% url 'login' %}">Log in</a>
+                {% endif %}
+            </span>
+        </div>
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+
+</html>
