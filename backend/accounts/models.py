@@ -27,4 +27,4 @@ class Profile(models.Model):
         Example:
         If the user's username is "john_doe", the method will return "john_doe".
         """
-        return f'User profile {self.user.username}'
+        return f'{self.user.username}'
