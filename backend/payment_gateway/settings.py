@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
 
+    # DJANGO REST FRAMEWORK
+    'rest_framework',
     # Myapp
     'payments.apps.PaymentsConfig',
 ]
@@ -138,8 +139,12 @@ LOGOUT_URL = 'logout'
 
 # Permission
 REST_FRAMEWORK = {
+    # permission
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
     ]
+
 }
