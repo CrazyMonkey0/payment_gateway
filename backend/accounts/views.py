@@ -22,6 +22,10 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
 
+            # Create a Profile object and associate it with a new user
+            profile = Profile(user=new_user)
+            profile.save()
+
             # Render the registration success page
             return render(request,
                           'accounts/register_done.html',

@@ -6,8 +6,8 @@
 <div id="profile">
     <h1>Profile information</h1>
     {% if profile.api_key is None%}
-    <p>Profile data is empty in order to use the application and
-        be able to generate api-key fill in <a href="{% url 'edit_profile '%}">this data</a></p>
+    <p>The profile is empty. To complete the profile and get the api key <a href="{% url 'edit_profile' %}"> edit the
+            profile</a></p>
 
     {% else %}
 
