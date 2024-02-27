@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # DJANGO REST FRAMEWORK
     'rest_framework',
+    # Oauth2
+    'oauth2_provider',
+    # CORS
+    'corsheaders',
     # Myapp
     'payments.apps.PaymentsConfig',
 ]
@@ -50,6 +54,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # CORS middleware
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -136,13 +142,21 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+# OAuth2 
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+}
+# CROS settings
+CORS_ORIGIN_ALLOW_ALL = True
 
 # DRF
 REST_FRAMEWORK = {
     # Authentication
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',  
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ],
     # Permission
     'DEFAULT_PERMISSION_CLASSES': [
@@ -152,3 +166,4 @@ REST_FRAMEWORK = {
 
 # Model used for authentication
 AUTH_USER_MODEL='accounts.Profile'
+
