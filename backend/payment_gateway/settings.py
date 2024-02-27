@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=u&uaz44$&!&j2ehx%*onx3s95y!4pkzqp&)-a=%ttffb!!egd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     # DJANGO REST FRAMEWORK
     'rest_framework',
     # Myapp
@@ -138,15 +137,18 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 
+# DRF
 REST_FRAMEWORK = {
+    # Authentication
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',  
+    ],
     # Permission
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
-    # Authentication
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ]
-
 }
+
+# Model used for authentication
+AUTH_USER_MODEL='accounts.Profile'

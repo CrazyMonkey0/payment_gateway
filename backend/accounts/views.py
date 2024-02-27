@@ -22,10 +22,6 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
 
-            # Create a Profile object and associate it with a new user
-            profile = Profile(user=new_user)
-            profile.save()
-
             # Render the registration success page
             return render(request,
                           'accounts/register_done.html',
@@ -67,7 +63,7 @@ def show_profile(request):
     Returns:
         HttpResponse: Rendered 'accounts/profile.html' template with profile information.
     """
-    profile = get_object_or_404(Profile, user=request.user)
+    profile = get_object_or_404(Profile, id=request.user.id)
     return render(request, 'accounts/profile.html', {'section': 'show_profile',
                                                      'profile': profile})
 
@@ -80,8 +76,7 @@ def edit_profile(request):
     Returns:
         HttpResponse: Rendered 'accounts/edit_profile.html' template with the profile edit form.
     """
-    profile = get_object_or_404(Profile, user=request.user)
-
+    profile = get_object_or_404(Profile, id=request.user.id)
     if request.method == 'POST':
         form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():

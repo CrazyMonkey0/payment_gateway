@@ -23,7 +23,7 @@ class OrderAPIView(APIView):
         Returns:
         - response (Response): HTTP response containing all the orders of a given user.
         """
-        queryset = Order.objects.filter(profile=request.user.profile)
+        queryset = Order.objects.filter(profile=request.user)
         serializer = OrderSerializer(queryset, many=True)
         return Response(serializer.data)
 

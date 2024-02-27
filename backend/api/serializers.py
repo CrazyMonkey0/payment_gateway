@@ -8,11 +8,13 @@ class ProfileSerializer(serializers.ModelSerializer):
     Serializer for the Profile model.
 
     Attributes:
-    - app (str): The profile's app attribute.
+    - first_name (str): The first name of the profile.
+    - last_name (str): The last name of the profile.
+    - email (str): The email address of the profile.
     """
     class Meta:
         model = Profile
-        fields = ['app',]
+        fields = ['first_name', 'last_name', 'email']
 
 
 class ClientSerializer(serializers.ModelSerializer):
@@ -26,7 +28,7 @@ class ClientSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Client
-        fields = ['name', 'surname', 'email',]
+        fields = ['name', 'surname', 'email']
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -34,12 +36,12 @@ class ProductSerializer(serializers.ModelSerializer):
     Serializer for the Product model.
 
     Attributes:
-    - name (str): The product's name.
+    - name (str): The name of the product.
     - quantity (int): The quantity of the product.
     """
     class Meta:
         model = Product
-        fields = ['name', 'quantity',]
+        fields = ['name', 'quantity']
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -55,11 +57,11 @@ class OrderSerializer(serializers.ModelSerializer):
     """
     profile = ProfileSerializer(required=False)
     client = ClientSerializer()
-    products = ProductSerializer(many=True,)
+    products = ProductSerializer(many=True)
 
     class Meta:
         model = Order
-        fields = ['profile', 'client', 'products', 'total', 'is_paid',]
+        fields = ['profile', 'client', 'products', 'total', 'is_paid']
 
     def create(self, validated_data):
         """
@@ -78,19 +80,17 @@ class OrderSerializer(serializers.ModelSerializer):
         products_data = validated_data.pop('products')
 
         client = Client.objects.create(**client_data)
-        products = [Product.objects.create(
-            **product_data) for product_data in products_data]
+        products = [Product.objects.create(**product_data) for product_data in products_data]
 
         request = self.context.get('request', None)
 
         # Check if the request contains information about the logged-in user
         if request and request.user:
             # Get the user's profile
-            profile = request.user.profile
+            profile = request.user
 
             # Create a new order, assign client, user profile, and other data
-            order = Order.objects.create(
-                client=client, profile=profile, **validated_data)
+            order = Order.objects.create(client=client, profile=profile, **validated_data)
 
             # Add products to the order
             for product in products:
@@ -99,5 +99,4 @@ class OrderSerializer(serializers.ModelSerializer):
             return order
 
         # If no logged-in user is found, raise an error
-        raise serializers.ValidationError(
-            "User not logged in or no profile found.")
+        raise serializers.ValidationError("User not logged in or no profile found.")

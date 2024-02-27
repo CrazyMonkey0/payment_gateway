@@ -5,8 +5,8 @@
 {% block content %}
 <div id="profile">
     <h1>Profile information</h1>
-    {% if profile.api_key is None%}
-    <p>The profile is empty. To complete the profile and get the api key <a href="{% url 'edit_profile' %}"> edit the
+    {% if profile.bank_account is None%}
+    <p>The profile is empty. <a href="{% url 'edit_profile' %}"> edit the
             profile</a></p>
 
     {% else %}
@@ -14,26 +14,34 @@
     <table>
         <tr>
             <td>
-                <h3>Name app:</h3>
+                <h3>First name:</h3>
             </td>
             <td>
-                {{ profile.app }}
+                {{ profile.first_name }}
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Bank_account:</h3>
+                <h3>Last name:</h3>
+            </td>
+            <td>
+                {{ profile.last_name }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Email:</h3>
+            </td>
+            <td>
+                {{ profile.email }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Bank account:</h3>
             </td>
             <td>
                 {{ profile.bank_account }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>API_KEY:</h3>
-            </td>
-            <td>
-                {{ profile.api_key }}
             </td>
         </tr>
     </table>
