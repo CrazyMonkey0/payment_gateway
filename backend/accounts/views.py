@@ -63,7 +63,7 @@ def show_profile(request):
     Returns:
         HttpResponse: Rendered 'accounts/profile.html' template with profile information.
     """
-    profile = get_object_or_404(Profile, user=request.user)
+    profile = get_object_or_404(Profile, id=request.user.id)
     return render(request, 'accounts/profile.html', {'section': 'show_profile',
                                                      'profile': profile})
 
@@ -76,8 +76,7 @@ def edit_profile(request):
     Returns:
         HttpResponse: Rendered 'accounts/edit_profile.html' template with the profile edit form.
     """
-    profile = get_object_or_404(Profile, user=request.user)
-
+    profile = get_object_or_404(Profile, id=request.user.id)
     if request.method == 'POST':
         form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():

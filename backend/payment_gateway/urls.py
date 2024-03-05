@@ -22,4 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accounts.urls')),
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('api.urls', namespace='api')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

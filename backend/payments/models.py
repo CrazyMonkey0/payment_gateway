@@ -49,7 +49,7 @@ class Order(models.Model):
     Attributes:
     - client (ForeignKey): Link to the Client model.
     - products (ManyToManyField): Link to the Product model.
-    - user (ForeignKey): Link to the User model.
+    - profile (ForeignKey): Link to the User model.
     - total (DecimalField): Order total.
     - is_paid (BooleanField): Payment status.
     - date_of_order (DateTimeField): Order placement date.
@@ -58,8 +58,8 @@ class Order(models.Model):
 
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
-    user = models.ForeignKey(Profile,
-                             on_delete=models.CASCADE,)
+    profile = models.ForeignKey(Profile,
+                                on_delete=models.CASCADE,)
 
     total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     is_paid = models.BooleanField(default=False)

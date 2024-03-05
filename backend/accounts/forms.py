@@ -1,7 +1,6 @@
 from django import forms
-from django.contrib.auth.models import User
 from .models import Profile
-import uuid
+
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -18,7 +17,7 @@ class UserRegistrationForm(forms.ModelForm):
         label='Repeat password', widget=forms.PasswordInput)
 
     class Meta:
-        model = User
+        model = Profile
         fields = ('username', 'first_name', 'last_name', 'email')
 
     def clean_password2(self):
@@ -35,7 +34,7 @@ class UserRegistrationForm(forms.ModelForm):
         Checks if there is an account with the same email address.
         """
         cd = self.cleaned_data
-        if User.objects.filter(email=cd['email']).exists():
+        if Profile.objects.filter(email=cd['email']).exists():
             raise forms.ValidationError(
                 'An account with such an email already exists.')
         return cd['email']
@@ -49,30 +48,8 @@ class ProfileForm(forms.ModelForm):
         app (CharField): Field for entering the application name.
         bank_account (CharField): Field for entering the bank account number.
 
-    Methods:
-        save(self, commit=True):
-            Method to save profile data. It also generates an API key if not assigned yet.
-
     """
     class Meta:
         model = Profile
-        fields = ['app', 'bank_account']
+        fields = ['first_name', 'last_name', 'email', 'bank_account']
 
-    def save(self, commit=True):
-        """Saves the instance of the object to the database.
-
-        :param commit: Flag indicating whether to commit the changes to the database immediately.
-                    Defaults to True.
-        :type commit: bool
-        :return: The saved instance of the object.
-
-        This method performs the save operation for the instance of the object in the database.
-        If the instance does not have an API key (api_key), a new UUID key is generated and assigned
-        to the instance before saving.
-        """
-        instance = super().save(commit=False)
-        if instance.api_key is None:
-            instance.api_key = str(uuid.uuid4())
-        if commit:
-            instance.save()
-        return instance
