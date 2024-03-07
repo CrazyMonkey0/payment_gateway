@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from payments.models import Client, Product, Order
 from accounts.models import Profile
+import uuid
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -61,7 +62,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ['profile', 'client', 'products', 'total', 'is_paid']
+        fields = ['id', 'link', 'profile', 'client', 'products', 'total', 'is_paid']
 
     def create(self, validated_data):
         """
@@ -88,9 +89,9 @@ class OrderSerializer(serializers.ModelSerializer):
         if request and request.user:
             # Get the user's profile
             profile = request.user
-
-            # Create a new order, assign client, user profile, and other data
-            order = Order.objects.create(client=client, profile=profile, **validated_data)
+    
+            # Create a new order, assign client, user profile, unique link and other data
+            order = Order.objects.create(client=client, profile=profile, link=str(uuid.uuid4()), **validated_data)
 
             # Add products to the order
             for product in products:

@@ -145,7 +145,9 @@ LOGOUT_URL = 'logout'
 # OAuth2 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
+    # PKCE is not required (Use only developer mode) 
+    'PKCE_REQUIRED': 'True'
 }
 # CROS settings
 CORS_ORIGIN_ALLOW_ALL = True
