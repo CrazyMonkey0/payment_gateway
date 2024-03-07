@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 from accounts.models import Profile
-
+import uuid
 
 class Client(models.Model):
     """
@@ -54,6 +54,7 @@ class Order(models.Model):
     - is_paid (BooleanField): Payment status.
     - date_of_order (DateTimeField): Order placement date.
     - date_of_payment (DateTimeField): Payment date for the order.
+    - link (SlugField): Unique slug field for generating order links.
     """
 
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
@@ -65,13 +66,14 @@ class Order(models.Model):
     is_paid = models.BooleanField(default=False)
     date_of_order = models.DateTimeField(auto_now_add=True)
     date_of_payment = models.DateTimeField(null=True, blank=True)
+    link = models.SlugField(max_length=100, unique=True, null=True)
 
     def __str__(self) -> str:
         """
         Returns a string representation of the order.
         """
         return f"Order  {self.id} - {self.client}"
-
+    
     def mark_as_paid(self):
         """
         Updates the payment date of the order to the current moment.
