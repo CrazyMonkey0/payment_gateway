@@ -3,7 +3,17 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from payments.models import Order
 from .serializers import OrderSerializer
+import secrets
+import uuid
+import hashlib
+import time
 
+def generate_payment_token(profile, client, products, total):
+    # Generujemy unikalny token na podstawie danych płatności i bieżącego czasu
+    token_data = f"{profile}-{client}-{products}-{total}-{time.time()}"
+    # Tworzymy skrót SHA256 jako token płatności
+    payment_token = hashlib.sha256(token_data.encode()).hexdigest()
+    return payment_token
 
 class OrderAPIView(APIView):
     """
@@ -29,17 +39,19 @@ class OrderAPIView(APIView):
 
     def post(self, request):
         """
-        Method to create a new order.
+        Handle POST requests to create a new order.
 
-        Args:
-        - request (HttpRequest): The HTTP request object containing order data.
+        Parameters:
+            request (Request): The HTTP request object.
 
         Returns:
-        - response (Response): The HTTP response containing the created order or validation errors.
+            Response: HTTP response containing the created order details and link.
+                If the request is successful, returns HTTP 201 CREATED status code.
+                If the request is invalid, returns HTTP 400 BAD REQUEST status code with error details.
         """
         serializer = OrderSerializer(
             data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response({'order_id': serializer.data['id'], 'order_link': 'http://127.0.0.1:8000/payments/'+serializer.data['link'] }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
