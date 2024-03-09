@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Method: Card{% endblock %}
+
+{% block content %}
+<div id="payment">
+    <h2>Order ID: {{order.id}}</h2>
+
+    <h3>Products: </h3>
+    {% for o in order.products.all %}
+    <tr id="product">
+        {{o}}
+    </tr>
+    {% endfor %}
+
+    <h3>Client:</h3>
+
+    <tr id="client">
+        <p>Name: {{order.client}}</p>
+        <p>Email: {{order.client.email}}</p>
+    </tr>
+
+    {% if form.errors %}
+    <div class="error">
+        <h3>Wrong ID card</h3>
+    </div>
+    {% endif %}
+
+    <form action="{% url 'card' order_id=order_id link_uuid=link_uuid %}" method="post">
+        <table>
+            <tr>
+                <td>ID Card:{{ form.id_card}}</td>
+            </tr>
+            <tr>
+                <td>Valid until:{{ form.valid_until}}</td>
+            </tr>
+            <tr>
+                <td>CVC:{{ form.cvc}}</td>
+            </tr>
+            {% csrf_token %}
+
+            <td><input type="submit" value="Pay"></td>
+        </table>
+
+    </form>
+</div>
+
+{% endblock %}

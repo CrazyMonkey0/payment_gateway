@@ -78,6 +78,6 @@ class Order(models.Model):
         """
         Updates the payment date of the order to the current moment.
         """
-        self.payment_status = True
+        self.is_paid = True
         self.date_of_payment = timezone.now()
         self.save()
