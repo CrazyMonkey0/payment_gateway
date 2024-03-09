@@ -42,16 +42,17 @@ class OrderAPIView(APIView):
         Handle POST requests to create a new order.
 
         Parameters:
-            request (Request): The HTTP request object.
+        - request (HttpRequest): The HTTP request object containing order data.
 
         Returns:
-            Response: HTTP response containing the created order details and link.
-                If the request is successful, returns HTTP 201 CREATED status code.
-                If the request is invalid, returns HTTP 400 BAD REQUEST status code with error details.
+        - Response: JSON response containing the ID of the created order and a link to the payment page,
+                    or error messages if the provided data is invalid.
         """
         serializer = OrderSerializer(
             data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
-            return Response({'order_id': serializer.data['id'], 'order_link': 'http://127.0.0.1:8000/payments/'+serializer.data['link'] }, status=status.HTTP_201_CREATED)
+            return Response({'order_id': serializer.data['id'], 
+                             'order_link': f"http://127.0.0.1:8000/payments/{serializer.data['id']}/{serializer.data['link']}"},
+                            status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
