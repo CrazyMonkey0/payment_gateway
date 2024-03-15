@@ -1,6 +1,7 @@
 from django import forms
 from .models import Profile
-
+from bank.models import Bank
+import re
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -42,14 +43,33 @@ class UserRegistrationForm(forms.ModelForm):
 
 class ProfileForm(forms.ModelForm):
     """
-    Django form to handle user profile data.
+    Form for creating or updating a user profile.
 
     Attributes:
-        app (CharField): Field for entering the application name.
-        bank_account (CharField): Field for entering the bank account number.
-
+    - first_name (CharField): The first name of the user.
+    - last_name (CharField): The last name of the user.
+    - iban (CharField): The IBAN (International Bank Account Number) of the user.
     """
     class Meta:
         model = Profile
-        fields = ['first_name', 'last_name', 'email', 'bank_account']
+        fields = ['first_name', 'last_name', 'iban']
 
+    def clean_iban(self):
+        """
+        Custom clean method to validate IBAN.
+
+        Raises:
+            forms.ValidationError: If the provided IBAN does not exist in the database.
+
+        Returns:
+            str: Valid IBAN.
+        """
+        cd = self.cleaned_data
+        if re.match(r'^[A-Z]{2}[0-9]*$'):
+            try:
+                Bank.objects.get(iban=cd['iban'])
+            except Bank.DoesNotExist:
+                raise forms.ValidationError("This IBAN does not exist.")
+            return cd['iban']
+        else:
+            raise forms.ValidationError("Incorrect IBAN")
