@@ -1,7 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from django.core.validators import RegexValidator, MinLengthValidator
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from datetime import timedelta
+from . import iban
 
 
 def default_valid_until():
@@ -30,18 +33,41 @@ class Bank(models.Model):
     """
     COUNTRY_CHOICES = [
         ('PL', 'Poland'),
-        ('US', 'United States'),
-        ('UK', 'United Kingdom'),
+        ('DE', 'Germany'),
+        ('GB', 'United Kingdom'),
     ]
 
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     country = models.CharField(max_length=50, choices=COUNTRY_CHOICES)
-    iban = models.CharField(max_length=32, unique=True)
+    iban = models.CharField(max_length=32, unique=True, validators=[
+                            RegexValidator(r'^[A-Z]{2}[0-9]*$')])
     balance = models.DecimalField(max_digits=15, decimal_places=2)
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name} | Balance: {self.balance}$"
+
+    # def save(self, force_insert: bool = ..., force_update: bool = ..., using: str | None = ..., update_fields: Iterable[str] | None = ...) -> None:
+
+    #     # Generate IBAN only if not assigned
+    #     if not self.iban and self.country == 'PL':
+    #         self.iban = iban.pl_iban(self)
+    #     return super().save(force_insert, force_update, using, update_fields)
+
+
+@receiver(pre_save, sender=Bank)
+def generate_and_save_iban(sender, instance, **kwargs):
+    # Iban not Empty
+    if not instance.iban:
+        if instance.country == 'PL':
+            # generate iban for Poland
+            instance.iban = iban.pl_iban()
+        elif instance.country == 'DE':
+            # generate iban for Germany
+            instance.iban = iban.de_iban()
+            # generate iban for United Kingdom
+        elif instance.country == 'GB':
+            instance.iban = iban.gb_iban()
 
 
 class Transaction(models.Model):
