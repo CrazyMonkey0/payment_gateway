@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'corsheaders',
     # Myapp
     'payments.apps.PaymentsConfig',
+    'bank.apps.BankConfig',
 ]
 
 MIDDLEWARE = [

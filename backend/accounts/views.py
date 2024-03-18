@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import UserRegistrationForm, ProfileForm
+from bank.models import Bank
 
 
 def register(request):
@@ -83,7 +84,7 @@ def edit_profile(request):
             form.save()
             return redirect('show_profile')
     else:
-        form = ProfileForm()
+        form = ProfileForm(instance=profile)
 
     return render(request, 'accounts/edit_profile.html', {'section': 'edit_profile',
                                                           'form': form})

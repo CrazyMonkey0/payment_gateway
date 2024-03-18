@@ -5,7 +5,7 @@
 {% block content %}
 <div id="profile">
     <h1>Profile information</h1>
-    {% if profile.bank_account is None%}
+    {% if profile.iban is None%}
     <p>The profile is empty. <a href="{% url 'edit_profile' %}"> edit the
             profile</a></p>
 
@@ -41,7 +41,7 @@
                 <h3>Bank account:</h3>
             </td>
             <td>
-                {{ profile.bank_account }}
+                {{ profile.iban }}
             </td>
         </tr>
     </table>
