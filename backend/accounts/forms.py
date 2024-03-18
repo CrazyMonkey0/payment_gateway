@@ -52,7 +52,7 @@ class ProfileForm(forms.ModelForm):
     """
     class Meta:
         model = Profile
-        fields = ['first_name', 'last_name', 'iban']
+        fields = ['first_name', 'last_name', 'email', 'iban']
 
     def clean_iban(self):
         """
@@ -65,7 +65,7 @@ class ProfileForm(forms.ModelForm):
             str: Valid IBAN.
         """
         cd = self.cleaned_data
-        if re.match(r'^[A-Z]{2}[0-9]*$'):
+        if re.match(r'^[A-Z]{2}[0-9]*$', cd['iban']):
             try:
                 Bank.objects.get(iban=cd['iban'])
             except Bank.DoesNotExist:
