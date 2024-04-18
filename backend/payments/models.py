@@ -61,7 +61,7 @@ class Order(models.Model):
     products = models.ManyToManyField(Product)
     profile = models.ForeignKey(Profile,
                                 on_delete=models.CASCADE,)
-
+    order_id = models.CharField(max_length=255)
     total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     is_paid = models.BooleanField(default=False)
     date_of_order = models.DateTimeField(auto_now_add=True)
