@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.exceptions import ValidationError
 from .models import Order
 from .forms import CardForm
+from bank.models import Transaction, Visa, MasterCard
 
 
 def payment_card(request, order_id, link_uuid): 
@@ -24,7 +26,7 @@ def payment_card(request, order_id, link_uuid):
     """
 
     # Retrieve the order or return a 404 error if the order doesn't exist
-    order = get_object_or_404(Order, id=order_id)
+    order = get_object_or_404(Order, id=order_id,)
 
     if order.is_paid:
         # If the order is paid, display the payment confirmation page
@@ -35,8 +37,35 @@ def payment_card(request, order_id, link_uuid):
             form = CardForm(request.POST)
             if form.is_valid():
                 # If the form is valid, mark the order as paid
-                order.mark_as_paid()
-                return render(request, 'payments/created_payment.html', {'order': order}) 
+                cd = form.cleaned_data
+                
+                if cd['id_card'][0]=='4':
+                    card_model = Visa
+                elif cd['id_card'][0]=='5':     
+                    card_model = MasterCard
+                else:
+                    return render(request, 'payments/error.html', {'error_message': "Unsupported card type"})
+                
+                try:
+                    card = get_object_or_404(card_model, id_card=cd.get('id_card'))
+                    Transaction.objects.create(
+                        bank = card.bank,
+                        first_name = order.client.name,
+                        last_name = order.client.surname,
+                        transaction_type = 'TRANSFER',
+                        amount = order.total,
+                        iban = order.profile.iban
+                    )
+                    order.mark_as_paid()
+                    
+                    return render(request, 'payments/created_payment.html', {'order': order}) 
+                except card_model.DoesNotExist:
+                    return render(request, 'payments/error.html', {'error_message': "Card not found"})
+                except ValidationError as e:
+                    return render(request, 'payments/error.html', {'error_message': str(e)})
+                except Exception as e:
+                    return render(request, 'payments/error.html', {'error_message': "An error occurred during payment"})
+                       
         else:
             # If the request is not a POST, generate an empty form
             form = CardForm()
