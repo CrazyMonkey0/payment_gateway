@@ -133,7 +133,7 @@ class Card(models.Model):
     bank = models.OneToOneField(Bank, on_delete=models.CASCADE)
     id_card = models.CharField(max_length=16,
                                validators=[RegexValidator(r'^[0-9]*$'), MinLengthValidator(16)], unique=True)
-    cvc = models.CharField(max_length=16, validators=[
+    cvc = models.CharField(max_length=3, validators=[
                            RegexValidator(r'^[0-9]*$')])
     valid_until = models.DateTimeField(default=default_valid_until)
     is_valid = models.BooleanField(default=True)
