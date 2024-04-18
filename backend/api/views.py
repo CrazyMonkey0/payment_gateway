@@ -53,6 +53,6 @@ class OrderAPIView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response({'order_id': serializer.data['id'], 
-                             'order_link': f"http://127.0.0.1:8000/payments/{serializer.data['id']}/{serializer.data['link']}"},
+                             'order_link': f"http://127.0.0.1:8000/payment/card/d{serializer.data['id']}/{serializer.data['link']}"},
                             status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

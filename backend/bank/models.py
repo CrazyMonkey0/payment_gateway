@@ -1,6 +1,7 @@
-from django.db import models
+from django.db import models, transaction
 from django.utils import timezone
 from django.core.validators import RegexValidator, MinLengthValidator
+from django.core.exceptions import ValidationError
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from datetime import timedelta
@@ -47,12 +48,12 @@ class Bank(models.Model):
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name} | Balance: {self.balance}$"
 
-    # def save(self, force_insert: bool = ..., force_update: bool = ..., using: str | None = ..., update_fields: Iterable[str] | None = ...) -> None:
-
-    #     # Generate IBAN only if not assigned
-    #     if not self.iban and self.country == 'PL':
-    #         self.iban = iban.pl_iban(self)
-    #     return super().save(force_insert, force_update, using, update_fields)
+    @classmethod
+    def find_by_iban(cls, iban):
+        try:
+            return cls.objects.get(iban=iban)
+        except cls.DoesNotExist:
+            return None
 
 
 @receiver(pre_save, sender=Bank)
@@ -96,12 +97,26 @@ class Transaction(models.Model):
     transaction_type = models.CharField(
         max_length=50, choices=TRANSACTION_TYPES)
     amount = models.DecimalField(max_digits=15, decimal_places=2)
-    iban = models.CharField(max_length=32, unique=True)
+    iban = models.CharField(max_length=32)
     date = models.DateTimeField(
         auto_now_add=True, verbose_name="Transaction date")
 
     def __str__(self) -> str:
         return f"Name: {self.first_name} {self.last_name} | ID bank: {self.iban} | Amount: {self.amount}$"
+
+    def save(self, *args, **kwargs):
+        # Calculate new balances
+        if self.transaction_type == 'TRANSFER':
+            from_account = self.bank
+            to_account = Bank.find_by_iban(self.iban)
+            if from_account.balance < self.amount:
+                raise ValidationError("Insufficient funds for transfer")
+            with transaction.atomic():
+                from_account.balance -= self.amount
+                from_account.save()
+                to_account.balance += self.amount
+                to_account.save()
+        super().save(*args, **kwargs)
 
 
 class Card(models.Model):
@@ -118,7 +133,7 @@ class Card(models.Model):
     bank = models.OneToOneField(Bank, on_delete=models.CASCADE)
     id_card = models.CharField(max_length=16,
                                validators=[RegexValidator(r'^[0-9]*$'), MinLengthValidator(16)], unique=True)
-    cvc = models.CharField(max_length=16, validators=[
+    cvc = models.CharField(max_length=3, validators=[
                            RegexValidator(r'^[0-9]*$')])
     valid_until = models.DateTimeField(default=default_valid_until)
     is_valid = models.BooleanField(default=True)

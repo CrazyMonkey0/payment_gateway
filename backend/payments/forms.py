@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
+from bank.models import MasterCard, Visa
 
 class CardForm(forms.Form):
     """
@@ -17,8 +18,8 @@ class CardForm(forms.Form):
 
     id_card = forms.CharField(label='ID Card', max_length=16, min_length=16,
                                validators=[RegexValidator(r'^[0-9]*$')])
-    valid_until = forms.CharField(label='Valid until')
-    cvc = forms.CharField(label='CVC')
+    valid_until = forms.DateField()
+    cvc = forms.CharField(max_length=3)
 
     def clean_id_card(self):
         """
@@ -30,9 +31,18 @@ class CardForm(forms.Form):
         id_number = self.cleaned_data['id_card']
         if id_number[0] == '4':
             # Visa
-            pass
+            try:
+                Visa.objects.get(id_card=id_number) 
+          
+            except Visa.DoesNotExist:
+                raise forms.ValidationError("Wrong id card")  
+
         elif id_number[0] == '5':
             # Master Card
-            pass
+            try:
+                MasterCard.objects.get(id_card=id_number)
+          
+            except Visa.DoesNotExist:
+                raise forms.ValidationError("Wrong id card")  
         else:
-            raise forms.ValidationError("Wrong id card")
+            raise forms.ValidationError("Unsupported card type")
