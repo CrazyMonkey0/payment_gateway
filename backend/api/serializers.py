@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from payments.models import Client, Product, Order
 from accounts.models import Profile
+from .toolkit import get_user_profile
 import uuid
 
 
@@ -88,7 +89,7 @@ class OrderSerializer(serializers.ModelSerializer):
         # Check if the request contains information about the logged-in user
         if request and request.user:
             # Get the user's profile
-            profile = request.user
+            profile = get_user_profile(request)
     
             # Create a new order, assign client, user profile, unique link and other data
             order = Order.objects.create(client=client, profile=profile, link=str(uuid.uuid4()), **validated_data)

@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'oauth2_provider.middleware.OAuth2TokenMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -158,10 +159,12 @@ LOGOUT_URL = 'logout'
 
 # OAuth2
 OAUTH2_PROVIDER = {
-    # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
-    # PKCE is not required (Use only developer mode)
-    'PKCE_REQUIRED': 'True'
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 3600,  # 1 hour
+    'SCOPES': { 
+        'read': 'Read access',
+        'write': 'Write access',
+    },
+    'ROTATE_REFRESH_TOKENS': False,
 }
 # CROS settings
 CORS_ORIGIN_ALLOW_ALL = True
@@ -176,9 +179,10 @@ REST_FRAMEWORK = {
     ],
     # Permission
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ],
 }
 
 # Model used for authentication
 AUTH_USER_MODEL = 'accounts.Profile'
+
