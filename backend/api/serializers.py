@@ -87,7 +87,7 @@ class OrderSerializer(serializers.ModelSerializer):
         request = self.context.get('request', None)
 
         # Check if the request contains information about the logged-in user
-        if request and request.user:
+        if request:
             # Get the user's profile
             profile = get_user_profile(request)
     
