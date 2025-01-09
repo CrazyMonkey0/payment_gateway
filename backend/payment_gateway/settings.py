@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions', 
     # DJANGO REST FRAMEWORK
     'rest_framework',
     # Oauth2
@@ -166,8 +167,7 @@ OAUTH2_PROVIDER = {
     },
     'ROTATE_REFRESH_TOKENS': False,
 }
-# CROS settings
-CORS_ORIGIN_ALLOW_ALL = True
+
 
 # DRF
 REST_FRAMEWORK = {
@@ -186,3 +186,25 @@ REST_FRAMEWORK = {
 # Model used for authentication
 AUTH_USER_MODEL = 'accounts.Profile'
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
+# Session settings
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_COOKIE_SAMESITE = 'Lax'  
+SESSION_COOKIE_SECURE = True # Set to True in production
+CSRF_COOKIE_SECURE = True # Set to True in production
+SESSION_COOKIE_HTTPONLY = True # Set to True in production
+SESSION_COOKIE_AGE = 86400  # 24 godziny
+SESSION_COOKIE_NAME = 'payment_gateway_sessionid'
+CSRF_COOKIE_NAME = 'payment_gateway_csrftoken'
+
+# using redis database from App shop
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+        "KEY_PREFIX": "payment_gateway_session"
+    }
+}

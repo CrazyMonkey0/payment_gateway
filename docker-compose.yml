@@ -13,7 +13,7 @@ services:
     build: .
     working_dir: /code/backend
     entrypoint: /entrypoint.sh
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver_plus --cert-file cert.pem 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
@@ -27,7 +27,6 @@ services:
     networks:
       - shared_network
       - backend_network
-
 networks:
   shared_network:
     external: true
