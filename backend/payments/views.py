@@ -34,6 +34,8 @@ def payment_card(request, order_id, link_uuid):
         # If the request is a POST, process the credit card data form
         form = CardForm(request.POST)
         if form.is_valid():
+            if order.is_paid:
+                return render(request, 'payments/created_payment.html', {'order': order})
             # If the form is valid, mark the order as paid
             cd = form.cleaned_data
                 
@@ -55,7 +57,8 @@ def payment_card(request, order_id, link_uuid):
                         amount = order.total,
                         iban = order.profile.iban
                     )
-                app = Application.objects.get(user=order.profile)         
+                app = Application.objects.get(user=order.profile)     
+                order.mark_as_paid()    
                 # Sending information to the application about payment for a given order
                 payment_data = {
                         'order_id': order.order_id,
@@ -64,11 +67,12 @@ def payment_card(request, order_id, link_uuid):
                 headers = {
                             'Content-Type': 'application/json'
                         }
-                    
-                response = requests.post(app.redirect_uris, json=payment_data, headers=headers)
+                # Verify only dev mode 
+                response = requests.post(app.redirect_uris, json=payment_data, headers=headers, verify=False)
                 if response.status_code == 200:
-                    order.mark_as_paid()
-                    return render(request, 'payments/created_payment.html', {'order': order, 'redirect_link': response.json().get("redirect_link")})
+                    order.redirect_link = response.json().get("redirect_link")
+                    order.save()
+                    return render(request, 'payments/created_payment.html', {'order': order})
                 else:
                     return render(request, 'payments/error.html', {"Error HTTP:", response.status_code})
                      

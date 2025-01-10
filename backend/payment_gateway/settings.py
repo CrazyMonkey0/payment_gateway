@@ -193,9 +193,10 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_COOKIE_SECURE = True # Set to True in production
 CSRF_COOKIE_SECURE = True # Set to True in production
 SESSION_COOKIE_HTTPONLY = True # Set to True in production
-SESSION_COOKIE_AGE = 86400  # 24 godziny
+SESSION_COOKIE_AGE = 86400  # 1 day
 SESSION_COOKIE_NAME = 'payment_gateway_sessionid'
 CSRF_COOKIE_NAME = 'payment_gateway_csrftoken'
+SECURE_SSL_REDIRECT = True # http -> https
 
 # using redis database from App shop
 CACHES = {

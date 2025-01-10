@@ -67,6 +67,7 @@ class Order(models.Model):
     date_of_order = models.DateTimeField(auto_now_add=True)
     date_of_payment = models.DateTimeField(null=True, blank=True)
     link = models.SlugField(max_length=100, unique=True, null=True)
+    redirect_link = models.SlugField(max_length=200, blank=True, null=True)
 
     def __str__(self) -> str:
         """
