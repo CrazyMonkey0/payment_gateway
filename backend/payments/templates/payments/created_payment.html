@@ -5,4 +5,20 @@
 {% block content %}
 <h2>Successful payment. </h2>
 <p>Your transaction number: {{order.id}}</p>
+<p>Redirect Link: {{ order.redirect_link }}</p>
+
+<br><br>
+{% if order.redirect_link  %}
+<h3>Redirection will take place in a moment </h3>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const url = "{{ order.redirect_link|escapejs }}";
+
+        // Set the delay to 5 seconds
+        setTimeout(function () {
+            window.location.href = url; // Redirect to new link
+        }, 5000);
+    });
+</script>
+{% endif %}
 {% endblock %}

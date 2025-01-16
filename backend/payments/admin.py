@@ -45,6 +45,6 @@ class OrderAdmin(admin.ModelAdmin):
     - fields (list): List of fields to be displayed and edited in the admin panel.
     - list_display (list): List of fields to be displayed in the list view of the admin panel.
     """
-    fields = ["profile", "client", "products", "total", "is_paid", "link"]
-    list_display = ["profile", "client", "total",
-                    "is_paid", "date_of_order", "date_of_payment"]
+    fields = ["profile", "client", "products", "order_id", "total", "is_paid", "link", "redirect_link"]
+    list_display = ["profile", "client", "order_id", "total",
+                    "is_paid", "date_of_order", "date_of_payment", "redirect_link"]

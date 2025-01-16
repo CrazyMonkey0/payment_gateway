@@ -37,9 +37,10 @@
             <tr>
                 <td>CVC:{{ form.cvc}}</td>
             </tr>
-            {% csrf_token %}
+
 
             <td><input type="submit" value="Pay"></td>
+            {% csrf_token %}
         </table>
 
     </form>

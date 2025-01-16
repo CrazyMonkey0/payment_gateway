@@ -1,19 +1,10 @@
 from rest_framework import status
 from rest_framework.views import APIView
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from payments.models import Order
 from .serializers import OrderSerializer
-import secrets
-import uuid
-import hashlib
-import time
-
-def generate_payment_token(profile, client, products, total):
-    # Generujemy unikalny token na podstawie danych płatności i bieżącego czasu
-    token_data = f"{profile}-{client}-{products}-{total}-{time.time()}"
-    # Tworzymy skrót SHA256 jako token płatności
-    payment_token = hashlib.sha256(token_data.encode()).hexdigest()
-    return payment_token
+from .toolkit import get_user_profile
 
 class OrderAPIView(APIView):
     """
@@ -22,7 +13,6 @@ class OrderAPIView(APIView):
     Attributes:
     - queryset (QuerySet): The queryset containing all orders.
     """
-
     def get(self, request):
         """
         Method for retrieving all orders of a given user.
@@ -33,7 +23,7 @@ class OrderAPIView(APIView):
         Returns:
         - response (Response): HTTP response containing all the orders of a given user.
         """
-        queryset = Order.objects.filter(profile=request.user)
+        queryset = Order.objects.filter(profile=get_user_profile(request, True))
         serializer = OrderSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -52,7 +42,29 @@ class OrderAPIView(APIView):
             data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
-            return Response({'order_id': serializer.data['id'], 
-                             'order_link': f"http://127.0.0.1:8000/payment/card/d{serializer.data['id']}/{serializer.data['link']}"},
+            return Response({'payment_id': serializer.data['id'], 
+                             'payment_link': f"https://127.0.0.1:8000/payment/card/{serializer.data['id']}/{serializer.data['link']}"},
                             status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def put(self, request, payment_id):
+        try:
+            # Próbujemy pobrać zamówienie na podstawie order_id
+            order = Order.objects.get(id=payment_id)
+        except Order.DoesNotExist:
+            # Jeśli zamówienie nie istnieje, zwróć błąd
+            raise NotFound(detail="Order not found.")
+        
+        # Tworzymy serializer z danymi requestu, kontekstem (w tym przypadku ID zamówienia)
+        serializer = OrderSerializer(order, data=request.data, context={'request': request}, partial=True)
+        
+        # Jeśli dane są prawidłowe, zapisujemy zmiany
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                'payment_id': serializer.data['id'],
+                'payment_link': f"https://127.0.0.1:8000/payment/card/{serializer.data['id']}/{serializer.data['link']}"
+            }, status=status.HTTP_200_OK)
+        
+        # Jeśli dane są nieprawidłowe, zwróć błędy
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

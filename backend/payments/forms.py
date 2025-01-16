@@ -28,19 +28,21 @@ class CardForm(forms.Form):
         Raises:
             forms.ValidationError: If the credit card number is not valid or its type is not supported.
         """
-        id_number = self.cleaned_data['id_card']
-        if id_number[0] == '4':
+        id_card = self.cleaned_data['id_card']
+        if id_card[0] == '4':
             # Visa
             try:
-                Visa.objects.get(id_card=id_number) 
+                Visa.objects.get(id_card=id_card) 
+                return id_card
           
             except Visa.DoesNotExist:
                 raise forms.ValidationError("Wrong id card")  
 
-        elif id_number[0] == '5':
+        elif id_card[0] == '5':
             # Master Card
             try:
-                MasterCard.objects.get(id_card=id_number)
+                MasterCard.objects.get(id_card=id_card)
+                return id_card
           
             except Visa.DoesNotExist:
                 raise forms.ValidationError("Wrong id card")  
