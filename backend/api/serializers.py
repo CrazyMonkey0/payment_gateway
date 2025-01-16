@@ -1,3 +1,4 @@
+from os import name
 from rest_framework import serializers
 from payments.models import Client, Product, Order
 from accounts.models import Profile
@@ -102,3 +103,47 @@ class OrderSerializer(serializers.ModelSerializer):
 
         # If no logged-in user is found, raise an error
         raise serializers.ValidationError("User not logged in or no profile found.")
+    
+    def update(self, instance, validated_data):
+        """
+        Method to update an existing order.
+        """
+        # Update the client
+        client_data = validated_data.pop('client', None)
+        if client_data:
+            for attr, value in client_data.items():
+                setattr(instance.client, attr, value)
+            instance.client.save()
+
+        # Update the profile if provided
+        profile_data = validated_data.pop('profile', None)
+        if profile_data and instance.profile:
+            for attr, value in profile_data.items():
+                setattr(instance.profile, attr, value)
+            instance.profile.save()
+
+        # Update the products
+        products_data = validated_data.pop('products', None)
+        if products_data:
+            # Clear existing products
+            instance.products.clear()
+            for product_data in products_data:
+                # Check if product exists with the same name and quantity
+                product = Product.objects.filter(
+                    name=product_data['name'],
+                    quantity=product_data['quantity']
+                ).first()
+
+                # Create product if it doesn't exist
+                if not product:
+                    product = Product.objects.create(**product_data)
+
+                # Add the product to the order
+                instance.products.add(product)
+
+        # Update other fields
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+
+        instance.save()
+        return instance
