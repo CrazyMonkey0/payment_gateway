@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Services{% endblock %}
+{% block content %}
+<!-- service section -->
+
+<section class="service_section layout_padding">
+  <div class="service_container">
+    <div class="container ">
+      <div class="heading_container heading_center">
+        <h2>
+          Our <span>Services</span>
+        </h2>
+        <p>
+          PayFlow offers a wide range of services designed to make online payments faster, safer, and more efficient for
+          businesses and customers alike.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-4 ">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/s1.png' %}" alt="Currency Wallet">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Currency Wallet
+              </h5>
+              <p>
+                Our Currency Wallet service allows businesses and customers to store, manage, and transfer multiple
+                currencies with ease. It supports a wide range of digital currencies, ensuring smooth transactions
+                across global markets.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 ">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/s2.png' %}" alt="Security Storage">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Security Storage
+              </h5>
+              <p>
+                PayFlow prioritizes the security of your transactions. Our Security Storage service employs
+                state-of-the-art encryption technologies to safeguard sensitive data and ensure safe storage of
+                financial records.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 ">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/s3.png' %}" alt="Expert Support">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Expert Support
+              </h5>
+              <p>
+                We offer expert customer support to assist businesses and customers in resolving any issues with
+                transactions or integrations. Our dedicated support team is available 24/7 to ensure a smooth payment
+                experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end service section -->
+
+{% endblock %}

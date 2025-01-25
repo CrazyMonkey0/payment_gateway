@@ -1,0 +1,439 @@
+/* Style for the login container */
+.login-container {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Error message */
+.error-message {
+    color: #d9534f;
+    background-color: #f2dede;
+    padding: 10px;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Access denied and login prompt messages */
+.access-denied-message,
+.login-prompt-message {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Form styles */
+.login-form .form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.username-group input,
+.password-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Links */
+.register-link,
+.password-reset-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-link a,
+.password-reset-link a {
+    color: #ff004c;
+    padding-left: 5px;
+    text-decoration: none;
+}
+
+.register-link a:hover,
+.password-reset-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* Logout container */
+.logout-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fefefe;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Logout title */
+.logout-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Logout message */
+.logout-message {
+    font-size: 16px;
+    color: #555;
+}
+
+.logout-message .btn-login {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Password reset container */
+.pass-reset-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 120px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Title for password reset */
+.pass-reset-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Message for password reset */
+.pass-reset-message {
+    font-size: 16px;
+    color: #555;
+}
+
+.pass-reset-message .btn-login {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pass-reset-message .btn-login:hover {
+    text-decoration: underline;
+}
+
+/* Password reset container */
+.pass-reset-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Title for password reset */
+.pass-reset-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Instruction for password reset */
+.pass-reset-instruction {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+.pass-reset-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.new-password-group input,
+.repeat-password-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Error message */
+.error-message {
+    color: #d9534f;
+    background-color: #f2dede;
+    padding: 10px;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+/* password-reset-container */
+.password-reset-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 120px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* password-reset-heading */
+.password-reset-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* password-reset-text */
+.password-reset-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.password-reset-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Description text */
+.password-reset-description {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styling the form */
+.password-reset-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label for email input */
+.form-label {
+    font-size: 14px;
+    color: #333;
+}
+
+.password-reset-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.password-reset-btn:hover {
+    background-color: #45a049;
+}
+
+/* Container for the registration success message */
+.registration-success-container {
+    width: 100%;
+    max-width: 600px;
+    min-height: 200px;
+    margin: 0 auto;
+    padding: 120px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading for the registration success message */
+.registration-success-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Success message text */
+.registration-success-message {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Login prompt text */
+.registration-login-prompt {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+.registration-login-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.registration-login-btn:hover {
+    background-color: #45a049;
+}
+
+/* Global styles for the registration page */
+.registration-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus,
+button:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

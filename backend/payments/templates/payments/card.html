@@ -1,49 +1,69 @@
 {% extends "base.html" %}
+{% load static %}
+{% block title %}Payment: Card{% endblock %}
 
-{% block title %}Method: Card{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/payments.css' %}" rel="stylesheet" />
+{% endblock %}
 
 {% block content %}
-<div id="payment">
-    <h2>Order ID: {{order.id}}</h2>
+<div class="payment-container container bg-light d-md-flex align-items-center">
+    <!-- Order Summary -->
+    <div class="payment-card-summary card box1 shadow-sm p-md-5 p-4">
+        <h2 class="payment-order-id fw-bolder mb-4">Order ID: {{ order.id }}</h2>
 
-    <h3>Products: </h3>
-    {% for o in order.products.all %}
-    <tr id="product">
-        {{o}}
-    </tr>
-    {% endfor %}
+        <h3 class="payment-products-title">Products:</h3>
+        <ul class="payment-products-list list-group mb-4">
+            {% for o in order.products.all %}
+            <li class="payment-product-item list-group-item">{{ o }}</li>
+            {% endfor %}
+        </ul>
 
-    <h3>Client:</h3>
 
-    <tr id="client">
-        <p>Name: {{order.client}}</p>
-        <p>Email: {{order.client.email}}</p>
-    </tr>
-
-    {% if form.errors %}
-    <div class="error">
-        {{form.errors}}
+        <h3 class="payment-client-title">Client Information:</h3>
+        <p class="payment-client-info"><strong>Name:</strong> {{ order.client }}</p>
+        <p class="payment-client-info"><strong>Email:</strong> {{ order.client.email }}</p>
     </div>
-    {% endif %}
 
-    <form action="{% url 'card' order_id=order_id link_uuid=link_uuid %}" method="post">
-        <table>
-            <tr>
-                <td>ID Card:{{ form.id_card}}</td>
-            </tr>
-            <tr>
-                <td>Valid until:{{ form.valid_until}}</td>
-            </tr>
-            <tr>
-                <td>CVC:{{ form.cvc}}</td>
-            </tr>
-
-
-            <td><input type="submit" value="Pay"></td>
-            {% csrf_token %}
-        </table>
-
-    </form>
+    <!-- Payment Form -->
+    <div class="payment-form-container container p-0">
+        <div class="payment-form card px-4">
+            <p class="payment-title h8 py-3">Payment Details</p>
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="payment-input-label text mb-1">Person Name</p>
+                        <input class="payment-input form-control mb-3" type="text" placeholder="Name"
+                            value="{{ order.client }}">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="payment-input-label text mb-1">Card Number</p>
+                        <input class="payment-input form-control mb-3" type="text" placeholder="1234 5678 435678">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="payment-input-label text mb-1">Expiry</p>
+                        <input class="payment-input form-control mb-3" type="text" placeholder="MM/YYYY">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="payment-input-label text mb-1">CVV/CVC</p>
+                        <input class="payment-input form-control mb-3 pt-2" type="password" placeholder="***">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="payment-btn btn btn-primary mb-3">
+                        <span class="ps-3">Pay {{ order.total }}zł</span>
+                        <span class="fas fa-arrow-right"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 {% endblock %}

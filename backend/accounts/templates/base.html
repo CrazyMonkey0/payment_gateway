@@ -1,47 +1,245 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 
     <head>
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Site Metas -->
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+
         <title>{% block title %}{% endblock %}</title>
-        <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
+
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+        <!-- fonts style -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+        <!--owl slider stylesheet -->
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+        <!-- font awesome style -->
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/authorization.css' %}" rel="stylesheet" />
+        {% block extra_css %}
+
+        {% endblock %}
+
+        <!-- responsive style -->
+        <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
     </head>
 
     <body>
-        <div id="header">
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="/">
+                        <span>
+                            PayFlow
+                        </span>
+                    </a>
 
-            <span class="logo">Payment_gateway</span>
-            {% if request.user.is_authenticated %}
-            <ul class="menu">
-                <li {% if section == "dashboard" %} class="selected" {% endif %}>
-                    <a href="{% url 'dashboard' %}">Main panel</a>
-                </li>
-                <li {% if section == "show_profile" %} class="selected" {% endif %}>
-                    <a href="{% url 'show_profile' %}">Profile</a>
-                </li>
-                <li {% if section == "edit_profile" %} class="selected" {% endif %}>
-                    <a href="{% url 'edit_profile' %}">Edit profile</a>
-                </li>
-            </ul>
-            {% endif %}
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ">
+                            {% if request.user.is_authenticated %}
+                            <li class="{% if section == 'dashboard' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'dashboard' %}">Main panel</a>
+                            </li>
+                            <li class="{% if section == 'show_profile' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'show_profile' %}">Profile</a>
+                            </li>
+                            <li class="{% if section == 'edit_profile' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'edit_profile' %}">Edit profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <input type="submit" value="Log-out">
+                                </form>
+                            </li>
+                            {% else %}
+                            <li class="{% if section == 'home' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="{% if section == 'about' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'about' %}">About</a>
+                            </li>
+                            <li class="{% if section == 'services' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'services' %}">Services</a>
+                            </li>
+                            <li class="{% if section == 'why_us' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'why_us' %}">Why Us</a>
+                            </li>
+                            <li class="{% if section == 'team' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'team' %}">Team</a>
+                            </li>
+                            <li class="{% if section == 'login' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'login' %}"><i class="fa fa-user"
+                                        aria-hidden="true"></i> Login</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+        {% block content %}
+        {% endblock %}
 
-            <span class="user">
-                {% if request.user.is_authenticated %}
-                Hello {{ request.user.username }}
-                <form method="post" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <input type="submit" value="Log-out">
-                </form>
-                {% else %}
-                <a href="{% url 'login' %}">Log in</a>
-                {% endif %}
-            </span>
-        </div>
+        <!-- info section -->
+        <section class="info_section layout_padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 info_col">
+                        <div class="info_contact">
+                            <h4>
+                                Address
+                            </h4>
+                            <div class="contact_link_box">
+                                <a href="">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>
+                                        Location
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>
+                                        Call +00 000000000
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span>
+                                        demo@gmail.com
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info_social">
+                            <a href="">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 info_col">
+                        <div class="info_detail">
+                            <h4>
+                                Info
+                            </h4>
+                            <p>
+                                PayFlow offers a reliable and secure payment gateway for businesses, ensuring fast
+                                transactions and high-level encryption.
+                                With seamless integration, it is the ideal solution for handling online payments with
+                                ease.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2 mx-auto info_col">
+                        <div class="info_link_box">
+                            <h4>
+                                Links
+                            </h4>
+                            <div class="info_links">
+                                <a class="active" href="index.html">
+                                    Home
+                                </a>
+                                <a class="" href="about.html">
+                                    About
+                                </a>
+                                <a class="" href="service.html">
+                                    Services
+                                </a>
+                                <a class="" href="why.html">
+                                    Why Us
+                                </a>
+                                <a class="" href="team.html">
+                                    Team
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 info_col ">
+                        <h4>
+                            Subscribe
+                        </h4>
+                        <form action="#">
+                            <input type="text" placeholder="Enter email" />
+                            <button type="submit">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div id="content">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </body>
+        <!-- end info section -->
+
+        <!-- end info section -->
+
+        <!-- footer section -->
+        <section class="footer_section">
+            <div class="container">
+                <p>
+                    &copy; <span id="displayYear"></span> All Rights Reserved By
+                    <a href="/">PayFlow</a>
+                </p>
+            </div>
+        </section>
+        <!-- footer section -->
+
+        <!-- jQery -->
+        <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <!-- popper js -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+        <!-- bootstrap js -->
+        <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+        <!-- owl slider -->
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+            </script>
+        <!-- custom js -->
+        <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+        <!-- Google Map -->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+            </script>
+        <!-- End Google Map -->
+    </Body>
 
 </html>

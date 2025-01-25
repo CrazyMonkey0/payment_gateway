@@ -1,8 +1,520 @@
 {% extends "base.html" %}
-{% block title %}Panel główny{% endblock %}
+{% load static %}
+{% block title %}PayFlow{% endblock %}
 {% block content %}
-<div id="dashboard">
-    <h1>Dashboard</h1>
-    <p>Welcome to the dashboard</p>
+
+
+<div class="hero_area">
+    <div class="hero_bg_box">
+        <div class="bg_img_box">
+            <img src="{% static 'images/hero-bg.png' %}" alt="">
+        </div>
+    </div>
+    <!-- slider section -->
+    <section class="slider_section ">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        Seamless <br>
+                                        Payments
+                                    </h1>
+                                    <p>
+                                        Experience the future of online transactions with our fast, secure, and reliable
+                                        payment gateway.
+                                        We ensure your payments are processed smoothly every time.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Learn More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        Secure <br>
+                                        Transactions
+                                    </h1>
+                                    <p>
+                                        Your financial safety is our top priority. With advanced encryption and robust
+                                        security measures,
+                                        we safeguard every transaction you make.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Discover More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        Global <br>
+                                        Reach
+                                    </h1>
+                                    <p>
+                                        No matter where you are, our payment gateway connects you to the world. Enjoy
+                                        hassle-free
+                                        transactions across borders.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Read More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                <li data-target="#customCarousel1" data-slide-to="1"></li>
+                <li data-target="#customCarousel1" data-slide-to="2"></li>
+            </ol>
+        </div>
+
+    </section>
+    <!-- end slider section -->
 </div>
+
+<!-- service section -->
+
+<section class="service_section layout_padding">
+    <div class="service_container">
+        <div class="container ">
+            <div class="heading_container heading_center">
+                <h2>
+                    Our <span>Services</span>
+                </h2>
+                <p>
+                    We offer a suite of payment solutions tailored to meet your business needs.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="{% static 'images/s1.png' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Digital Wallets
+                            </h5>
+                            <p>
+                                Simplify your payments with our integrated digital wallet system, designed for
+                                efficiency
+                                and security.
+                            </p>
+                            <a href="">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="{% static 'images/s2.png' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Advanced Security
+                            </h5>
+                            <p>
+                                Protecting your data is our priority. Benefit from state-of-the-art fraud prevention and
+                                encryption.
+                            </p>
+                            <a href="">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="{% static 'images/s3.png' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                24/7 Support
+                            </h5>
+                            <p>
+                                Our team is always here to assist you with any inquiries or issues you might encounter.
+                            </p>
+                            <a href="">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box">
+                <a href="">
+                    View All
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end service section -->
+
+
+<!-- about section -->
+
+<section class="about_section layout_padding">
+    <div class="container  ">
+        <div class="heading_container heading_center">
+            <h2>
+                About <span>PayFlow</span>
+            </h2>
+            <p>
+                Learn more about how we redefine online payments with our innovative and user-centric approach.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="img-box">
+                    <img src="{% static 'images/about-img.png' %}" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <h3>
+                        Your Trusted Partner
+                    </h3>
+                    <p>
+                        PayFlow is dedicated to making your financial transactions smooth, secure, and transparent.
+                        From businesses to individual users, we provide solutions tailored to your needs.
+                    </p>
+                    <p>
+                        With years of experience and a commitment to excellence, we are here to support your growth and
+                        empower your success.
+                    </p>
+                    <a href="">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end about section -->
+
+<!-- why section -->
+
+<section class="why_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Why Choose <span>PayFlow</span>
+            </h2>
+        </div>
+        <div class="why_container">
+            <div class="box">
+                <div class="img-box">
+                    <img src="{% static 'images/w1.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        Expertise You Can Trust
+                    </h5>
+                    <p>
+                        Our team of professionals brings years of industry experience to deliver reliable and innovative
+                        payment solutions.
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="img-box">
+                    <img src="{% static 'images/w2.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        Unmatched Security
+                    </h5>
+                    <p>
+                        We prioritize your data security with top-notch encryption and fraud prevention systems,
+                        ensuring
+                        peace of mind for every transaction.
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="img-box">
+                    <img src="{% static 'images/w3.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        Fast and Reliable
+                    </h5>
+                    <p>
+                        Enjoy quick payment processing and minimal downtime, so you can focus on what matters most:
+                        growing your business.
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="img-box">
+                    <img src="{% static 'images/w4.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        Satisfied Customers
+                    </h5>
+                    <p>
+                        Join thousands of happy clients who trust PayFlow for seamless and secure payment experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="btn-box">
+            <a href="">
+                Read More
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- end why section -->
+
+<!-- team section -->
+<section class="team_section layout_padding">
+    <div class="container-fluid">
+        <div class="heading_container heading_center">
+            <h2>
+                Our <span>Team</span>
+            </h2>
+        </div>
+
+        <div class="team_container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/team-1.jpg' %}" class="img1" alt="Creator Image">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Hubert Kowalski
+                            </h5>
+                            <p>
+                                Creator & Developer of PayFlow
+                            </p>
+                        </div>
+                        <div class="social_box text-center">
+                            <!-- Social icons -->
+                            <a href="https://www.linkedin.com/in/your-profile">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <!-- GitHub Icon -->
+                            <a href="https://github.com/your-username">
+                                <i class="fa fa-github" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end team section -->
+<!--  client section -->
+<section class="client_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center psudo_white_primary mb_45">
+            <h2>
+                What says our <span>Customers</span>
+            </h2>
+        </div>
+        <div class="carousel-wrap">
+            <div class="owl-carousel client_owl-carousel">
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client1.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        LusDen
+                                    </h6>
+                                    <p>
+                                        A great payment solution
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                PayFlow has made online transactions smoother for our platform. The integration was
+                                seamless, and we couldn't be happier with the support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client2.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        Zen Court
+                                    </h6>
+                                    <p>
+                                        Secure and reliable
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                With PayFlow, we've seen a huge improvement in our payment process. The security
+                                features are top-notch, and the user experience is outstanding.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client3.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        NovaTech
+                                    </h6>
+                                    <p>
+                                        Highly recommended
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                We’ve tried several payment gateways, but PayFlow stands out. It’s fast, efficient, and
+                                our customers love it. A game changer for our business!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client4.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        Alpha Solutions
+                                    </h6>
+                                    <p>
+                                        Exceptional service
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                Their customer support is fantastic. Whenever we’ve had questions or issues, the team
+                                has been responsive and helpful. Truly reliable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client5.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        BrightMart
+                                    </h6>
+                                    <p>
+                                        Best payment gateway
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                PayFlow is by far the best payment solution we’ve used. It’s intuitive, robust, and
+                                offers great value for money. Highly recommended!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client6.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        FutureTech Inc.
+                                    </h6>
+                                    <p>
+                                        Smooth integration
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                We switched to PayFlow for its ease of use and excellent integration options. It's a
+                                pleasure working with a system that just works flawlessly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end client section -->
 {% endblock %}

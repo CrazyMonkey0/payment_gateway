@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+
+.payment-container {
+    padding: 40px 20px;
+}
+
+.payment-card {
+    max-width: 500px;
+    margin: auto;
+    color: black;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: #ffffff;
+}
+
+.payment-card.box2 {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.payment-card-summary {
+    background-color: #f8f9fa;
+    margin-right: 10px;
+    min-width: 300px;
+    min-height: 500px
+}
+
+.payment-title {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.payment-btn {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+    border: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+.payment-btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.payment-btn:hover .fas.fa-arrow-right {
+    transform: translate(15px);
+    transition: transform 0.2s ease-in;
+}
+
+.payment-form-button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.payment-form-button:hover {
+    background-color: #0056b3;
+}
+
+.payment-input {
+    color: white;
+    background-color: #223C60;
+    border: 2px solid transparent;
+    height: 60px;
+    padding-left: 20px;
+    vertical-align: middle;
+    border-radius: 8px;
+}
+
+.payment-input:focus {
+    color: white;
+    background-color: #0C4160;
+    border: 2px solid #2d4dda;
+    box-shadow: none;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.payment-form .payment-form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.payment-form .payment-form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.payment-form .payment-form-group input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.payment-form .payment-form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+.payment-input-with-icon {
+    position: relative;
+}
+
+.payment-input-with-icon input {
+    padding-left: 40px;
+}
+
+.payment-input-with-icon .fas {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.payment-alert {
+    border-radius: 8px;
+}
+
+.payment-order-id,
+.payment-products-title,
+.payment-client-title {
+    margin-bottom: 20px;
+}
+
+.payment-text {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.payment-products-list {
+    margin-bottom: 20px;
+}
+
+.payment-products-list .payment-product-item {
+    background-color: #f8f9fa;
+    border: none;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+}
+
+.payment-client-table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.payment-client-row {
+    border-bottom: 1px solid #ddd;
+}
+
+.payment-client-label {
+    padding: 8px 10px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    width: 30%;
+}
+
+.payment-client-value {
+    padding: 8px 10px;
+    color: #555;
+    text-align: left;
+}
+
+.payment-client-table tr:last-child {
+    border-bottom: none;
+}
+
+.payment-placeholder::placeholder {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.payment-success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.payment-success-card {
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 30px 40px;
+    max-width: 500px;
+    text-align: center;
+    color: #333;
+}
+
+.payment-success-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #28a745;
+    /* Success green */
+    margin-bottom: 20px;
+}
+
+.payment-success-message {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.payment-success-redirect {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.payment-success-link {
+    display: inline-block;
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.payment-success-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.payment-success-wait {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 15px;
+}
+
+.error-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
+
+.error-page-card {
+    text-align: center;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+.error-page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dc3545;
+    /* Error red */
+    margin-bottom: 20px;
+}
+
+.error-page-message {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.error-page-btn {
+    display: inline-block;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #007bff;
+    /* Primary button color */
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.error-page-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+@media (max-width: 576px) {
+    .payment-success-card {
+        padding: 20px;
+    }
+
+    .payment-success-title {
+        font-size: 1.8rem;
+    }
+
+    .payment-success-message,
+    .payment-success-redirect,
+    .payment-success-wait {
+        font-size: 1rem;
+    }
+}

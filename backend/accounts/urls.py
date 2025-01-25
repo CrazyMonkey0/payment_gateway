@@ -21,6 +21,10 @@ urlpatterns = [
          name='password_reset_complete'),
     # URL path to dashboard
     path('', views.dashboard, name='dashboard'),
+    path('about/', views.about, name='about'),
+    path('services/', views.services, name='services'),
+    path('why-us/', views.why_us, name='why_us'),
+    path('team/', views.team, name='team'),
     # URL path to registration
     path('register/', views.register, name='register'),
     # URL path to show profil data about the user

@@ -1,51 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %}cre{% endblock %}
+{% block title %}Profile Information{% endblock %}
 
 {% block content %}
-<div id="profile">
-    <h1>Profile information</h1>
-    {% if profile.iban is None%}
-    <p>The profile is empty. <a href="{% url 'edit_profile' %}"> edit the
-            profile</a></p>
+<div class="profile-container">
+    <div class="profile-card">
+        <h1 class="profile-title">Profile Information</h1>
 
-    {% else %}
-
-    <table>
-        <tr>
-            <td>
-                <h3>First name:</h3>
-            </td>
-            <td>
-                {{ profile.first_name }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Last name:</h3>
-            </td>
-            <td>
-                {{ profile.last_name }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Email:</h3>
-            </td>
-            <td>
-                {{ profile.email }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Bank account:</h3>
-            </td>
-            <td>
-                {{ profile.iban }}
-            </td>
-        </tr>
-    </table>
-    {% endif %}
-
+        {% if profile.iban is None %}
+        <div class="empty-profile">
+            <p>Your profile is incomplete.</p>
+            <a href="{% url 'edit_profile' %}" class="btn edit-profile-btn">Edit Your Profile</a>
+        </div>
+        {% else %}
+        <div class="profile-info">
+            <div class="profile-item">
+                <h3 class="profile-label">First Name:</h3>
+                <p class="profile-value">{{ profile.first_name }}</p>
+            </div>
+            <div class="profile-item">
+                <h3 class="profile-label">Last Name:</h3>
+                <p class="profile-value">{{ profile.last_name }}</p>
+            </div>
+            <div class="profile-item">
+                <h3 class="profile-label">Email:</h3>
+                <p class="profile-value">{{ profile.email }}</p>
+            </div>
+            <div class="profile-item">
+                <h3 class="profile-label">Bank Account (IBAN):</h3>
+                <p class="profile-value">{{ profile.iban }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
