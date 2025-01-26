@@ -1,17 +1,18 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}User Registration{% endblock %}
+{% block title %}{% trans "User Registration" %}{% endblock %}
 
 {% block content %}
 
 <div class="registration-container">
-    <h2>Create an Account</h2>
+    <h2>{% trans "Create an Account" %}</h2>
 
     <form method="post" class="registration-form">
         {% csrf_token %}
 
         <div class="form-group">
-            <label for="{{ user_form.username.id_for_label }}" class="form-label">Username</label>
+            <label for="{{ user_form.username.id_for_label }}" class="form-label">{% trans "Username" %}</label>
             {{ user_form.username }}
             {% if user_form.username.errors %}
             <div class="error-message">
@@ -23,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            <label for="{{ user_form.first_name.id_for_label }}" class="form-label">First Name</label>
+            <label for="{{ user_form.first_name.id_for_label }}" class="form-label">{% trans "First Name" %}</label>
             {{ user_form.first_name }}
             {% if user_form.first_name.errors %}
             <div class="error-message">
@@ -35,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            <label for="{{ user_form.last_name.id_for_label }}" class="form-label">Last Name</label>
+            <label for="{{ user_form.last_name.id_for_label }}" class="form-label">{% trans "Last Name" %}</label>
             {{ user_form.last_name }}
             {% if user_form.last_name.errors %}
             <div class="error-message">
@@ -47,7 +48,7 @@
         </div>
 
         <div class="form-group">
-            <label for="{{ user_form.email.id_for_label }}" class="form-label">Email</label>
+            <label for="{{ user_form.email.id_for_label }}" class="form-label">{% trans "Email" %}</label>
             {{ user_form.email }}
             {% if user_form.email.errors %}
             <div class="error-message">
@@ -59,7 +60,7 @@
         </div>
 
         <div class="form-group">
-            <label for="{{ user_form.password.id_for_label }}" class="form-label">Password</label>
+            <label for="{{ user_form.password.id_for_label }}" class="form-label">{% trans "Password" %}</label>
             {{ user_form.password }}
             {% if user_form.password.errors %}
             <div class="error-message">
@@ -71,7 +72,7 @@
         </div>
 
         <div class="form-group">
-            <label for="{{ user_form.password2.id_for_label }}" class="form-label">Repeat Password</label>
+            <label for="{{ user_form.password2.id_for_label }}" class="form-label">{% trans "Repeat Password" %}</label>
             {{ user_form.password2 }}
             {% if user_form.password2.errors %}
             <div class="error-message">
@@ -82,11 +83,11 @@
             {% endif %}
         </div>
 
-        <button type="submit" class="btn-submit">Register</button>
+        <button type="submit" class="btn-submit">{% trans "Register" %}</button>
     </form>
 
     <div class="register-link">
-        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        <p>{% trans "Already have an account?" %} <a href="{% url 'login' %}">{% trans "Login here" %}</a></p>
     </div>
 </div>
 

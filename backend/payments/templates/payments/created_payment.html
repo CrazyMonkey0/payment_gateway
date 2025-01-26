@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load static%}
-{% block title %}Payment Successful{% endblock %}
+{% load static i18n %}
+{% block title %}{% trans "Payment Successful" %}{% endblock %}
 
 {% block extra_css %}
 <link href="{% static 'css/payments.css' %}" rel="stylesheet" />
@@ -9,17 +9,17 @@
 {% block content %}
 <div class="payment-success-container">
     <div class="payment-success-card">
-        <h2 class="payment-success-title">🎉 Payment Successful!</h2>
-        <p class="payment-success-message">Your transaction number: <strong>{{ order.id }}</strong></p>
+        <h2 class="payment-success-title">🎉 {% trans "Payment Successful!" %}</h2>
+        <p class="payment-success-message">{% trans "Your transaction number:" %} <strong>{{ order.id }}</strong></p>
 
         {% if order.redirect_link %}
         <p class="payment-success-redirect">
-            Redirecting you to your payment page shortly. <br />
-            If you are not redirected, click the link below:
+            {% trans "Redirecting you to your payment page shortly." %} <br />
+            {% trans "If you are not redirected, click the link below:" %}
         </p>
         <a class="payment-success-link" href="{{ order.redirect_link }}" target="_blank">{{ order.redirect_link }}</a>
 
-        <h3 class="payment-success-wait">Please wait...</h3>
+        <h3 class="payment-success-wait">{% trans "Please wait..." %}</h3>
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {

@@ -1,19 +1,21 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Log In{% endblock %}
+{% block title %}{% trans "Log In" %}{% endblock %}
 
 {% block content %}
 <div id="login" class="login-container">
     {% if form.errors %}
-    <p class="error-message">Your username and password didn't match. Please try again.</p>
+    <p class="error-message">{% trans "Your username and password didn't match. Please try again." %}</p>
     {% endif %}
 
     {% if next %}
     {% if user.is_authenticated %}
-    <p class="access-denied-message">Your account doesn't have access to this page. To proceed, please login with an
-        account that has access.</p>
+    <p class="access-denied-message">
+        {% trans "Your account doesn't have access to this page. To proceed, please login with an account that has access." %}
+    </p>
     {% else %}
-    <p class="login-prompt-message">Please login to see this page.</p>
+    <p class="login-prompt-message">{% trans "Please login to see this page." %}</p>
     {% endif %}
     {% endif %}
 
@@ -28,12 +30,14 @@
             {{ form.password }}
         </div>
         <div class="form-group submit-group">
-            <input type="submit" value="Login" class="btn btn-submit">
+            <input type="submit" value="{% trans 'Login' %}" class="btn btn-submit">
         </div>
         <input type="hidden" name="next" value="{{ next }}">
     </form>
 
-    <p class="register-link">You don't have an account yet? <a href="{% url 'register' %}">Create one here</a></p>
-    <p class="password-reset-link">You lost your password? <a href="{% url 'password_reset' %}">Reset password?</a></p>
+    <p class="register-link">{% trans "You don't have an account yet?" %} <a
+            href="{% url 'register' %}">{% trans "Create one here" %}</a></p>
+    <p class="password-reset-link">{% trans "You lost your password?" %} <a
+            href="{% url 'password_reset' %}">{% trans "Reset password?" %}</a></p>
 </div>
 {% endblock %}

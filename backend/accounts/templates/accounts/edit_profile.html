@@ -1,16 +1,17 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Edit Profile{% endblock %}
+{% block title %}{% trans "Edit Profile" %}{% endblock %}
 
 {% block content %}
 <div class="edit-profile-container">
     <div class="edit-profile-card">
-        <h1 class="edit-profile-title">Edit Profile</h1>
-        <p class="edit-profile-description">Update your personal information below:</p>
+        <h1 class="edit-profile-title">{% trans "Edit Profile" %}</h1>
+        <p class="edit-profile-description">{% trans "Update your personal information below:" %}</p>
 
         {% if form.errors %}
         <div class="edit-profile-errors">
-            <h3>Please correct the errors below:</h3>
+            <h3>{% trans "Please correct the errors below:" %}</h3>
             <ul>
                 {% for field in form %}
                 {% if field.errors %}
@@ -24,23 +25,23 @@
         <form action="." method="post" class="edit-profile-form">
             {% csrf_token %}
             <div class="form-group">
-                <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+                <label for="{{ form.first_name.id_for_label }}">{% trans "First Name:" %}</label>
                 {{ form.first_name }}
             </div>
             <div class="form-group">
-                <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+                <label for="{{ form.last_name.id_for_label }}">{% trans "Last Name:" %}</label>
                 {{ form.last_name }}
             </div>
             <div class="form-group">
-                <label for="{{ form.email.id_for_label }}">Email:</label>
+                <label for="{{ form.email.id_for_label }}">{% trans "Email:" %}</label>
                 {{ form.email }}
             </div>
             <div class="form-group">
-                <label for="{{ form.iban.id_for_label }}">IBAN:</label>
+                <label for="{{ form.iban.id_for_label }}">{% trans "IBAN:" %}</label>
                 {{ form.iban }}
             </div>
             <div class="form-group">
-                <button type="submit" class="btn submit-btn">Save Changes</button>
+                <button type="submit" class="btn submit-btn">{% trans "Save Changes" %}</button>
             </div>
         </form>
     </div>

@@ -1,4 +1,5 @@
-{% load static %}
+{% load static i18n %}
+
 
 <!DOCTYPE html>
 <html>
@@ -31,25 +32,23 @@
 
         <!-- font awesome style -->
         <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
-
+        <link href="{% static 'css/authorization.css' %}" rel="stylesheet" />
+        {% block extra_css %}{% endblock %}
 
         <!-- Custom styles for this template -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-        <link href="{% static 'css/authorization.css' %}" rel="stylesheet" />
-        {% block extra_css %}
 
-        {% endblock %}
+
 
         <!-- responsive style -->
         <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
-
     </head>
 
     <body>
-        <!-- header section strats -->
+        <!-- header section starts -->
         <header class="header_section">
             <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
                     <a class="navbar-brand" href="/">
                         <span>
                             PayFlow
@@ -59,53 +58,106 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                        <span class=""> </span>
+                        <span class=""></span>
                     </button>
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav  ">
+                        <ul class="navbar-nav">
                             {% if request.user.is_authenticated %}
                             <li class="{% if section == 'dashboard' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'dashboard' %}">Main panel</a>
+                                <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Main panel" %}</a>
                             </li>
                             <li class="{% if section == 'show_profile' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'show_profile' %}">Profile</a>
+                                <a class="nav-link" href="{% url 'show_profile' %}">{% trans "Profile" %}</a>
                             </li>
                             <li class="{% if section == 'edit_profile' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'edit_profile' %}">Edit profile</a>
+                                <a class="nav-link" href="{% url 'edit_profile' %}">{% trans "Edit profile" %}</a>
                             </li>
                             <li class="nav-item">
                                 <form method="post" action="{% url 'logout' %}">
                                     {% csrf_token %}
-                                    <input type="submit" value="Log-out">
+                                    <input type="submit" value="{% trans 'Log-out' %}">
                                 </form>
                             </li>
                             {% else %}
                             <li class="{% if section == 'home' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/">{% trans "Home" %} <span
+                                        class="sr-only">(current)</span></a>
                             </li>
                             <li class="{% if section == 'about' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'about' %}">About</a>
+                                <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
                             </li>
                             <li class="{% if section == 'services' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'services' %}">Services</a>
+                                <a class="nav-link" href="{% url 'services' %}">{% trans "Services" %}</a>
                             </li>
                             <li class="{% if section == 'why_us' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'why_us' %}">Why Us</a>
+                                <a class="nav-link" href="{% url 'why_us' %}">{% trans "Why Us" %}</a>
                             </li>
                             <li class="{% if section == 'team' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'team' %}">Team</a>
+                                <a class="nav-link" href="{% url 'team' %}">{% trans "Team" %}</a>
                             </li>
                             <li class="{% if section == 'login' %}nav-item active{% else %}nav-item{% endif %}">
                                 <a class="nav-link" href="{% url 'login' %}"><i class="fa fa-user"
-                                        aria-hidden="true"></i> Login</a>
+                                        aria-hidden="true"></i> {% trans "Login" %}</a>
                             </li>
                             {% endif %}
+
+                            <!-- Language switcher -->
+                            <form method="post" action="{% url 'set_language' %}" id="language-form">
+                                {% csrf_token %}
+                                <div class="language-dropdown">
+                                    <button type="button" class="dropdown-btn">
+                                        <img src="{% static 'images/' %}{{ LANGUAGE_CODE }}.png"
+                                            alt="{{ LANGUAGE_CODE }}" width="20">
+                                    </button>
+                                    <div class="dropdown-content">
+                                        {% if LANGUAGE_CODE != 'en' %}
+                                        <a href="#" data-lang="en">
+                                            <img src="{% static 'images/en.png' %}" alt="English" width="20">
+                                        </a>
+                                        {% endif %}
+
+                                        {% if LANGUAGE_CODE != 'pl' %}
+                                        <a href="#" data-lang="pl">
+                                            <img src="{% static 'images/pl.png' %}" alt="Polish" width="20">
+                                        </a>
+                                        {% endif %}
+
+                                        {% if LANGUAGE_CODE != 'it' %}
+                                        <a href="#" data-lang="it">
+                                            <img src="{% static 'images/it.png' %}" alt="Italian" width="20">
+
+                                        </a>
+                                        {% endif %}
+
+                                        {% if LANGUAGE_CODE != 'es' %}
+                                        <a href="#" data-lang="es">
+                                            <img src="{% static 'images/es.png' %}" alt="Spanish" width="20">
+                                        </a>
+                                        {% endif %}
+
+                                        {% if LANGUAGE_CODE != 'fr' %}
+                                        <a href="#" data-lang="fr">
+                                            <img src="{% static 'images/fr.png' %}" alt="French" width="20">
+                                        </a>
+                                        {% endif %}
+
+                                        {% if LANGUAGE_CODE != 'de' %}
+                                        <a href="#" data-lang="de">
+                                            <img src="{% static 'images/de.png' %}" alt="German" width="20">
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </form>
+
                         </ul>
                     </div>
                 </nav>
             </div>
         </header>
         <!-- end header section -->
+
         {% block content %}
         {% endblock %}
 
@@ -115,27 +167,19 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-3 info_col">
                         <div class="info_contact">
-                            <h4>
-                                Address
-                            </h4>
+                            <h4>{% trans "Address" %}</h4>
                             <div class="contact_link_box">
                                 <a href="">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <span>
-                                        Location
-                                    </span>
+                                    <span>{% trans "Location" %}</span>
                                 </a>
                                 <a href="">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span>
-                                        Call +00 000000000
-                                    </span>
+                                    <span>{% trans "Call +00 000000000" %}</span>
                                 </a>
                                 <a href="">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>
-                                        demo@gmail.com
-                                    </span>
+                                    <span>{% trans "demo@gmail.com" %}</span>
                                 </a>
                             </div>
                         </div>
@@ -156,90 +200,81 @@
                     </div>
                     <div class="col-md-6 col-lg-3 info_col">
                         <div class="info_detail">
-                            <h4>
-                                Info
-                            </h4>
-                            <p>
-                                PayFlow offers a reliable and secure payment gateway for businesses, ensuring fast
-                                transactions and high-level encryption.
-                                With seamless integration, it is the ideal solution for handling online payments with
-                                ease.
+                            <h4>{% trans "Info" %}</h4>
+                            <p>{% trans "PayFlow provides secure and reliable payment solutions for businesses of all sizes. Enjoy seamless integration, real-time tracking, and 24/7 support." %}
                             </p>
                         </div>
                     </div>
+
                     <div class="col-md-6 col-lg-2 mx-auto info_col">
                         <div class="info_link_box">
-                            <h4>
-                                Links
-                            </h4>
+                            <h4>{% trans "Links" %}</h4>
                             <div class="info_links">
-                                <a class="active" href="index.html">
-                                    Home
-                                </a>
-                                <a class="" href="about.html">
-                                    About
-                                </a>
-                                <a class="" href="service.html">
-                                    Services
-                                </a>
-                                <a class="" href="why.html">
-                                    Why Us
-                                </a>
-                                <a class="" href="team.html">
-                                    Team
-                                </a>
+                                <a class="active" href="index.html">{% trans "Home" %}</a>
+                                <a href="about.html">{% trans "About" %}</a>
+                                <a href="service.html">{% trans "Services" %}</a>
+                                <a href="why.html">{% trans "Why Us" %}</a>
+                                <a href="team.html">{% trans "Team" %}</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 info_col ">
-                        <h4>
-                            Subscribe
-                        </h4>
+                        <h4>{% trans "Subscribe" %}</h4>
                         <form action="#">
-                            <input type="text" placeholder="Enter email" />
-                            <button type="submit">
-                                Subscribe
-                            </button>
+                            <input type="text" placeholder="{% trans 'Enter email' %}" />
+                            <button type="submit">{% trans "Subscribe" %}</button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- end info section -->
-
         <!-- end info section -->
 
         <!-- footer section -->
         <section class="footer_section">
             <div class="container">
                 <p>
-                    &copy; <span id="displayYear"></span> All Rights Reserved By
+                    &copy; <span id="displayYear"></span> {% trans "All Rights Reserved By" %}
                     <a href="/">PayFlow</a>
                 </p>
             </div>
         </section>
         <!-- footer section -->
 
-        <!-- jQery -->
+        <!-- jQuery -->
         <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
         <!-- popper js -->
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-            </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <!-- bootstrap js -->
         <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
         <!-- owl slider -->
         <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-            </script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <!-- custom js -->
         <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
-        <!-- Google Map -->
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-            </script>
-        <!-- End Google Map -->
-    </Body>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdownItems = document.querySelectorAll('.dropdown-content a');
+                const form = document.getElementById('language-form');
+
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        const selectedLang = item.getAttribute('data-lang');
+                        const languageInput = document.createElement("input");
+                        languageInput.type = "hidden";
+                        languageInput.name = "language";
+                        languageInput.value = selectedLang;
+
+                        form.appendChild(languageInput);
+                        form.submit();
+                    });
+                });
+            });
+        </script>
+
+    </body>
 
 </html>

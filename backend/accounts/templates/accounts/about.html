@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load static %}
-{% block title %}About{% endblock %}
+{% load static i18n %}
+{% block title %}{% trans "About" %}{% endblock %}
 {% block content %}
 
 <!-- about section -->
@@ -9,32 +9,28 @@
   <div class="container  ">
     <div class="heading_container heading_center">
       <h2>
-        About <span>PayFlow</span>
+        {% trans "About" %} <span>{% trans "PayFlow" %}</span>
       </h2>
       <p>
-        PayFlow is a leading payment gateway that ensures fast, secure, and seamless online transactions for businesses
-        of all sizes. We provide a reliable solution for handling payments with ease.
+        {% trans "PayFlow is a leading payment gateway that ensures fast, secure, and seamless online transactions for businesses of all sizes. We provide a reliable solution for handling payments with ease." %}
       </p>
     </div>
     <div class="row">
       <div class="col-md-6 ">
         <div class="img-box">
-          <img src="{% static 'images/about-img.png' %}" alt="PayFlow Payment Gateway">
+          <img src="{% static 'images/about-img.png' %}" alt="{% trans 'PayFlow Payment Gateway' %}">
         </div>
       </div>
       <div class="col-md-6">
         <div class="detail-box">
           <h3>
-            We Are PayFlow
+            {% trans "We Are PayFlow" %}
           </h3>
           <p>
-            At PayFlow, we specialize in providing secure and fast payment processing solutions. Our platform integrates
-            seamlessly with online businesses, offering exceptional customer support and advanced encryption for all
-            transactions.
+            {% trans "At PayFlow, we specialize in providing secure and fast payment processing solutions. Our platform integrates seamlessly with online businesses, offering exceptional customer support and advanced encryption for all transactions." %}
           </p>
           <p>
-            Our mission is to revolutionize online payments by offering an intuitive, reliable, and secure service. We
-            help businesses scale by ensuring that every transaction is swift and hassle-free.
+            {% trans "Our mission is to revolutionize online payments by offering an intuitive, reliable, and secure service. We help businesses scale by ensuring that every transaction is swift and hassle-free." %}
           </p>
         </div>
       </div>

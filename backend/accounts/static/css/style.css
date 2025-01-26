@@ -48,6 +48,7 @@ body {
   position: relative;
   font-weight: bold;
   margin-bottom: 0;
+  color: #9f9f9f;
 }
 
 .heading_container h2 span {
@@ -632,8 +633,8 @@ a:focus {
   -webkit-transition: all .1s;
   transition: all .1s;
   margin-top: 45px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#002759), to(#002b64));
-  background: linear-gradient(to bottom, #002759, #002b64);
+  background: -webkit-gradient(linear, left top, left bottom, from(#002759), to(#000));
+  background: linear-gradient(to bottom, #002759, #000);
 }
 
 .team_section .team_container .box .img-box {
@@ -1110,5 +1111,72 @@ a:focus {
   color: #555;
   margin-top: 5px;
 }
+
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.dropdown-btn:hover {
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+}
+
+.dropdown-btn img {
+  margin-right: 10px;
+  width: 40%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: linear-gradient(to bottom, #0a0a0a, #020136);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 0;
+  top: 100%;
+  left: 0;
+  width: max-content;
+  z-index: 1;
+  min-width: 80px;
+}
+
+.language-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-content a:hover {
+  background: linear-gradient(to bottom, #006eff, #0a0a0a);
+}
+
+.dropdown-content a img {
+  margin-right: 10px;
+  width: 40%;
+  object-fit: contain;
+}
+
+
 
 /*# sourceMappingURL=style.css.map */

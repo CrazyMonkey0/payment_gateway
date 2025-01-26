@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load static %}
-{% block title %}Team{% endblock %}
+{% load static i18n %}
+{% block title %}{% trans "Team" %}{% endblock %}
 {% block content %}
 
 <!-- team section -->
@@ -8,7 +8,7 @@
   <div class="container-fluid">
     <div class="heading_container heading_center">
       <h2>
-        Our <span>Team</span>
+        {% trans "Our" context "team" %} <span>{% trans "Team" %}</span>
       </h2>
     </div>
 
@@ -17,23 +17,23 @@
         <div class="col-lg-3 col-sm-6">
           <div class="box">
             <div class="img-box">
-              <img src="{% static 'images/team-1.jpg' %}" class="img1" alt="Creator Image">
+              <img src="{% static 'images/team-1.jpg' %}" class="img1" alt="{% trans 'Creator Image' %}">
             </div>
             <div class="detail-box">
               <h5>
                 Hubert Kowalski
               </h5>
               <p>
-                Creator & Developer of PayFlow
+                {% trans "Creator & Developer of PayFlow" %}
               </p>
             </div>
             <div class="social_box text-center">
               <!-- Social icons -->
-              <a href="https://www.linkedin.com/in/your-profile">
+              <a href="https://pl.linkedin.com/in/hubert-kowalski-9155311a2?trk=people-guest_people_search-card">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
               <!-- GitHub Icon -->
-              <a href="https://github.com/your-username">
+              <a href="https://github.com/CrazyMonkey0">
                 <i class="fa fa-github" aria-hidden="true"></i>
               </a>
             </div>

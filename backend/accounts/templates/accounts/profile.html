@@ -1,33 +1,33 @@
 {% extends "base.html" %}
-
-{% block title %}Profile Information{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Profile Information" %}{% endblock %}
 
 {% block content %}
 <div class="profile-container">
     <div class="profile-card">
-        <h1 class="profile-title">Profile Information</h1>
+        <h1 class="profile-title">{% trans "Profile Information" %}</h1>
 
         {% if profile.iban is None %}
         <div class="empty-profile">
-            <p>Your profile is incomplete.</p>
-            <a href="{% url 'edit_profile' %}" class="btn edit-profile-btn">Edit Your Profile</a>
+            <p>{% trans "Your profile is incomplete." %}</p>
+            <a href="{% url 'edit_profile' %}" class="btn edit-profile-btn">{% trans "Edit Your Profile" %}</a>
         </div>
         {% else %}
         <div class="profile-info">
             <div class="profile-item">
-                <h3 class="profile-label">First Name:</h3>
+                <h3 class="profile-label">{% trans "First Name:" %}</h3>
                 <p class="profile-value">{{ profile.first_name }}</p>
             </div>
             <div class="profile-item">
-                <h3 class="profile-label">Last Name:</h3>
+                <h3 class="profile-label">{% trans "Last Name:" %}</h3>
                 <p class="profile-value">{{ profile.last_name }}</p>
             </div>
             <div class="profile-item">
-                <h3 class="profile-label">Email:</h3>
+                <h3 class="profile-label">{% trans "Email:" %}</h3>
                 <p class="profile-value">{{ profile.email }}</p>
             </div>
             <div class="profile-item">
-                <h3 class="profile-label">Bank Account (IBAN):</h3>
+                <h3 class="profile-label">{% trans "Bank Account (IBAN):" %}</h3>
                 <p class="profile-value">{{ profile.iban }}</p>
             </div>
         </div>
