@@ -12,16 +12,17 @@
     <div class="payment-card-summary card box1 shadow-sm p-md-5 p-4">
         <h2 class="payment-order-id fw-bolder mb-4">{% trans "Order ID:" %} {{ order.id }}</h2>
 
+        <h3 class="payment-client-title">{% trans "Client Information:" %}</h3>
+        <p class="payment-client-info"><strong>{% trans "Name:" %}</strong> {{ order.client }}</p>
+        <p class="payment-client-info"><strong>{% trans "Email:" %}</strong> {{ order.client.email }}</p>
+        <p></p>
+
         <h3 class="payment-products-title">{% trans "Products:" %}</h3>
         <ul class="payment-products-list list-group mb-4">
             {% for o in order.products.all %}
             <li class="payment-product-item list-group-item">{{ o }}</li>
             {% endfor %}
         </ul>
-
-        <h3 class="payment-client-title">{% trans "Client Information:" %}</h3>
-        <p class="payment-client-info"><strong>{% trans "Name:" %}</strong> {{ order.client }}</p>
-        <p class="payment-client-info"><strong>{% trans "Email:" %}</strong> {{ order.client.email }}</p>
     </div>
 
     <!-- Payment Form -->
