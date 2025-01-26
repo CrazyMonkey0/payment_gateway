@@ -1,8 +1,441 @@
 {% extends "base.html" %}
-{% block title %}Panel główny{% endblock %}
+{% load  i18n %}
+{% load  static %}
+{% block title %}PayFlow{% endblock %}
 {% block content %}
-<div id="dashboard">
-    <h1>Dashboard</h1>
-    <p>Welcome to the dashboard</p>
+
+<div class="hero_area">
+    <div class="hero_bg_box">
+        <div class="bg_img_box">
+            <img src="{% static 'images/hero-bg.png' %}" alt="">
+        </div>
+    </div>
+    <!-- slider section -->
+    <section class="slider_section">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail-box">
+                                    <h1>{% trans 'Seamless' %} <br> {% trans 'Payments' %} </h1>
+                                    <p>{% trans 'Experience the future of online transactions with our fast, secure, and reliable payment gateway. We ensure your payments are processed smoothly every time.' %}
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">{% trans 'Learn More' %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail-box">
+                                    <h1>{% trans 'Secure' %} <br> {% trans 'Transactions' %}</h1>
+                                    <p>{% trans 'Your financial safety is our top priority. With advanced encryption and robust security measures, we safeguard every transaction you make.' %}
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">{% trans 'Discover More' %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{% static 'images/slider-2.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail-box">
+                                    <h1>{% trans 'Global' %} <br> {% trans 'Reach' %}</h1>
+                                    <p>{% trans 'No matter where you are, our payment gateway connects you to the world. Enjoy hassle-free transactions across borders.' %}
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">{% trans 'Read More' %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{% static 'images/slider-3.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                <li data-target="#customCarousel1" data-slide-to="1"></li>
+                <li data-target="#customCarousel1" data-slide-to="2"></li>
+            </ol>
+        </div>
+    </section>
+    <!-- end slider section -->
 </div>
+<!-- service section -->
+<section class="service_section layout_padding">
+    <div class="service_container">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>{% trans 'Our' %} <span>{% trans 'Services' %}</span></h2>
+                <p>{% trans 'We offer a suite of payment solutions tailored to meet your business needs.' %}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/s1.png' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>{% trans 'Digital Wallets' %}</h5>
+                            <p>{% trans 'Simplify your payments with our integrated digital wallet system, designed for efficiency and security.' %}
+                            </p>
+                            <a href="">{% trans 'Read More' %}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/s2.png' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>{% trans 'Advanced Security' %}</h5>
+                            <p>{% trans 'Protecting your data is our priority. Benefit from state-of-the-art fraud prevention and encryption.' %}
+                            </p>
+                            <a href="">{% trans 'Read More' %}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/s3.png' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>{% trans '24/7 Support' %}</h5>
+                            <p>{% trans 'Our team is always here to assist you with any inquiries or issues you might encounter.' %}
+                            </p>
+                            <a href="">{% trans 'Read More' %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box">
+                <a href="{% url 'services' %}">{% trans 'View All' %}</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end service section -->
+<!-- about section -->
+<section class="about_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>{% trans 'About' %} <span>{% trans 'PayFlow' %}</span></h2>
+            <p>{% trans 'Learn more about how we redefine online payments with our innovative and user-centric approach.' %}
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="{% static 'images/about-img.png' %}" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <h3>{% trans 'Your Trusted Partner' %}</h3>
+                    <p>{% trans 'PayFlow is dedicated to making your financial transactions smooth, secure, and transparent. From businesses to individual users, we provide solutions tailored to your needs.' %}
+                    </p>
+                    <p>{% trans 'With years of experience and a commitment to excellence, we are here to support your growth and empower your success.' %}
+                    </p>
+                    <a href="{% url 'about' %}">{% trans 'Read More' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end about section -->
+
+<!-- why section -->
+<section class="why_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                {% trans "Why Choose" %} <span>PayFlow</span>
+            </h2>
+        </div>
+        <div class="why_container">
+            <div class="box">
+                <div class="img-box">
+                    <img src="{% static 'images/w1.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        {% trans "Expertise You Can Trust" %}
+                    </h5>
+                    <p>
+                        {% trans "Our team of professionals brings years of industry experience to deliver reliable and innovative payment solutions." %}
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="img-box">
+                    <img src="{% static 'images/w2.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        {% trans "Unmatched Security" %}
+                    </h5>
+                    <p>
+                        {% trans "We prioritize your data security with top-notch encryption and fraud prevention systems, ensuring peace of mind for every transaction." %}
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="img-box">
+                    <img src="{% static 'images/w3.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        {% trans "Fast and Reliable" %}
+                    </h5>
+                    <p>
+                        {% trans "Enjoy quick payment processing and minimal downtime, so you can focus on what matters most: growing your business." %}
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="img-box">
+                    <img src="{% static 'images/w4.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        {% trans "Satisfied Customers" %}
+                    </h5>
+                    <p>
+                        {% trans "Join thousands of happy clients who trust PayFlow for seamless and secure payment experiences." %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="btn-box">
+            <a href="{% url 'why_us' %}">
+                {% trans "Read More" %}
+            </a>
+        </div>
+    </div>
+</section>
+<!-- end why section -->
+
+<!-- team section -->
+<section class="team_section layout_padding">
+    <div class="container-fluid">
+        <div class="heading_container heading_center">
+            <h2>
+                {% trans "Our" context "team" %} <span>{% trans "Team" %}</span>
+            </h2>
+        </div>
+        <div class="team_container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/team-1.jpg' %}" class="img1" alt="{% trans 'Creator Image' %}">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Hubert Kowalski
+                            </h5>
+                            <p>
+                                {% trans "Creator & Developer of PayFlow" %}
+                            </p>
+                        </div>
+                        <div class="social_box text-center">
+                            <!-- Social icons -->
+                            <a
+                                href="https://pl.linkedin.com/in/hubert-kowalski-9155311a2?trk=people-guest_people_search-card">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://github.com/CrazyMonkey0">
+                                <i class="fa fa-github" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end team section -->
+
+<!-- client section -->
+<section class="client_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center psudo_white_primary mb_45">
+            <h2>
+                {% trans "What says our" %} <span>{% trans "Customers" %}</span>
+            </h2>
+        </div>
+        <div class="carousel-wrap">
+            <div class="owl-carousel client_owl-carousel">
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client1.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        LusDen
+                                    </h6>
+                                    <p>
+                                        {% trans "A great payment solution" %}
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                {% trans "PayFlow has made online transactions smoother for our platform. The integration was seamless, and we couldn't be happier with the support." %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client2.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        Zen Court
+                                    </h6>
+                                    <p>
+                                        {% trans "Secure and reliable" %}
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                {% trans "With PayFlow, we've seen a huge improvement in our payment process. The security features are top-notch, and the user experience is outstanding." %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client3.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        NovaTech
+                                    </h6>
+                                    <p>
+                                        {% trans "Highly recommended" %}
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                {% trans "We’ve tried several payment gateways, but PayFlow stands out. It’s fast, efficient, and our customers love it. A game changer for our business!" %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client4.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        Alpha Solutions
+                                    </h6>
+                                    <p>
+                                        {% trans "Exceptional service" %}
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                {% trans "Their customer support is fantastic. Whenever we’ve had questions or issues, the team has been responsive and helpful. Truly reliable." %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client5.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        BrightMart
+                                    </h6>
+                                    <p>
+                                        {% trans "Best payment gateway" %}
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                {% trans "PayFlow is by far the best payment solution we’ve used. It’s intuitive, robust, and offers great value for money. Highly recommended!" %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'images/client6.jpg' %}" alt="" class="box-img">
+                        </div>
+                        <div class="detail-box">
+                            <div class="client_id">
+                                <div class="client_info">
+                                    <h6>
+                                        FutureTech Inc.
+                                    </h6>
+                                    <p>
+                                        {% trans "Smooth integration" %}
+                                    </p>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                                {% trans "We switched to PayFlow for its ease of use and excellent integration options. It's a pleasure working with a system that just works flawlessly." %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end client section -->
+
 {% endblock %}

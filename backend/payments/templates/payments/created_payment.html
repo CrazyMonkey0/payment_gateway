@@ -1,24 +1,35 @@
 {% extends "base.html" %}
+{% load static i18n %}
+{% block title %}{% trans "Payment Successful" %}{% endblock %}
 
-{% block title %}Created payment{% endblock %}
+{% block extra_css %}
+<link href="{% static 'css/payments.css' %}" rel="stylesheet" />
+{% endblock %}
 
 {% block content %}
-<h2>Successful payment. </h2>
-<p>Your transaction number: {{order.id}}</p>
-<p>Redirect Link: {{ order.redirect_link }}</p>
+<div class="payment-success-container">
+    <div class="payment-success-card">
+        <h2 class="payment-success-title">🎉 {% trans "Payment Successful!" %}</h2>
+        <p class="payment-success-message">{% trans "Your transaction number:" %} <strong>{{ order.id }}</strong></p>
 
-<br><br>
-{% if order.redirect_link  %}
-<h3>Redirection will take place in a moment </h3>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const url = "{{ order.redirect_link|escapejs }}";
+        {% if order.redirect_link %}
+        <p class="payment-success-redirect">
+            {% trans "Redirecting you to your payment page shortly." %} <br />
+            {% trans "If you are not redirected, click the link below:" %}
+        </p>
+        <a class="payment-success-link" href="{{ order.redirect_link }}" target="_blank">{{ order.redirect_link }}</a>
 
-        // Set the delay to 5 seconds
-        setTimeout(function () {
-            window.location.href = url; // Redirect to new link
-        }, 5000);
-    });
-</script>
-{% endif %}
+        <h3 class="payment-success-wait">{% trans "Please wait..." %}</h3>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const url = "{{ order.redirect_link|escapejs }}";
+                setTimeout(function () {
+                    window.location.href = url;
+                }, 5000);  // Redirect after 5 seconds
+            });
+        </script>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

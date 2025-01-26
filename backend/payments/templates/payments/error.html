@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
-{% block title %}ERROR{% endblock %}
+{% block title %}{% trans "Error" %}{% endblock %}
 
 {% block content %}
-<h1>Error</h1>
-<p>{{ error_message }}</p>
-<a href="/">Back to Home</a>
+<div class="error-page-container">
+    <div class="error-page-card">
+        <h1 class="error-page-title">⚠️ {% trans "Oops! Something went wrong." %}</h1>
+        <p class="error-page-message">{{ error_message }}</p>
+        <a href="/" class="error-page-btn">🔙 {% trans "Back to Home" %}</a>
+    </div>
+</div>
 {% endblock %}

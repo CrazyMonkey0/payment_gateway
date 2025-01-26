@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}{% trans "Why Us" %}{% endblock %}
+{% block content %}
+
+<!-- why section -->
+
+<section class="why_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>
+        {% trans "Why Choose" %} <span>{% trans "PayFlow" %}</span>
+      </h2>
+    </div>
+    <div class="why_container">
+      <div class="box">
+        <div class="img-box">
+          <img src="{% static 'images/w1.png' %}" alt="{% trans 'Expert Management' %}">
+        </div>
+        <div class="detail-box">
+          <h5>
+            {% trans "Expert Management" %}
+          </h5>
+          <p>
+            {% trans "PayFlow is managed by a team of experts with years of experience in payment processing and financial services. Our leadership ensures the highest quality of service, security, and customer satisfaction, keeping businesses and customers at the forefront of payment technology." %}
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="img-box">
+          <img src="{% static 'images/w2.png' %}" alt="{% trans 'Secure Investment' %}">
+        </div>
+        <div class="detail-box">
+          <h5>
+            {% trans "Secure Investment" %}
+          </h5>
+          <p>
+            {% trans "At PayFlow, we prioritize the safety of your funds. Our platform uses advanced encryption technologies to ensure that your transactions are secure, making it a trusted choice for both businesses and individual investors." %}
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="img-box">
+          <img src="{% static 'images/w3.png' %}" alt="{% trans 'Instant Trading' %}">
+        </div>
+        <div class="detail-box">
+          <h5>
+            {% trans "Instant Trading" %}
+          </h5>
+          <p>
+            {% trans "PayFlow offers real-time payment processing, allowing for instant trade and quick transaction settlements. This helps businesses and customers complete payments without delays, ensuring a smooth experience for all parties involved." %}
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="img-box">
+          <img src="{% static 'images/w4.png' %}" alt="{% trans 'Happy Customers' %}">
+        </div>
+        <div class="detail-box">
+          <h5>
+            {% trans "Happy Customers" %}
+          </h5>
+          <p>
+            {% trans "We pride ourselves on our outstanding customer service. PayFlow has helped thousands of businesses and customers successfully complete their transactions with ease, ensuring satisfaction and a positive payment experience." %}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="btn-box">
+      <a href="">
+        {% trans "Read More" %}
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- end why section -->
+{% endblock %}

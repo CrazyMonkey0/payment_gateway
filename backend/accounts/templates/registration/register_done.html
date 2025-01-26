@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Welcome!" %}{% endblock %}
+
+{% block content %}
+<div class="registration-success-container">
+    <h1 class="registration-success-heading">{% trans "Hello, %s!" %}{{ new_user.first_name }}</h1>
+    <p class="registration-success-message">{% trans "Your account has been created successfully." %}</p>
+    <p class="registration-login-prompt">{% trans "You can now login to your account." %}</p>
+    <p class="registration-login-prompt"><a href="{% url 'login' %}" class="btn btn-submit">{% trans "Login" %}</a></p>
+</div>
+{% endblock %}

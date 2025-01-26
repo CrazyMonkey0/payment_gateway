@@ -25,7 +25,7 @@ def register(request):
 
             # Render the registration success page
             return render(request,
-                          'accounts/register_done.html',
+                          'registration/register_done.html',
                           {'new_user': new_user})
     else:
         # If the form is not submitted (GET request)
@@ -33,11 +33,10 @@ def register(request):
 
     # Render the registration form page
     return render(request,
-                  'accounts/register.html',
+                  'registration/register.html',
                   {'user_form': user_form})
 
 
-@login_required
 def dashboard(request):
     """
     View displaying the user's dashboard.
@@ -55,6 +54,29 @@ def dashboard(request):
                   'accounts/dashboard.html',
                   {'section': 'dashboard'})
 
+
+def about(request):
+    return render(request,
+                  'accounts/about.html',
+                  {'section': 'about'})
+
+
+def services(request):
+    return render(request,
+                  'accounts/services.html',
+                  {'section': 'services'})
+
+
+def why_us(request):
+    return render(request,
+                  'accounts/why.html',
+                  {'section': 'why_us'})
+
+
+def team(request):
+    return render(request,
+                  'accounts/team.html',
+                  {'section': 'team'})
 
 @login_required
 def show_profile(request):

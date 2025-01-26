@@ -1,39 +1,49 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Edit profile{% endblock %}
+{% block title %}{% trans "Edit Profile" %}{% endblock %}
 
 {% block content %}
-<div id="edit">
-    <h1>Edit profile</h1>
-    <p></p>
-    {% if form.errors %}
-    <div class="error">
-        <h3>{{form.errors}}</h3>
+<div class="edit-profile-container">
+    <div class="edit-profile-card">
+        <h1 class="edit-profile-title">{% trans "Edit Profile" %}</h1>
+        <p class="edit-profile-description">{% trans "Update your personal information below:" %}</p>
+
+        {% if form.errors %}
+        <div class="edit-profile-errors">
+            <h3>{% trans "Please correct the errors below:" %}</h3>
+            <ul>
+                {% for field in form %}
+                {% if field.errors %}
+                <li><strong>{{ field.label }}:</strong> {{ field.errors|join:", " }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <form action="." method="post" class="edit-profile-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.first_name.id_for_label }}">{% trans "First Name:" %}</label>
+                {{ form.first_name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.last_name.id_for_label }}">{% trans "Last Name:" %}</label>
+                {{ form.last_name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">{% trans "Email:" %}</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.iban.id_for_label }}">{% trans "IBAN:" %}</label>
+                {{ form.iban }}
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn submit-btn">{% trans "Save Changes" %}</button>
+            </div>
+        </form>
     </div>
-    {% endif %}
-    <form action="." method="post">
-        <table>
-            <tr>
-                <td class="edit_form"> First name: </td>
-                <td class="edit_form">{{ form.first_name }}</td>
-            </tr>
-            <tr>
-                <td class="edit_form">Last name: </td>
-                <td class="edit_form">{{ form.last_name}}</td>
-            </tr>
-            <tr>
-                <td class="edit_form">Email: </td>
-                <td class="edit_form">{{ form.email }}</td>
-            </tr>
-            <tr>
-                <td class="edit_form">Iban: </td>
-                <td class="edit_form">{{ form.iban }}</td>
-            </tr>
-            <tr>
-                {% csrf_token %}
-                <td><input type="submit" value="edit"></td>
-            </tr>
-        </table>
-    </form>
 </div>
 {% endblock %}
