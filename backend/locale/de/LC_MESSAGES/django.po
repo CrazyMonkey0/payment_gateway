@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 17:42+0000\n"
+"POT-Creation-Date: 2025-01-26 18:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,8 +108,9 @@ msgid ""
 "Your financial safety is our top priority. With advanced encryption and "
 "robust security measures, we safeguard every transaction you make."
 msgstr ""
-"Ihre finanzielle Sicherheit hat für uns oberste Priorität. Mit fortschrittlicher "
-"Verschlüsselung und robusten Sicherheitsmaßnahmen schützen wir jede Ihrer Transaktionen."
+"Ihre finanzielle Sicherheit hat für uns oberste Priorität. Mit "
+"fortschrittlicher Verschlüsselung und robusten Sicherheitsmaßnahmen schützen "
+"wir jede Ihrer Transaktionen."
 
 #: accounts/templates/accounts/dashboard.html:47
 msgid "Discover More"
@@ -128,8 +129,8 @@ msgid ""
 "No matter where you are, our payment gateway connects you to the world. "
 "Enjoy hassle-free transactions across borders."
 msgstr ""
-"Egal wo Sie sind, unser Zahlungsgateway verbindet Sie mit der Welt. "
-"Genießen Sie problemlose Transaktionen über Grenzen hinweg."
+"Egal wo Sie sind, unser Zahlungsgateway verbindet Sie mit der Welt. Genießen "
+"Sie problemlose Transaktionen über Grenzen hinweg."
 
 #: accounts/templates/accounts/dashboard.html:68
 #: accounts/templates/accounts/dashboard.html:108
@@ -157,8 +158,8 @@ msgstr "Dienstleistungen"
 msgid ""
 "We offer a suite of payment solutions tailored to meet your business needs."
 msgstr ""
-"Wir bieten eine Suite von Zahlungslösungen, die auf Ihre Geschäftsanforderungen "
-"zugeschnitten sind."
+"Wir bieten eine Suite von Zahlungslösungen, die auf Ihre "
+"Geschäftsanforderungen zugeschnitten sind."
 
 #: accounts/templates/accounts/dashboard.html:105
 msgid "Digital Wallets"
@@ -169,8 +170,8 @@ msgid ""
 "Simplify your payments with our integrated digital wallet system, designed "
 "for efficiency and security."
 msgstr ""
-"Vereinfachen Sie Ihre Zahlungen mit unserem integrierten digitalen Geldbörsen-System, "
-"das für Effizienz und Sicherheit entwickelt wurde."
+"Vereinfachen Sie Ihre Zahlungen mit unserem integrierten digitalen "
+"Geldbörsen-System, das für Effizienz und Sicherheit entwickelt wurde."
 
 #: accounts/templates/accounts/dashboard.html:118
 msgid "Advanced Security"
@@ -207,8 +208,8 @@ msgid ""
 "Learn more about how we redefine online payments with our innovative and "
 "user-centric approach."
 msgstr ""
-"Erfahren Sie mehr darüber, wie wir Online-Zahlungen mit unserem innovativen und "
-"nutzerorientierten Ansatz neu definieren."
+"Erfahren Sie mehr darüber, wie wir Online-Zahlungen mit unserem innovativen "
+"und nutzerorientierten Ansatz neu definieren."
 
 #: accounts/templates/accounts/dashboard.html:162
 #, fuzzy
@@ -222,9 +223,9 @@ msgid ""
 "and transparent. From businesses to individual users, we provide solutions "
 "tailored to your needs."
 msgstr ""
-"PayFlow ist darauf ausgerichtet, Ihre Finanztransaktionen reibungslos, sicher "
-"und transparent zu gestalten. Von Unternehmen bis hin zu Einzelnutzern bieten "
-"wir maßgeschneiderte Lösungen für Ihre Bedürfnisse."
+"PayFlow ist darauf ausgerichtet, Ihre Finanztransaktionen reibungslos, "
+"sicher und transparent zu gestalten. Von Unternehmen bis hin zu "
+"Einzelnutzern bieten wir maßgeschneiderte Lösungen für Ihre Bedürfnisse."
 
 #: accounts/templates/accounts/dashboard.html:165
 msgid ""
@@ -865,12 +866,12 @@ msgid "You can now login to your account."
 msgstr "Sie können sich jetzt in Ihr Konto einloggen."
 
 #: payment_gateway/settings.py:141
-msgid "English"
-msgstr "Englisch"
-
-#: payment_gateway/settings.py:142
 msgid "Polish"
 msgstr "Polnisch"
+
+#: payment_gateway/settings.py:142
+msgid "English"
+msgstr "Englisch"
 
 #: payment_gateway/settings.py:143
 msgid "Spanish"

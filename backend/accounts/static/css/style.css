@@ -1177,6 +1177,16 @@ a:focus {
   object-fit: contain;
 }
 
+.logout-bnt {
+  padding: 5px;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, #000000, #000000);
+}
 
+.logout-bnt:hover {
+  background: linear-gradient(to bottom, #00295e, #0a0a0a);
+}
 
 /*# sourceMappingURL=style.css.map */
