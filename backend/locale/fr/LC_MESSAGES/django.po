@@ -1,0 +1,979 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-26 17:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: accounts/templates/accounts/about.html:3
+#: accounts/templates/accounts/about.html:12
+#: accounts/templates/accounts/dashboard.html:150
+#: accounts/templates/base.html:88 accounts/templates/base.html:214
+msgid "About"
+msgstr "À propos"
+
+#: accounts/templates/accounts/about.html:12
+#: accounts/templates/accounts/dashboard.html:150
+#: accounts/templates/accounts/why.html:12
+msgid "PayFlow"
+msgstr "PayFlow"
+
+#: accounts/templates/accounts/about.html:15
+msgid ""
+"PayFlow is a leading payment gateway that ensures fast, secure, and seamless "
+"online transactions for businesses of all sizes. We provide a reliable "
+"solution for handling payments with ease."
+msgstr ""
+"PayFlow est une passerelle de paiement leader qui assure des transactions en "
+"ligne rapides, sécurisées et fluides pour les entreprises de toutes tailles. "
+"Nous fournissons une solution fiable pour gérer les paiements en toute "
+"simplicité."
+
+#: accounts/templates/accounts/about.html:21
+msgid "PayFlow Payment Gateway"
+msgstr "Passerelle de Paiement PayFlow"
+
+#: accounts/templates/accounts/about.html:27
+msgid "We Are PayFlow"
+msgstr "Nous Sommes PayFlow"
+
+#: accounts/templates/accounts/about.html:30
+msgid ""
+"At PayFlow, we specialize in providing secure and fast payment processing "
+"solutions. Our platform integrates seamlessly with online businesses, "
+"offering exceptional customer support and advanced encryption for all "
+"transactions."
+msgstr ""
+"Chez PayFlow, nous sommes spécialisés dans la fourniture de solutions de "
+"traitement des paiements sécurisées et rapides. Notre plateforme s'intègre "
+"parfaitement aux entreprises en ligne, offrant un support client "
+"exceptionnel et un chiffrement avancé pour toutes les transactions."
+
+#: accounts/templates/accounts/about.html:33
+msgid ""
+"Our mission is to revolutionize online payments by offering an intuitive, "
+"reliable, and secure service. We help businesses scale by ensuring that "
+"every transaction is swift and hassle-free."
+msgstr ""
+"Notre mission est de révolutionner les paiements en ligne en offrant un "
+"service intuitif, fiable et sécurisé. Nous aidons les entreprises à se "
+"développer en garantissant que chaque transaction est rapide et sans tracas."
+
+#: accounts/templates/accounts/dashboard.html:22
+msgid "Seamless"
+msgstr "Fluide"
+
+#: accounts/templates/accounts/dashboard.html:22
+msgid "Payments"
+msgstr "Paiements"
+
+#: accounts/templates/accounts/dashboard.html:23
+msgid ""
+"Experience the future of online transactions with our fast, secure, and "
+"reliable payment gateway. We ensure your payments are processed smoothly "
+"every time."
+msgstr ""
+"Découvrez l'avenir des transactions en ligne avec notre passerelle de "
+"paiement rapide, sécurisée et fiable. Nous garantissons que vos paiements "
+"sont traités en douceur à chaque fois."
+
+#: accounts/templates/accounts/dashboard.html:26
+msgid "Learn More"
+msgstr "En Savoir Plus"
+
+#: accounts/templates/accounts/dashboard.html:43
+msgid "Secure"
+msgstr "Sécurisé"
+
+#: accounts/templates/accounts/dashboard.html:43
+msgid "Transactions"
+msgstr "Transactions"
+
+#: accounts/templates/accounts/dashboard.html:44
+msgid ""
+"Your financial safety is our top priority. With advanced encryption and "
+"robust security measures, we safeguard every transaction you make."
+msgstr ""
+"Votre sécurité financière est notre priorité absolue. Avec un chiffrement "
+"avancé et des mesures de sécurité robustes, nous protégeons chaque "
+"transaction que vous effectuez."
+
+#: accounts/templates/accounts/dashboard.html:47
+msgid "Discover More"
+msgstr "Découvrir Plus"
+
+#: accounts/templates/accounts/dashboard.html:64
+msgid "Global"
+msgstr "Global"
+
+#: accounts/templates/accounts/dashboard.html:64
+msgid "Reach"
+msgstr "Portée"
+
+#: accounts/templates/accounts/dashboard.html:65
+msgid ""
+"No matter where you are, our payment gateway connects you to the world. "
+"Enjoy hassle-free transactions across borders."
+msgstr ""
+"Peu importe où vous êtes, notre passerelle de paiement vous connecte au "
+"monde. Profitez de transactions sans tracas à travers les frontières."
+
+#: accounts/templates/accounts/dashboard.html:68
+#: accounts/templates/accounts/dashboard.html:108
+#: accounts/templates/accounts/dashboard.html:121
+#: accounts/templates/accounts/dashboard.html:134
+#: accounts/templates/accounts/dashboard.html:167
+#: accounts/templates/accounts/dashboard.html:239
+#: accounts/templates/accounts/why.html:71
+msgid "Read More"
+msgstr "Lire Plus"
+
+#: accounts/templates/accounts/dashboard.html:95
+#: accounts/templates/accounts/services.html:12
+msgid "Our"
+msgstr "Nos"
+
+#: accounts/templates/accounts/dashboard.html:95
+#: accounts/templates/accounts/services.html:3
+#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:91
+#: accounts/templates/base.html:215
+msgid "Services"
+msgstr "Services"
+
+#: accounts/templates/accounts/dashboard.html:96
+msgid ""
+"We offer a suite of payment solutions tailored to meet your business needs."
+msgstr ""
+"Nous proposons une suite de solutions de paiement adaptées à vos besoins "
+"professionnels."
+
+#: accounts/templates/accounts/dashboard.html:105
+msgid "Digital Wallets"
+msgstr "Portefeuilles Numériques"
+
+#: accounts/templates/accounts/dashboard.html:106
+msgid ""
+"Simplify your payments with our integrated digital wallet system, designed "
+"for efficiency and security."
+msgstr ""
+"Simplifiez vos paiements avec notre système de portefeuille numérique "
+"intégré, conçu pour l'efficacité et la sécurité."
+
+#: accounts/templates/accounts/dashboard.html:118
+msgid "Advanced Security"
+msgstr "Sécurité Avancée"
+
+#: accounts/templates/accounts/dashboard.html:119
+msgid ""
+"Protecting your data is our priority. Benefit from state-of-the-art fraud "
+"prevention and encryption."
+msgstr ""
+"La protection de vos données est notre priorité. Bénéficiez d'une prévention "
+"des fraudes et d'un chiffrement de pointe."
+
+#: accounts/templates/accounts/dashboard.html:131
+msgid "24/7 Support"
+msgstr "Support 24/7"
+
+#: accounts/templates/accounts/dashboard.html:132
+msgid ""
+"Our team is always here to assist you with any inquiries or issues you might "
+"encounter."
+msgstr ""
+"Notre équipe est toujours là pour vous aider avec toutes les questions ou "
+"problèmes que vous pourriez rencontrer."
+
+#: accounts/templates/accounts/dashboard.html:140
+msgid "View All"
+msgstr "Voir Tout"
+
+#: accounts/templates/accounts/dashboard.html:151
+msgid ""
+"Learn more about how we redefine online payments with our innovative and "
+"user-centric approach."
+msgstr ""
+"Découvrez comment nous redéfinissons les paiements en ligne avec notre "
+"approche innovante et centrée sur l'utilisateur."
+
+#: accounts/templates/accounts/dashboard.html:162
+msgid "Your Trusted Partner"
+msgstr "Votre Partenaire de Confiance"
+
+#: accounts/templates/accounts/dashboard.html:163
+msgid ""
+"PayFlow is dedicated to making your financial transactions smooth, secure, "
+"and transparent. From businesses to individual users, we provide solutions "
+"tailored to your needs."
+msgstr ""
+"PayFlow s'engage à rendre vos transactions financières fluides, sécurisées "
+"et transparentes. Des entreprises aux utilisateurs individuels, nous "
+"fournissons des solutions adaptées à vos besoins."
+
+#: accounts/templates/accounts/dashboard.html:165
+msgid ""
+"With years of experience and a commitment to excellence, we are here to "
+"support your growth and empower your success."
+msgstr ""
+"Avec des années d'expérience et un engagement envers l'excellence, nous "
+"sommes là pour soutenir votre croissance et favoriser votre succès."
+
+#: accounts/templates/accounts/dashboard.html:180
+#: accounts/templates/accounts/why.html:12
+msgid "Why Choose"
+msgstr "Pourquoi Choisir"
+
+#: accounts/templates/accounts/dashboard.html:190
+msgid "Expertise You Can Trust"
+msgstr "Une Expertise de Confiance"
+
+#: accounts/templates/accounts/dashboard.html:193
+msgid ""
+"Our team of professionals brings years of industry experience to deliver "
+"reliable and innovative payment solutions."
+msgstr ""
+"Notre équipe de professionnels apporte des années d'expérience dans "
+"l'industrie pour fournir des solutions de paiement fiables et innovantes."
+
+#: accounts/templates/accounts/dashboard.html:203
+msgid "Unmatched Security"
+msgstr "Sécurité Inégalée"
+
+#: accounts/templates/accounts/dashboard.html:206
+msgid ""
+"We prioritize your data security with top-notch encryption and fraud "
+"prevention systems, ensuring peace of mind for every transaction."
+msgstr ""
+"Nous priorisons la sécurité de vos données avec des systèmes de chiffrement "
+"et de prévention des fraudes de premier ordre, assurant la tranquillité "
+"d'esprit pour chaque transaction."
+
+#: accounts/templates/accounts/dashboard.html:216
+msgid "Fast and Reliable"
+msgstr "Rapide et Fiable"
+
+#: accounts/templates/accounts/dashboard.html:219
+msgid ""
+"Enjoy quick payment processing and minimal downtime, so you can focus on "
+"what matters most: growing your business."
+msgstr ""
+"Profitez d'un traitement rapide des paiements et d'un temps d'arrêt minimal, "
+"pour vous concentrer sur l'essentiel : développer votre entreprise."
+
+#: accounts/templates/accounts/dashboard.html:229
+msgid "Satisfied Customers"
+msgstr "Clients Satisfaits"
+
+#: accounts/templates/accounts/dashboard.html:232
+msgid ""
+"Join thousands of happy clients who trust PayFlow for seamless and secure "
+"payment experiences."
+msgstr ""
+"Rejoignez des milliers de clients satisfaits qui font confiance à PayFlow "
+"pour des expériences de paiement fluides et sécurisées."
+
+#: accounts/templates/accounts/dashboard.html:251
+#: accounts/templates/accounts/team.html:11
+msgctxt "team"
+msgid "Our"
+msgstr "Notre"
+
+#: accounts/templates/accounts/dashboard.html:251
+#: accounts/templates/accounts/team.html:3
+#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:97
+#: accounts/templates/base.html:217
+msgid "Team"
+msgstr "Équipe"
+
+#: accounts/templates/accounts/dashboard.html:259
+#: accounts/templates/accounts/team.html:20
+msgid "Creator Image"
+msgstr "Image du Créateur"
+
+#: accounts/templates/accounts/dashboard.html:266
+#: accounts/templates/accounts/team.html:27
+msgid "Creator & Developer of PayFlow"
+msgstr "Créateur & Développeur de PayFlow"
+
+#: accounts/templates/accounts/dashboard.html:292
+msgid "What says our"
+msgstr "Ce que disent nos"
+
+#: accounts/templates/accounts/dashboard.html:292
+msgid "Customers"
+msgstr "Clients"
+
+#: accounts/templates/accounts/dashboard.html:309
+msgid "A great payment solution"
+msgstr "Une excellente solution de paiement"
+
+#: accounts/templates/accounts/dashboard.html:315
+msgid ""
+"PayFlow has made online transactions smoother for our platform. The "
+"integration was seamless, and we couldn't be happier with the support."
+msgstr ""
+"PayFlow a rendu les transactions en ligne plus fluides pour notre "
+"plateforme. L'intégration a été transparente, et nous ne pourrions pas être "
+"plus satisfaits du support."
+
+#: accounts/templates/accounts/dashboard.html:332
+msgid "Secure and reliable"
+msgstr "Sûr et fiable"
+
+#: accounts/templates/accounts/dashboard.html:338
+msgid ""
+"With PayFlow, we've seen a huge improvement in our payment process. The "
+"security features are top-notch, and the user experience is outstanding."
+msgstr ""
+"Avec PayFlow, nous avons constaté une énorme amélioration dans notre "
+"processus de paiement. Les fonctionnalités de sécurité sont excellentes et "
+"l'expérience utilisateur est exceptionnelle."
+
+#: accounts/templates/accounts/dashboard.html:355
+msgid "Highly recommended"
+msgstr "Fortement recommandé"
+
+#: accounts/templates/accounts/dashboard.html:361
+msgid ""
+"We’ve tried several payment gateways, but PayFlow stands out. It’s fast, "
+"efficient, and our customers love it. A game changer for our business!"
+msgstr ""
+"Nous avons essayé plusieurs passerelles de paiement, mais PayFlow se "
+"démarque. C'est rapide, efficace, et nos clients l'adorent. Un véritable "
+"changement pour notre entreprise !"
+
+#: accounts/templates/accounts/dashboard.html:378
+msgid "Exceptional service"
+msgstr "Service exceptionnel"
+
+#: accounts/templates/accounts/dashboard.html:384
+msgid ""
+"Their customer support is fantastic. Whenever we’ve had questions or issues, "
+"the team has been responsive and helpful. Truly reliable."
+msgstr ""
+"Leur service client est fantastique. Chaque fois que nous avons eu des "
+"questions ou des problèmes, l'équipe a été réactive et utile. Vraiment "
+"fiable."
+
+#: accounts/templates/accounts/dashboard.html:401
+msgid "Best payment gateway"
+msgstr "Meilleure passerelle de paiement"
+
+#: accounts/templates/accounts/dashboard.html:407
+msgid ""
+"PayFlow is by far the best payment solution we’ve used. It’s intuitive, "
+"robust, and offers great value for money. Highly recommended!"
+msgstr ""
+"PayFlow est de loin la meilleure solution de paiement que nous ayons "
+"utilisée. C'est intuitif, robuste et offre un excellent rapport qualité-"
+"prix. Fortement recommandé !"
+
+#: accounts/templates/accounts/dashboard.html:424
+msgid "Smooth integration"
+msgstr "Intégration fluide"
+
+#: accounts/templates/accounts/dashboard.html:430
+msgid ""
+"We switched to PayFlow for its ease of use and excellent integration "
+"options. It's a pleasure working with a system that just works flawlessly."
+msgstr ""
+"Nous sommes passés à PayFlow pour sa facilité d'utilisation et ses "
+"excellentes options d'intégration. C'est un plaisir de travailler avec un "
+"système qui fonctionne parfaitement."
+
+#: accounts/templates/accounts/edit_profile.html:4
+#: accounts/templates/accounts/edit_profile.html:9
+msgid "Edit Profile"
+msgstr "Modifier le Profil"
+
+#: accounts/templates/accounts/edit_profile.html:10
+msgid "Update your personal information below:"
+msgstr "Mettez à jour vos informations personnelles ci-dessous :"
+
+#: accounts/templates/accounts/edit_profile.html:14
+msgid "Please correct the errors below:"
+msgstr "Veuillez corriger les erreurs ci-dessous :"
+
+#: accounts/templates/accounts/edit_profile.html:28
+#: accounts/templates/accounts/profile.html:18
+msgid "First Name:"
+msgstr "Prénom :"
+
+#: accounts/templates/accounts/edit_profile.html:32
+#: accounts/templates/accounts/profile.html:22
+msgid "Last Name:"
+msgstr "Nom :"
+
+#: accounts/templates/accounts/edit_profile.html:36
+#: accounts/templates/accounts/profile.html:26
+#: accounts/templates/registration/password_reset_form.html:12
+#: payments/templates/payments/card.html:24
+msgid "Email:"
+msgstr "Email :"
+
+#: accounts/templates/accounts/edit_profile.html:40
+msgid "IBAN:"
+msgstr "IBAN :"
+
+#: accounts/templates/accounts/edit_profile.html:44
+msgid "Save Changes"
+msgstr "Enregistrer les Modifications"
+
+#: accounts/templates/accounts/profile.html:3
+#: accounts/templates/accounts/profile.html:8
+msgid "Profile Information"
+msgstr "Informations du Profil"
+
+#: accounts/templates/accounts/profile.html:12
+msgid "Your profile is incomplete."
+msgstr "Votre profil est incomplet."
+
+#: accounts/templates/accounts/profile.html:13
+msgid "Edit Your Profile"
+msgstr "Modifier Votre Profil"
+
+#: accounts/templates/accounts/profile.html:30
+msgid "Bank Account (IBAN):"
+msgstr "Compte Bancaire (IBAN) :"
+
+#: accounts/templates/accounts/services.html:15
+msgid ""
+"PayFlow offers a wide range of services designed to make online payments "
+"faster, safer, and more efficient for businesses and customers alike."
+msgstr ""
+"PayFlow propose une large gamme de services conçus pour rendre les paiements "
+"en ligne plus rapides, plus sûrs et plus efficaces pour les entreprises et "
+"les clients."
+
+#: accounts/templates/accounts/services.html:22
+#: accounts/templates/accounts/services.html:26
+msgid "Currency Wallet"
+msgstr "Portefeuille Multi-devises"
+
+#: accounts/templates/accounts/services.html:29
+msgid ""
+"Our Currency Wallet service allows businesses and customers to store, "
+"manage, and transfer multiple currencies with ease. It supports a wide range "
+"of digital currencies, ensuring smooth transactions across global markets."
+msgstr ""
+"Notre service de Portefeuille Multi-devises permet aux entreprises et aux "
+"clients de stocker, gérer et transférer facilement plusieurs devises. Il "
+"prend en charge une large gamme de devises numériques, assurant des "
+"transactions fluides sur les marchés mondiaux."
+
+#: accounts/templates/accounts/services.html:37
+#: accounts/templates/accounts/services.html:41
+msgid "Security Storage"
+msgstr "Stockage Sécurisé"
+
+#: accounts/templates/accounts/services.html:44
+msgid ""
+"PayFlow prioritizes the security of your transactions. Our Security Storage "
+"service employs state-of-the-art encryption technologies to safeguard "
+"sensitive data and ensure safe storage of financial records."
+msgstr ""
+"PayFlow donne la priorité à la sécurité de vos transactions. Notre service "
+"de Stockage Sécurisé utilise des technologies de chiffrement de pointe pour "
+"protéger les données sensibles et assurer un stockage sûr des documents "
+"financiers."
+
+#: accounts/templates/accounts/services.html:52
+#: accounts/templates/accounts/services.html:56
+msgid "Expert Support"
+msgstr "Support Expert"
+
+#: accounts/templates/accounts/services.html:59
+msgid ""
+"We offer expert customer support to assist businesses and customers in "
+"resolving any issues with transactions or integrations. Our dedicated "
+"support team is available 24/7 to ensure a smooth payment experience."
+msgstr ""
+"Nous offrons un support client expert pour aider les entreprises et les "
+"clients à résoudre tout problème de transactions ou d'intégrations. Notre "
+"équipe de support dédiée est disponible 24/7 pour assurer une expérience de "
+"paiement fluide."
+
+#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:94
+#: accounts/templates/base.html:216
+msgid "Why Us"
+msgstr "Pourquoi Nous"
+
+#: accounts/templates/accounts/why.html:18
+#: accounts/templates/accounts/why.html:22
+msgid "Expert Management"
+msgstr "Gestion Experte"
+
+#: accounts/templates/accounts/why.html:25
+msgid ""
+"PayFlow is managed by a team of experts with years of experience in payment "
+"processing and financial services. Our leadership ensures the highest "
+"quality of service, security, and customer satisfaction, keeping businesses "
+"and customers at the forefront of payment technology."
+msgstr ""
+"PayFlow est géré par une équipe d'experts ayant des années d'expérience dans "
+"le traitement des paiements et les services financiers. Notre direction "
+"assure la plus haute qualité de service, de sécurité et de satisfaction "
+"client, maintenant les entreprises et les clients à la pointe de la "
+"technologie de paiement."
+
+#: accounts/templates/accounts/why.html:31
+#: accounts/templates/accounts/why.html:35
+msgid "Secure Investment"
+msgstr "Investissement Sécurisé"
+
+#: accounts/templates/accounts/why.html:38
+msgid ""
+"At PayFlow, we prioritize the safety of your funds. Our platform uses "
+"advanced encryption technologies to ensure that your transactions are "
+"secure, making it a trusted choice for both businesses and individual "
+"investors."
+msgstr ""
+"Chez PayFlow, nous priorisons la sécurité de vos fonds. Notre plateforme "
+"utilise des technologies de chiffrement avancées pour garantir que vos "
+"transactions sont sécurisées, en faisant un choix de confiance pour les "
+"entreprises et les investisseurs individuels."
+
+#: accounts/templates/accounts/why.html:44
+#: accounts/templates/accounts/why.html:48
+msgid "Instant Trading"
+msgstr "Trading Instantané"
+
+#: accounts/templates/accounts/why.html:51
+msgid ""
+"PayFlow offers real-time payment processing, allowing for instant trade and "
+"quick transaction settlements. This helps businesses and customers complete "
+"payments without delays, ensuring a smooth experience for all parties "
+"involved."
+msgstr ""
+"PayFlow propose un traitement des paiements en temps réel, permettant des "
+"échanges instantanés et des règlements rapides des transactions. Cela aide "
+"les entreprises et les clients à effectuer des paiements sans délai, "
+"assurant une expérience fluide pour toutes les parties concernées."
+
+#: accounts/templates/accounts/why.html:57
+#: accounts/templates/accounts/why.html:61
+msgid "Happy Customers"
+msgstr "Clients Satisfaits"
+
+#: accounts/templates/accounts/why.html:64
+msgid ""
+"We pride ourselves on our outstanding customer service. PayFlow has helped "
+"thousands of businesses and customers successfully complete their "
+"transactions with ease, ensuring satisfaction and a positive payment "
+"experience."
+msgstr ""
+"Nous sommes fiers de notre service client exceptionnel. PayFlow a aidé des "
+"milliers d'entreprises et de clients à compléter leurs transactions avec "
+"facilité, assurant satisfaction et une expérience de paiement positive."
+
+#: accounts/templates/base.html:68
+msgid "Main panel"
+msgstr "Panneau Principal"
+
+#: accounts/templates/base.html:71
+msgid "Profile"
+msgstr "Profil"
+
+#: accounts/templates/base.html:74
+msgid "Edit profile"
+msgstr "Modifier le profil"
+
+#: accounts/templates/base.html:79
+msgid "Log-out"
+msgstr "Déconnexion"
+
+#: accounts/templates/base.html:84 accounts/templates/base.html:213
+msgid "Home"
+msgstr "Accueil"
+
+#: accounts/templates/base.html:101
+#: accounts/templates/registration/login.html:33
+#: accounts/templates/registration/password_reset_complete.html:10
+#: accounts/templates/registration/register_done.html:10
+msgid "Login"
+msgstr "Connexion"
+
+#: accounts/templates/base.html:170
+msgid "Address"
+msgstr "Adresse"
+
+#: accounts/templates/base.html:174
+msgid "Location"
+msgstr "Emplacement"
+
+#: accounts/templates/base.html:178
+msgid "Call +00 000000000"
+msgstr "Appelez +00 000000000"
+
+#: accounts/templates/base.html:182
+msgid "demo@gmail.com"
+msgstr "demo@gmail.com"
+
+#: accounts/templates/base.html:203
+msgid "Info"
+msgstr "Info"
+
+#: accounts/templates/base.html:204
+msgid ""
+"PayFlow provides secure and reliable payment solutions for businesses of all "
+"sizes. Enjoy seamless integration, real-time tracking, and 24/7 support."
+msgstr ""
+"PayFlow fournit des solutions de paiement sécurisées et fiables pour les "
+"entreprises de toutes tailles. Profitez d'une intégration transparente, d'un "
+"suivi en temps réel et d'un support 24/7."
+
+#: accounts/templates/base.html:211
+msgid "Links"
+msgstr "Liens"
+
+#: accounts/templates/base.html:222 accounts/templates/base.html:225
+msgid "Subscribe"
+msgstr "S'abonner"
+
+#: accounts/templates/base.html:224
+msgid "Enter email"
+msgstr "Entrer l'email"
+
+#: accounts/templates/base.html:237
+msgid "All Rights Reserved By"
+msgstr "Tous Droits Réservés Par"
+
+#: accounts/templates/registration/logged_out.html:3
+#: accounts/templates/registration/logged_out.html:7
+msgid "Logged Out"
+msgstr "Déconnecté"
+
+#: accounts/templates/registration/logged_out.html:8
+msgid "You have been successfully logged out. You can"
+msgstr "Vous avez été déconnecté avec succès. Vous pouvez"
+
+#: accounts/templates/registration/logged_out.html:9
+msgid "log in again"
+msgstr "vous reconnecter"
+
+#: accounts/templates/registration/login.html:4
+msgid "Log In"
+msgstr "Se Connecter"
+
+#: accounts/templates/registration/login.html:9
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+"Votre nom d'utilisateur et mot de passe ne correspondent pas. Veuillez "
+"réessayer."
+
+#: accounts/templates/registration/login.html:15
+msgid ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
+msgstr ""
+"Votre compte n'a pas accès à cette page. Pour continuer, veuillez vous "
+"connecter avec un compte qui a accès."
+
+#: accounts/templates/registration/login.html:18
+msgid "Please login to see this page."
+msgstr "Veuillez vous connecter pour voir cette page."
+
+#: accounts/templates/registration/login.html:38
+msgid "You don't have an account yet?"
+msgstr "Vous n'avez pas encore de compte ?"
+
+#: accounts/templates/registration/login.html:39
+msgid "Create one here"
+msgstr "Créez-en un ici"
+
+#: accounts/templates/registration/login.html:40
+msgid "You lost your password?"
+msgstr "Vous avez perdu votre mot de passe ?"
+
+#: accounts/templates/registration/login.html:41
+msgid "Reset password?"
+msgstr "Réinitialiser le mot de passe ?"
+
+#: accounts/templates/registration/password_reset_complete.html:3
+#: accounts/templates/registration/password_reset_confirm.html:4
+#: accounts/templates/registration/password_reset_confirm.html:8
+#: accounts/templates/registration/password_reset_done.html:3
+#: accounts/templates/registration/password_reset_form.html:3
+msgid "Password Reset"
+msgstr "Réinitialisation du Mot de Passe"
+
+#: accounts/templates/registration/password_reset_complete.html:7
+msgid "Password Reset Successful"
+msgstr "Réinitialisation du Mot de Passe Réussie"
+
+#: accounts/templates/registration/password_reset_complete.html:8
+msgid "Your password has been successfully reset."
+msgstr "Votre mot de passe a été réinitialisé avec succès."
+
+#: accounts/templates/registration/password_reset_complete.html:9
+msgid "You can now"
+msgstr "Vous pouvez maintenant"
+
+#: accounts/templates/registration/password_reset_confirm.html:10
+msgid "Enter your new password below:"
+msgstr "Entrez votre nouveau mot de passe ci-dessous :"
+
+#: accounts/templates/registration/password_reset_confirm.html:14
+msgid "New password:"
+msgstr "Nouveau mot de passe :"
+
+#: accounts/templates/registration/password_reset_confirm.html:18
+msgid "Repeat new password:"
+msgstr "Répétez le nouveau mot de passe :"
+
+#: accounts/templates/registration/password_reset_confirm.html:22
+msgid "Change password"
+msgstr "Changer le mot de passe"
+
+#: accounts/templates/registration/password_reset_confirm.html:27
+msgid ""
+"The link you followed to reset your password is incorrect or has already "
+"been used. Please restart the password reset process."
+msgstr ""
+"Le lien que vous avez suivi pour réinitialiser votre mot de passe est "
+"incorrect ou a déjà été utilisé. Veuillez recommencer le processus de "
+"réinitialisation."
+
+#: accounts/templates/registration/password_reset_done.html:7
+msgid "Password Reset Instructions"
+msgstr "Instructions de Réinitialisation du Mot de Passe"
+
+#: accounts/templates/registration/password_reset_done.html:9
+msgid ""
+"We have sent you an email with instructions to allow you to set a new "
+"password."
+msgstr ""
+"Nous vous avons envoyé un email avec des instructions pour vous permettre de "
+"définir un nouveau mot de passe."
+
+#: accounts/templates/registration/password_reset_done.html:11
+msgid ""
+"If you did not receive the email, please check that you entered the correct "
+"email address associated with your account."
+msgstr ""
+"Si vous n'avez pas reçu l'email, veuillez vérifier que vous avez saisi la "
+"bonne adresse email associée à votre compte."
+
+#: accounts/templates/registration/password_reset_email.html:2
+msgid ""
+"We have received a request to reset the password for a user using a email "
+"address"
+msgstr ""
+"Nous avons reçu une demande de réinitialisation du mot de passe pour un "
+"utilisateur utilisant une adresse email"
+
+#: accounts/templates/registration/password_reset_email.html:3
+msgid "Click the link below:"
+msgstr "Cliquez sur le lien ci-dessous :"
+
+#: accounts/templates/registration/password_reset_email.html:5
+msgid "Your username:"
+msgstr "Votre nom d'utilisateur :"
+
+#: accounts/templates/registration/password_reset_form.html:7
+msgid "Forgot Your Password?"
+msgstr "Mot de Passe Oublié ?"
+
+#: accounts/templates/registration/password_reset_form.html:9
+msgid ""
+"Enter your email address to receive instructions for resetting your password."
+msgstr ""
+"Entrez votre adresse email pour recevoir les instructions de "
+"réinitialisation de votre mot de passe."
+
+#: accounts/templates/registration/password_reset_form.html:16
+msgid "Send Email"
+msgstr "Envoyer l'Email"
+
+#: accounts/templates/registration/register.html:4
+msgid "User Registration"
+msgstr "Inscription Utilisateur"
+
+#: accounts/templates/registration/register.html:9
+msgid "Create an Account"
+msgstr "Créer un Compte"
+
+#: accounts/templates/registration/register.html:15
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: accounts/templates/registration/register.html:27
+msgid "First Name"
+msgstr "Prénom"
+
+#: accounts/templates/registration/register.html:39
+msgid "Last Name"
+msgstr "Nom"
+
+#: accounts/templates/registration/register.html:51
+msgid "Email"
+msgstr "Email"
+
+#: accounts/templates/registration/register.html:63
+msgid "Password"
+msgstr "Mot de passe"
+
+#: accounts/templates/registration/register.html:75
+msgid "Repeat Password"
+msgstr "Répéter le Mot de Passe"
+
+#: accounts/templates/registration/register.html:86
+msgid "Register"
+msgstr "S'inscrire"
+
+#: accounts/templates/registration/register.html:90
+msgid "Already have an account?"
+msgstr "Vous avez déjà un compte ?"
+
+#: accounts/templates/registration/register.html:90
+msgid "Login here"
+msgstr "Connectez-vous ici"
+
+#: accounts/templates/registration/register_done.html:3
+msgid "Welcome!"
+msgstr "Bienvenue !"
+
+#: accounts/templates/registration/register_done.html:7
+#, python-format
+msgid "Hello, %%s!"
+msgstr "Bonjour, %%s !"
+
+#: accounts/templates/registration/register_done.html:8
+msgid "Your account has been created successfully."
+msgstr "Votre compte a été créé avec succès."
+
+#: accounts/templates/registration/register_done.html:9
+msgid "You can now login to your account."
+msgstr "Vous pouvez maintenant vous connecter à votre compte."
+
+#: payment_gateway/settings.py:141
+msgid "English"
+msgstr "Anglais"
+
+#: payment_gateway/settings.py:142
+msgid "Polish"
+msgstr "Polonais"
+
+#: payment_gateway/settings.py:143
+msgid "Spanish"
+msgstr "Espagnol"
+
+#: payment_gateway/settings.py:144
+msgid "French"
+msgstr "Français"
+
+#: payment_gateway/settings.py:145
+msgid "Italian"
+msgstr "Italien"
+
+#: payment_gateway/settings.py:146
+msgid "German"
+msgstr "Allemand"
+
+#: payments/templates/payments/card.html:3
+msgid "Payment: Card"
+msgstr "Paiement : Carte"
+
+#: payments/templates/payments/card.html:13
+msgid "Order ID:"
+msgstr "ID de Commande :"
+
+#: payments/templates/payments/card.html:15
+msgid "Products:"
+msgstr "Produits :"
+
+#: payments/templates/payments/card.html:22
+msgid "Client Information:"
+msgstr "Informations Client :"
+
+#: payments/templates/payments/card.html:23
+msgid "Name:"
+msgstr "Nom :"
+
+#: payments/templates/payments/card.html:30
+msgid "Payment Details"
+msgstr "Détails du Paiement"
+
+#: payments/templates/payments/card.html:34
+msgid "Person Name"
+msgstr "Nom de la Personne"
+
+#: payments/templates/payments/card.html:35
+msgid "Name"
+msgstr "Nom"
+
+#: payments/templates/payments/card.html:41
+msgid "Card Number"
+msgstr "Numéro de Carte"
+
+#: payments/templates/payments/card.html:43
+msgid "1234 5678 435678"
+msgstr "1234 5678 435678"
+
+#: payments/templates/payments/card.html:48
+msgid "Expiry"
+msgstr "Expiration"
+
+#: payments/templates/payments/card.html:49
+msgid "MM/YYYY"
+msgstr "MM/AAAA"
+
+#: payments/templates/payments/card.html:54
+msgid "CVV/CVC"
+msgstr "CVV/CVC"
+
+#: payments/templates/payments/card.html:56
+msgid "***"
+msgstr "***"
+
+#: payments/templates/payments/card.html:61
+msgid "Pay"
+msgstr "Payer"
+
+#: payments/templates/payments/created_payment.html:3
+msgid "Payment Successful"
+msgstr "Paiement Réussi"
+
+#: payments/templates/payments/created_payment.html:12
+msgid "Payment Successful!"
+msgstr "Paiement Réussi !"
+
+#: payments/templates/payments/created_payment.html:13
+msgid "Your transaction number:"
+msgstr "Votre numéro de transaction :"
+
+#: payments/templates/payments/created_payment.html:17
+msgid "Redirecting you to your payment page shortly."
+msgstr "Redirection vers votre page de paiement en cours."
+
+#: payments/templates/payments/created_payment.html:18
+msgid "If you are not redirected, click the link below:"
+msgstr "Si vous n'êtes pas redirigé, cliquez sur le lien ci-dessous :"
+
+#: payments/templates/payments/created_payment.html:22
+msgid "Please wait..."
+msgstr "Veuillez patienter..."
+
+#: payments/templates/payments/error.html:4
+msgid "Error"
+msgstr "Erreur"
+
+#: payments/templates/payments/error.html:9
+msgid "Oops! Something went wrong."
+msgstr "Oups ! Quelque chose s'est mal passé."
+
+#: payments/templates/payments/error.html:11
+msgid "Back to Home"
+msgstr "Retour à l'Accueil"
