@@ -84,6 +84,14 @@ def payment_card(request, order_id, link_uuid):
                 return render(request, 'payments/error.html', {'error_message': str(e)})
             except Exception as e:
                 return render(request, 'payments/error.html', {'error_message':e })
+        else:
+            
+            return render(request, 'payments/card.html', {
+                'form': form, 
+                'order': order, 
+                'order_id': order_id, 
+                'link_uuid': link_uuid
+            })
                       
     else:
         if order.is_paid:

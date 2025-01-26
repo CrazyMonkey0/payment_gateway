@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 18:10+0000\n"
+"POT-Creation-Date: 2025-01-26 23:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -875,6 +875,42 @@ msgstr "Włoski"
 msgid "German"
 msgstr "Niemiecki"
 
+#: payments/forms.py:25
+#, fuzzy
+#| msgid "MM/YYYY"
+msgid "Expiry (MM/YYYY)"
+msgstr "Data ważności (MM/RRRR)"
+
+#: payments/forms.py:30
+msgid "Enter a valid date in MM/YYYY format"
+msgstr "Wprowadź poprawną datę w formacie MM/RRRR"
+
+#: payments/forms.py:47
+msgid "Unsupported card type"
+msgstr "Nieobsługiwany typ karty"
+
+#: payments/forms.py:54 payments/forms.py:59
+msgid "Card not found in our system."
+msgstr "Karta nie została znaleziona w naszym systemie."
+
+#: payments/forms.py:74
+msgid "There is no compatibility between such a CVC and such a card"
+msgstr "Brak zgodności między takim kodem CVC a taką kartą"
+
+#: payments/forms.py:80 payments/forms.py:84
+msgid "Wrong CVC"
+msgstr "Nieprawidłowy CVC"
+
+#: payments/forms.py:99
+msgid "There is no match between such a date and such a card"
+msgstr "Brak zgodności między taką datą a taką kartą"
+
+#: payments/forms.py:105 payments/forms.py:109
+#, fuzzy
+#| msgid "Expiry"
+msgid "Wrong Expiry"
+msgstr "Nieprawidłowa data ważności"
+
 #: payments/templates/payments/card.html:3
 msgid "Payment: Card"
 msgstr "Płatność: Karta"
@@ -899,39 +935,19 @@ msgstr "Imię:"
 msgid "Payment Details"
 msgstr "Szczegóły płatności"
 
-#: payments/templates/payments/card.html:34
-msgid "Person Name"
-msgstr "Imię i nazwisko"
-
-#: payments/templates/payments/card.html:35
-msgid "Name"
-msgstr "Nazwa"
-
-#: payments/templates/payments/card.html:41
+#: payments/templates/payments/card.html:47
 msgid "Card Number"
 msgstr "Numer karty"
 
-#: payments/templates/payments/card.html:43
-msgid "1234 5678 435678"
-msgstr "1234 5678 435678"
-
-#: payments/templates/payments/card.html:48
+#: payments/templates/payments/card.html:53
 msgid "Expiry"
 msgstr "Wygasa"
 
-#: payments/templates/payments/card.html:49
-msgid "MM/YYYY"
-msgstr "MM/RRRR"
-
-#: payments/templates/payments/card.html:54
+#: payments/templates/payments/card.html:59
 msgid "CVV/CVC"
 msgstr "CVV/CVC"
 
-#: payments/templates/payments/card.html:56
-msgid "***"
-msgstr "***"
-
-#: payments/templates/payments/card.html:61
+#: payments/templates/payments/card.html:65
 msgid "Pay"
 msgstr "Zapłać"
 
@@ -970,6 +986,18 @@ msgstr "Ups! Coś poszło nie tak."
 #: payments/templates/payments/error.html:11
 msgid "Back to Home"
 msgstr "Powrót do strony głównej"
+
+#~ msgid "Person Name"
+#~ msgstr "Imię i nazwisko"
+
+#~ msgid "Name"
+#~ msgstr "Nazwa"
+
+#~ msgid "1234 5678 435678"
+#~ msgstr "1234 5678 435678"
+
+#~ msgid "***"
+#~ msgstr "***"
 
 #~ msgid ""
 #~ "PayFlow offers a reliable and secure payment gateway for businesses..."

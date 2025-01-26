@@ -12,58 +12,66 @@
     <div class="payment-card-summary card box1 shadow-sm p-md-5 p-4">
         <h2 class="payment-order-id fw-bolder mb-4">{% trans "Order ID:" %} {{ order.id }}</h2>
 
+        <h3 class="payment-client-title">{% trans "Client Information:" %}</h3>
+        <p class="payment-client-info"><strong>{% trans "Name:" %}</strong> {{ order.client }}</p>
+        <p class="payment-client-info"><strong>{% trans "Email:" %}</strong> {{ order.client.email }}</p>
+        <p></p>
+
         <h3 class="payment-products-title">{% trans "Products:" %}</h3>
         <ul class="payment-products-list list-group mb-4">
             {% for o in order.products.all %}
             <li class="payment-product-item list-group-item">{{ o }}</li>
             {% endfor %}
         </ul>
-
-        <h3 class="payment-client-title">{% trans "Client Information:" %}</h3>
-        <p class="payment-client-info"><strong>{% trans "Name:" %}</strong> {{ order.client }}</p>
-        <p class="payment-client-info"><strong>{% trans "Email:" %}</strong> {{ order.client.email }}</p>
     </div>
 
     <!-- Payment Form -->
     <div class="payment-form-container container p-0">
         <div class="payment-form card px-4">
             <p class="payment-title h8 py-3">{% trans "Payment Details" %}</p>
-            <div class="row gx-3">
-                <div class="col-12">
-                    <div class="d-flex flex-column">
-                        <p class="payment-input-label text mb-1">{% trans "Person Name" %}</p>
-                        <input class="payment-input form-control mb-3" type="text" placeholder="{% trans 'Name' %}"
-                            value="{{ order.client }}">
+            <form action="{% url 'card' order_id=order_id link_uuid=link_uuid %}" method="post">
+                {% if form.errors %}
+                <div class="form-errors">
+                    <ul>
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% csrf_token %}
+                <div class="row gx-3">
+                    <div class="col-12">
+                        <div class="d-flex flex-column">
+                            <p class="payment-input-label text mb-1">{% trans "Card Number" %}</p>
+                            {{ form.id_card }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <p class="payment-input-label text mb-1">{% trans "Expiry" %}</p>
+                            {{ form.valid_until }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <p class="payment-input-label text mb-1">{% trans "CVV/CVC" %}</p>
+                            {{ form.cvc }}
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="payment-btn btn btn-primary mb-3">
+                            <span class="ps-3">{% trans "Pay" %} {{ order.total }}zł</span>
+                            <span class="fas fa-arrow-right"></span>
+                        </button>
                     </div>
                 </div>
-                <div class="col-12">
-                    <div class="d-flex flex-column">
-                        <p class="payment-input-label text mb-1">{% trans "Card Number" %}</p>
-                        <input class="payment-input form-control mb-3" type="text"
-                            placeholder="{% trans '1234 5678 435678' %}">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex flex-column">
-                        <p class="payment-input-label text mb-1">{% trans "Expiry" %}</p>
-                        <input class="payment-input form-control mb-3" type="text" placeholder="{% trans 'MM/YYYY' %}">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex flex-column">
-                        <p class="payment-input-label text mb-1">{% trans "CVV/CVC" %}</p>
-                        <input class="payment-input form-control mb-3 pt-2" type="password"
-                            placeholder="{% trans '***' %}">
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="payment-btn btn btn-primary mb-3">
-                        <span class="ps-3">{% trans "Pay" %} {{ order.total }}zł</span>
-                        <span class="fas fa-arrow-right"></span>
-                    </div>
-                </div>
-            </div>
+
+            </form>
         </div>
+
     </div>
 </div>
 {% endblock %}

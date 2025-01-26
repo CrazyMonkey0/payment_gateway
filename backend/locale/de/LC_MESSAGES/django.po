@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 18:10+0000\n"
+"POT-Creation-Date: 2025-01-26 23:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -889,6 +889,42 @@ msgstr "Italienisch"
 msgid "German"
 msgstr "Deutsch"
 
+#: payments/forms.py:25
+#, fuzzy
+#| msgid "MM/YYYY"
+msgid "Expiry (MM/YYYY)"
+msgstr "Ablaufdatum (MM/JJJJ)"
+
+#: payments/forms.py:30
+msgid "Enter a valid date in MM/YYYY format"
+msgstr "Geben Sie ein gültiges Datum im Format MM/JJJJ ein"
+
+#: payments/forms.py:47
+msgid "Unsupported card type"
+msgstr "Nicht unterstützter Kartentyp"
+
+#: payments/forms.py:54 payments/forms.py:59
+msgid "Card not found in our system."
+msgstr "Karte wurde in unserem System nicht gefunden."
+
+#: payments/forms.py:74
+msgid "There is no compatibility between such a CVC and such a card"
+msgstr "Es gibt keine Kompatibilität zwischen dieser CVC und dieser Karte"
+
+#: payments/forms.py:80 payments/forms.py:84
+msgid "Wrong CVC"
+msgstr "Falsche CVC"
+
+#: payments/forms.py:99
+msgid "There is no match between such a date and such a card"
+msgstr "Es gibt keine Übereinstimmung zwischen diesem Datum und dieser Karte"
+
+#: payments/forms.py:105 payments/forms.py:109
+#, fuzzy
+#| msgid "Expiry"
+msgid "Wrong Expiry"
+msgstr "Falsches Ablaufdatum"
+
 #: payments/templates/payments/card.html:3
 msgid "Payment: Card"
 msgstr "Zahlung: Karte"
@@ -913,39 +949,19 @@ msgstr "Name:"
 msgid "Payment Details"
 msgstr "Zahlungsdetails"
 
-#: payments/templates/payments/card.html:34
-msgid "Person Name"
-msgstr "Personenname"
-
-#: payments/templates/payments/card.html:35
-msgid "Name"
-msgstr "Name"
-
-#: payments/templates/payments/card.html:41
+#: payments/templates/payments/card.html:47
 msgid "Card Number"
 msgstr "Kartennummer"
 
-#: payments/templates/payments/card.html:43
-msgid "1234 5678 435678"
-msgstr "1234 5678 435678"
-
-#: payments/templates/payments/card.html:48
+#: payments/templates/payments/card.html:53
 msgid "Expiry"
 msgstr "Ablaufdatum"
 
-#: payments/templates/payments/card.html:49
-msgid "MM/YYYY"
-msgstr "MM/JJJJ"
-
-#: payments/templates/payments/card.html:54
+#: payments/templates/payments/card.html:59
 msgid "CVV/CVC"
 msgstr "CVV/CVC"
 
-#: payments/templates/payments/card.html:56
-msgid "***"
-msgstr "***"
-
-#: payments/templates/payments/card.html:61
+#: payments/templates/payments/card.html:65
 msgid "Pay"
 msgstr "Bezahlen"
 
@@ -984,3 +1000,15 @@ msgstr "Ups! Etwas ist schief gelaufen."
 #: payments/templates/payments/error.html:11
 msgid "Back to Home"
 msgstr "Zurück zur Startseite"
+
+#~ msgid "Person Name"
+#~ msgstr "Personenname"
+
+#~ msgid "Name"
+#~ msgstr "Name"
+
+#~ msgid "1234 5678 435678"
+#~ msgstr "1234 5678 435678"
+
+#~ msgid "***"
+#~ msgstr "***"

@@ -38,6 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 15px;
     padding: 0 15px;
     background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
     border: none;
@@ -73,7 +74,7 @@
     background-color: #0056b3;
 }
 
-.payment-input {
+form input {
     color: white;
     background-color: #223C60;
     border: 2px solid transparent;
@@ -83,7 +84,7 @@
     border-radius: 8px;
 }
 
-.payment-input:focus {
+form input:focus {
     color: white;
     background-color: #0C4160;
     border: 2px solid #2d4dda;
