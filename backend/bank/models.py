@@ -10,16 +10,19 @@ from . import iban
 
 def default_valid_until():
     """
-    Returns a default expiration date for cards.
+     Returns a default expiration date for cards in MM/YYYY format.
 
     This function calculates the default expiration date for cards by adding
-    730 days (2 years) to the current date and time obtained from the timezone module.
+    730 days (2 years) to the current date and time. Then it adjusts the day 
+    to the first day of the resulting month, and finally formats it as MM/YYYY.
 
     Returns:
-        datetime: The default expiration date for cards.
+        str: The default expiration date for cards in MM/YYYY format (e.g., "01/2027").
+    
     """
-    return timezone.now() + timedelta(days=730)
-
+    data = timezone.now() + timedelta(days=730)
+    expiry_date = data.replace(day=1)
+    return expiry_date.strftime('%m/%Y')
 
 class Bank(models.Model):
     """
@@ -114,8 +117,20 @@ class Transaction(models.Model):
             with transaction.atomic():
                 from_account.balance -= self.amount
                 from_account.save()
-                to_account.balance += self.amount
-                to_account.save()
+                Transaction.objects.create(
+                    bank = to_account,
+                    first_name = self.last_name,
+                    last_name = self.first_name,
+                    transaction_type = 'DEPOSIT',
+                    amount = self.amount,
+                    iban = from_account.iban
+                )
+
+        if self.transaction_type == 'DEPOSIT': 
+            acc = self.bank
+            acc.balance += self.amount
+            acc.save()
+            
         super().save(*args, **kwargs)
 
 
@@ -135,7 +150,10 @@ class Card(models.Model):
                                validators=[RegexValidator(r'^[0-9]*$'), MinLengthValidator(16)], unique=True)
     cvc = models.CharField(max_length=3, validators=[
                            RegexValidator(r'^[0-9]*$')])
-    valid_until = models.DateTimeField(default=default_valid_until)
+    valid_until = models.CharField(
+        max_length=7,  # MM/YYYY
+        validators=[RegexValidator(r'^\d{2}/\d{4}$')],
+        default=default_valid_until )
     is_valid = models.BooleanField(default=True)
 
     class Meta:
