@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-27 14:10+0000\n"
+"POT-Creation-Date: 2025-01-27 16:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 #: accounts/templates/accounts/about.html:3
 #: accounts/templates/accounts/about.html:12
 #: accounts/templates/accounts/dashboard.html:150
-#: accounts/templates/base.html:88 accounts/templates/base.html:214
+#: accounts/templates/base.html:93 accounts/templates/base.html:219
 msgid "About"
 msgstr "Über"
 
@@ -157,8 +157,8 @@ msgstr "Unsere"
 
 #: accounts/templates/accounts/dashboard.html:95
 #: accounts/templates/accounts/services.html:3
-#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:91
-#: accounts/templates/base.html:215
+#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:96
+#: accounts/templates/base.html:220
 msgid "Services"
 msgstr "Dienstleistungen"
 
@@ -310,8 +310,8 @@ msgstr "Unser"
 
 #: accounts/templates/accounts/dashboard.html:251
 #: accounts/templates/accounts/team.html:3
-#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:97
-#: accounts/templates/base.html:217
+#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:102
+#: accounts/templates/base.html:222
 msgid "Team"
 msgstr "Team"
 
@@ -423,7 +423,7 @@ msgstr "Aktualisieren Sie unten Ihre persönlichen Informationen:"
 #: accounts/templates/accounts/oauth2_register.html:15
 #: accounts/templates/accounts/oauth2_update.html:14
 msgid "Please correct the errors below:"
-msgstr "Bitte korrigieren Sie die unten stehenden Fehler:"
+msgstr "Bitte korrigieren Sie die Fehler unten:"
 
 #: accounts/templates/accounts/edit_profile.html:28
 #: accounts/templates/accounts/profile.html:18
@@ -453,46 +453,43 @@ msgid "Save Changes"
 msgstr "Änderungen speichern"
 
 #: accounts/templates/accounts/oauth2_register.html:4
-msgid "Edit Application"
-msgstr ""
-
-#: accounts/templates/accounts/oauth2_register.html:10
-msgid "Save the Secret key now because once saved it will be encrypted "
-msgstr ""
-
 #: accounts/templates/accounts/oauth2_register.html:11
 #, fuzzy
 #| msgid "User Registration"
 msgid "Register Application"
-msgstr "Benutzerregistrierung"
+msgstr "Anwendung registrieren"
+
+#: accounts/templates/accounts/oauth2_register.html:10
+msgid "Save the Secret key now because once saved it will be encrypted "
+msgstr "Speichern Sie den geheimen Schlüssel jetzt, da er nach dem Speichern verschlüsselt wird"
 
 #: accounts/templates/accounts/oauth2_register.html:30
 #: accounts/templates/accounts/oauth2_update.html:30
 msgid "Application Name:"
-msgstr ""
+msgstr "Anwendungsname:"
 
 #: accounts/templates/accounts/oauth2_register.html:34
 #: accounts/templates/accounts/oauth2_update.html:36
 #, fuzzy
 #| msgid "Client Information:"
 msgid "Client ID:"
-msgstr "Kundeninformationen:"
+msgstr "Client-ID:"
 
 #: accounts/templates/accounts/oauth2_register.html:38
 #, fuzzy
 #| msgid "Client Information:"
 msgid "Client Secret:"
-msgstr "Kundeninformationen:"
+msgstr "Client-Geheimnis:"
 
 #: accounts/templates/accounts/oauth2_register.html:42
 #: accounts/templates/accounts/oauth2_update.html:43
 msgid "Redirect URIs:"
-msgstr ""
+msgstr "Weiterleitungs-URIs:"
 
 #: accounts/templates/accounts/oauth2_update.html:4
 #: accounts/templates/accounts/oauth2_update.html:9
 msgid "Edit Your Application"
-msgstr ""
+msgstr "Ihre Anwendung bearbeiten"
 
 #: accounts/templates/accounts/oauth2_update.html:10
 #, fuzzy
@@ -573,8 +570,8 @@ msgstr ""
 "Unser engagiertes Support-Team ist rund um die Uhr verfügbar, um ein "
 "reibungsloses Zahlungserlebnis zu gewährleisten."
 
-#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:94
-#: accounts/templates/base.html:216
+#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:99
+#: accounts/templates/base.html:221
 msgid "Why Us"
 msgstr "Warum wir"
 
@@ -659,41 +656,47 @@ msgid "Edit profile"
 msgstr "Profil bearbeiten"
 
 #: accounts/templates/base.html:79
+#, fuzzy
+#| msgid "Expert Management"
+msgid "Application management "
+msgstr "Experten-Management"
+
+#: accounts/templates/base.html:84
 msgid "Log-out"
 msgstr "Abmelden"
 
-#: accounts/templates/base.html:84 accounts/templates/base.html:213
+#: accounts/templates/base.html:89 accounts/templates/base.html:218
 msgid "Home"
 msgstr "Startseite"
 
-#: accounts/templates/base.html:101
+#: accounts/templates/base.html:106
 #: accounts/templates/registration/login.html:33
 #: accounts/templates/registration/password_reset_complete.html:10
 #: accounts/templates/registration/register_done.html:10
 msgid "Login"
 msgstr "Anmelden"
 
-#: accounts/templates/base.html:170
+#: accounts/templates/base.html:175
 msgid "Address"
 msgstr "Adresse"
 
-#: accounts/templates/base.html:174
+#: accounts/templates/base.html:179
 msgid "Location"
 msgstr "Standort"
 
-#: accounts/templates/base.html:178
+#: accounts/templates/base.html:183
 msgid "Call +00 000000000"
 msgstr "Rufen Sie +00 000000000 an"
 
-#: accounts/templates/base.html:182
+#: accounts/templates/base.html:187
 msgid "demo@gmail.com"
 msgstr "demo@gmail.com"
 
-#: accounts/templates/base.html:203
+#: accounts/templates/base.html:208
 msgid "Info"
 msgstr "Info"
 
-#: accounts/templates/base.html:204
+#: accounts/templates/base.html:209
 msgid ""
 "PayFlow provides secure and reliable payment solutions for businesses of all "
 "sizes. Enjoy seamless integration, real-time tracking, and 24/7 support."
@@ -702,19 +705,19 @@ msgstr ""
 "aller Größen. Genießen Sie nahtlose Integration, Echtzeit-Tracking und 24/7-"
 "Support."
 
-#: accounts/templates/base.html:211
+#: accounts/templates/base.html:216
 msgid "Links"
 msgstr "Links"
 
-#: accounts/templates/base.html:222 accounts/templates/base.html:225
+#: accounts/templates/base.html:227 accounts/templates/base.html:230
 msgid "Subscribe"
 msgstr "Abonnieren"
 
-#: accounts/templates/base.html:224
+#: accounts/templates/base.html:229
 msgid "Enter email"
 msgstr "E-Mail eingeben"
 
-#: accounts/templates/base.html:237
+#: accounts/templates/base.html:242
 msgid "All Rights Reserved By"
 msgstr "Alle Rechte vorbehalten von"
 

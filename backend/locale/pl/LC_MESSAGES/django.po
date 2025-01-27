@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-27 14:10+0000\n"
+"POT-Creation-Date: 2025-01-27 16:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 #: accounts/templates/accounts/about.html:3
 #: accounts/templates/accounts/about.html:12
 #: accounts/templates/accounts/dashboard.html:150
-#: accounts/templates/base.html:88 accounts/templates/base.html:214
+#: accounts/templates/base.html:93 accounts/templates/base.html:219
 msgid "About"
 msgstr "O nas"
 
@@ -159,8 +159,8 @@ msgstr "Nasze"
 
 #: accounts/templates/accounts/dashboard.html:95
 #: accounts/templates/accounts/services.html:3
-#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:91
-#: accounts/templates/base.html:215
+#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:96
+#: accounts/templates/base.html:220
 msgid "Services"
 msgstr "Usługi"
 
@@ -303,8 +303,8 @@ msgstr "Nasz"
 
 #: accounts/templates/accounts/dashboard.html:251
 #: accounts/templates/accounts/team.html:3
-#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:97
-#: accounts/templates/base.html:217
+#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:102
+#: accounts/templates/base.html:222
 msgid "Team"
 msgstr "Zespół"
 
@@ -445,18 +445,15 @@ msgid "Save Changes"
 msgstr "Zapisz zmiany"
 
 #: accounts/templates/accounts/oauth2_register.html:4
-msgid "Edit Application"
-msgstr ""
-
-#: accounts/templates/accounts/oauth2_register.html:10
-msgid "Save the Secret key now because once saved it will be encrypted "
-msgstr ""
-
 #: accounts/templates/accounts/oauth2_register.html:11
 #, fuzzy
 #| msgid "User Registration"
 msgid "Register Application"
 msgstr "Rejestracja użytkownika"
+
+#: accounts/templates/accounts/oauth2_register.html:10
+msgid "Save the Secret key now because once saved it will be encrypted "
+msgstr ""
 
 #: accounts/templates/accounts/oauth2_register.html:30
 #: accounts/templates/accounts/oauth2_update.html:30
@@ -564,8 +561,8 @@ msgstr ""
 "problemów z transakcjami lub integracjami. Nasz dedykowany zespół wsparcia "
 "jest dostępny 24/7, aby zapewnić płynne doświadczenie płatnicze."
 
-#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:94
-#: accounts/templates/base.html:216
+#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:99
+#: accounts/templates/base.html:221
 msgid "Why Us"
 msgstr "Dlaczego my"
 
@@ -649,41 +646,47 @@ msgid "Edit profile"
 msgstr "Edytuj profil"
 
 #: accounts/templates/base.html:79
+#, fuzzy
+#| msgid "Expert Management"
+msgid "Application management "
+msgstr "Ekspercka administracja"
+
+#: accounts/templates/base.html:84
 msgid "Log-out"
 msgstr "Wyloguj"
 
-#: accounts/templates/base.html:84 accounts/templates/base.html:213
+#: accounts/templates/base.html:89 accounts/templates/base.html:218
 msgid "Home"
 msgstr "Strona główna"
 
-#: accounts/templates/base.html:101
+#: accounts/templates/base.html:106
 #: accounts/templates/registration/login.html:33
 #: accounts/templates/registration/password_reset_complete.html:10
 #: accounts/templates/registration/register_done.html:10
 msgid "Login"
 msgstr "Zaloguj"
 
-#: accounts/templates/base.html:170
+#: accounts/templates/base.html:175
 msgid "Address"
 msgstr "Adres"
 
-#: accounts/templates/base.html:174
+#: accounts/templates/base.html:179
 msgid "Location"
 msgstr "Lokalizacja"
 
-#: accounts/templates/base.html:178
+#: accounts/templates/base.html:183
 msgid "Call +00 000000000"
 msgstr "Zadzwoń pod +00 000000000"
 
-#: accounts/templates/base.html:182
+#: accounts/templates/base.html:187
 msgid "demo@gmail.com"
 msgstr "demo@gmail.com"
 
-#: accounts/templates/base.html:203
+#: accounts/templates/base.html:208
 msgid "Info"
 msgstr "Informacje"
 
-#: accounts/templates/base.html:204
+#: accounts/templates/base.html:209
 msgid ""
 "PayFlow provides secure and reliable payment solutions for businesses of all "
 "sizes. Enjoy seamless integration, real-time tracking, and 24/7 support."
@@ -692,19 +695,19 @@ msgstr ""
 "każdej wielkości.Ciesz się płynna integracją, śledzeniem w czasie "
 "rzeczywistym oraz wsparciem 24/7."
 
-#: accounts/templates/base.html:211
+#: accounts/templates/base.html:216
 msgid "Links"
 msgstr "Linki"
 
-#: accounts/templates/base.html:222 accounts/templates/base.html:225
+#: accounts/templates/base.html:227 accounts/templates/base.html:230
 msgid "Subscribe"
 msgstr "Subskrybuj"
 
-#: accounts/templates/base.html:224
+#: accounts/templates/base.html:229
 msgid "Enter email"
 msgstr "Wpisz email"
 
-#: accounts/templates/base.html:237
+#: accounts/templates/base.html:242
 msgid "All Rights Reserved By"
 msgstr "Wszystkie prawa zastrzeżone przez"
 
