@@ -1,8 +1,51 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from oauth2_provider.views.application import ApplicationRegistration
+from oauth2_provider.models import Application
 from .models import Profile
-from .forms import UserRegistrationForm, ProfileForm
+from .forms import UserRegistrationForm, ProfileForm, CustomRegistrationFormOAuth2
 from bank.models import Bank
+from oauth2_provider.models import generate_client_id, generate_client_secret
+
+
+class CustomRegistrationOAuth2(ApplicationRegistration):
+    template_name_create = "accounts/oauth2_register.html"
+    template_name_edit = "accounts/oauth2_update.html"
+
+    def get(self, request, *args, **kwargs):
+        app = Application.objects.filter(user=request.user).first()
+
+        if app:
+            form = CustomRegistrationFormOAuth2(instance=app)
+            return render(request, self.template_name_edit, {'form': form, 'application': app, 'section': 'manage_application'})
+        else:
+            form = CustomRegistrationFormOAuth2()
+            return render(request, self.template_name_create, {'form': form, 'section': 'manage_application'})
+
+    def post(self, request, *args, **kwargs):
+        app = Application.objects.filter(user=request.user).first()
+
+        if app:
+            form = CustomRegistrationFormOAuth2(request.POST, instance=app)
+            form.instance.client_id = app.client_id  
+        else:
+            form = CustomRegistrationFormOAuth2(request.POST)
+            if form.is_valid():
+                instance = form.save(commit=False)
+                instance.client_id = generate_client_id()
+                instance.client_secret = generate_client_secret()
+                instance.user = request.user
+                instance.save()
+                return render(request, self.template_name_edit, {'form': form, 'section': 'manage_application'})
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+
+        template_name = self.template_name_edit if app else self.template_name_create
+        return render(request, template_name, {'form': form, 'section': 'manage_application'})
+
 
 
 def register(request):

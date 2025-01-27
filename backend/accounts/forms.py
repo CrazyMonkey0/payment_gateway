@@ -1,6 +1,8 @@
 from django import forms
 from .models import Profile
 from bank.models import Bank
+from django.utils.translation import gettext_lazy as _
+from oauth2_provider.models import Application
 import re
 
 
@@ -73,3 +75,44 @@ class ProfileForm(forms.ModelForm):
             return cd['iban']
         else:
             raise forms.ValidationError("Incorrect IBAN")
+
+
+class CustomRegistrationFormOAuth2(forms.ModelForm):
+    """
+    OAuth2 Application Registration Form.
+
+    Attributes:
+        name (CharField): A field for entering the application's name.
+        client_id (CharField): A field for entering the OAuth2 client ID.
+        client_secret (CharField): A field for entering the OAuth2 client secret.
+        redirect_uris (CharField): A field for entering redirect URIs.
+
+    Methods:
+        __init__(self): Initializes the form with the appropriate attributes and placeholders.
+    """
+    
+    class Meta:
+        model = Application  # Linking the form to the Application model
+        fields = ['name', 'client_id', 'client_secret', 'redirect_uris']
+        
+    def __init__(self, *args, **kwargs):
+        """
+        Initializes the form and sets the appropriate field attributes.
+
+        It also adds placeholders and sets the default values for 'client_type' and 'authorization_grant_type'.
+        """
+        super().__init__(*args, **kwargs)
+
+        # Adding placeholder for 'name' field
+        self.fields['name'].widget.attrs.update({
+            'placeholder': _('Enter application name'),  # Placeholder translated
+        })
+
+        # Adding placeholder for 'redirect_uris' field
+        self.fields['redirect_uris'].widget.attrs.update({
+            'placeholder': _('Enter redirect URIs'),  # Placeholder translated
+        })
+
+        # Setting default values for 'client_type' and 'authorization_grant_type'
+        self.instance.client_type = Application.CLIENT_PUBLIC
+        self.instance.authorization_grant_type = Application.CLIENT_CONFIDENTIAL

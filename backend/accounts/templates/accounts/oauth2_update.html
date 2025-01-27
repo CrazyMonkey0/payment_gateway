@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit Your Application" %}{% endblock %}
+
+{% block content %}
+<div class="edit-application-container">
+    <div class="edit-application-card">
+        <h1 class="edit-application-title">{% trans "Edit Your Application" %}</h1>
+        <p class="edit-application-description">{% trans "Update your application details below:" %}</p>
+
+        {% if form.errors %}
+        <div class="edit-application-errors">
+            <h3>{% trans "Please correct the errors below:" %}</h3>
+            <ul>
+                {% for field in form %}
+                {% if field.errors %}
+                <li><strong>{{ field.label }}:</strong> {{ field.errors|join:", " }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <form method="post" class="edit-application-form">
+            {% csrf_token %}
+
+            <!-- Application Name (Editable) -->
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">{% trans "Application Name:" %}</label>
+                {{ form.name }}
+            </div>
+
+            <!-- Client ID (Non-editable) -->
+            <div class="form-group">
+                <label for="{{ form.client_id.id_for_label }}">{% trans "Client ID:" %}</label>
+                <input type="text" id="{{ form.client_id.id_for_label }}" name="{{ form.client_id.name }}"
+                    value="{{ form.client_id.value }}" readonly class="form-control" />
+            </div>
+
+            <!-- Redirect URIs (Editable) -->
+            <div class="form-group">
+                <label for="{{ form.redirect_uris.id_for_label }}">{% trans "Redirect URIs:" %}</label>
+                <textarea id="{{ form.redirect_uris.id_for_label }}" name="{{ form.redirect_uris.name }}" rows="4"
+                    class="redirect-uris-textarea">{{ form.redirect_uris.value }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn submit-btn">{% trans "Save Changes" %}</button>
+            </div>
+        </form>
+        <h5>If you need help with the application write to our support </h5>
+    </div>
+</div>
+{% endblock %}

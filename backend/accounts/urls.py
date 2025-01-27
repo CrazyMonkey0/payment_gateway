@@ -31,4 +31,5 @@ urlpatterns = [
     path('profile/', views.show_profile, name='show_profile'),
     # URL path to create profile and generated api-key
     path('profile/edit/', views.edit_profile, name='edit_profile'),
+    path('application/manage/', views.CustomRegistrationOAuth2.as_view(), name='manage_application'),
 ]
