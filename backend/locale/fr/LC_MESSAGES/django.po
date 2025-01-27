@@ -448,45 +448,45 @@ msgstr "Enregistrer les Modifications"
 #, fuzzy
 #| msgid "User Registration"
 msgid "Register Application"
-msgstr "Inscription Utilisateur"
+msgstr "Enregistrer l'Application"
 
 #: accounts/templates/accounts/oauth2_register.html:10
 msgid "Save the Secret key now because once saved it will be encrypted "
-msgstr ""
+msgstr "Sauvegardez la clé secrète maintenant car une fois enregistrée elle sera cryptée "
 
 #: accounts/templates/accounts/oauth2_register.html:30
 #: accounts/templates/accounts/oauth2_update.html:30
 msgid "Application Name:"
-msgstr ""
+msgstr "Nom de l'Application :"
 
 #: accounts/templates/accounts/oauth2_register.html:34
 #: accounts/templates/accounts/oauth2_update.html:36
 #, fuzzy
 #| msgid "Client Information:"
 msgid "Client ID:"
-msgstr "Informations Client :"
+msgstr "ID Client :"
 
 #: accounts/templates/accounts/oauth2_register.html:38
 #, fuzzy
 #| msgid "Client Information:"
 msgid "Client Secret:"
-msgstr "Informations Client :"
+msgstr "Secret Client :"
 
 #: accounts/templates/accounts/oauth2_register.html:42
 #: accounts/templates/accounts/oauth2_update.html:43
 msgid "Redirect URIs:"
-msgstr ""
+msgstr "URIs de Redirection :"
 
 #: accounts/templates/accounts/oauth2_update.html:4
 #: accounts/templates/accounts/oauth2_update.html:9
 msgid "Edit Your Application"
-msgstr ""
+msgstr "Modifier Votre Application"
 
 #: accounts/templates/accounts/oauth2_update.html:10
 #, fuzzy
 #| msgid "Update your personal information below:"
 msgid "Update your application details below:"
-msgstr "Mettez à jour vos informations personnelles ci-dessous :"
+msgstr "Mettez à jour les détails de votre application ci-dessous :"
 
 #: accounts/templates/accounts/profile.html:3
 #: accounts/templates/accounts/profile.html:8

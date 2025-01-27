@@ -449,29 +449,29 @@ msgstr "Zapisz zmiany"
 #, fuzzy
 #| msgid "User Registration"
 msgid "Register Application"
-msgstr "Rejestracja użytkownika"
+msgstr "Rejestracja aplikacji"
 
 #: accounts/templates/accounts/oauth2_register.html:10
 msgid "Save the Secret key now because once saved it will be encrypted "
-msgstr ""
+msgstr "Zapisz teraz klucz tajny, ponieważ po zapisaniu zostanie zaszyfrowany"
 
 #: accounts/templates/accounts/oauth2_register.html:30
 #: accounts/templates/accounts/oauth2_update.html:30
 msgid "Application Name:"
-msgstr ""
+msgstr "Nazwa aplikacji:"
 
 #: accounts/templates/accounts/oauth2_register.html:34
 #: accounts/templates/accounts/oauth2_update.html:36
 #, fuzzy
 #| msgid "Client Information:"
 msgid "Client ID:"
-msgstr "Informacje o kliencie:"
+msgstr "ID klienta:"
 
 #: accounts/templates/accounts/oauth2_register.html:38
 #, fuzzy
 #| msgid "Client Information:"
 msgid "Client Secret:"
-msgstr "Informacje o kliencie:"
+msgstr "Klucz tajny klienta:"
 
 #: accounts/templates/accounts/oauth2_register.html:42
 #: accounts/templates/accounts/oauth2_update.html:43
