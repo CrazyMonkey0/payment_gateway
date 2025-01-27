@@ -1045,7 +1045,7 @@ a:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vh;
   padding: 20px;
   background-color: #f8f9fa;
   font-family: 'Montserrat', sans-serif;
@@ -1085,6 +1085,7 @@ a:focus {
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  margin-top: 15px;
 }
 
 .edit-profile-btn:hover {

@@ -7,7 +7,7 @@
     <div class="profile-card">
         <h1 class="profile-title">{% trans "Profile Information" %}</h1>
 
-        {% if profile.iban is None %}
+        {% if  profile.iban %}
         <div class="empty-profile">
             <p>{% trans "Your profile is incomplete." %}</p>
             <a href="{% url 'edit_profile' %}" class="btn edit-profile-btn">{% trans "Edit Your Profile" %}</a>
@@ -30,6 +30,9 @@
                 <h3 class="profile-label">{% trans "Bank Account (IBAN):" %}</h3>
                 <p class="profile-value">{{ profile.iban }}</p>
             </div>
+        </div>
+        <div class="empty-profile">
+            <a href="{% url 'edit_profile' %}" class="btn edit-profile-btn">{% trans "Edit Your Profile" %}</a>
         </div>
         {% endif %}
     </div>

@@ -151,5 +151,5 @@ def edit_profile(request):
     else:
         form = ProfileForm(instance=profile)
 
-    return render(request, 'accounts/edit_profile.html', {'section': 'edit_profile',
+    return render(request, 'accounts/edit_profile.html', {'section': 'show_profile',
                                                           'form': form})

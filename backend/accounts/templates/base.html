@@ -70,9 +70,6 @@
                             <li class="{% if section == 'show_profile' %}nav-item active{% else %}nav-item{% endif %}">
                                 <a class="nav-link" href="{% url 'show_profile' %}">{% trans "Profile" %}</a>
                             </li>
-                            <li class="{% if section == 'edit_profile' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'edit_profile' %}">{% trans "Edit profile" %}</a>
-                            </li>
                             <li
                                 class="{% if section == 'manage_application' %}nav-item active{% else %}nav-item{% endif %}">
                                 <a class="nav-link"
