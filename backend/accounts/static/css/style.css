@@ -1189,4 +1189,62 @@ a:focus {
   background: linear-gradient(to bottom, #00295e, #0a0a0a);
 }
 
+.edit-application-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.edit-application-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.edit-application-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.edit-application-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.edit-application-errors {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.redirect-uris-textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.redirect-uris-textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.application-title-attention {
+  color: red;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

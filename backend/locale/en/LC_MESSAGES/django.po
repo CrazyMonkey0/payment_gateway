@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 23:10+0000\n"
+"POT-Creation-Date: 2025-01-27 14:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/forms.py:108
+msgid "Enter application name"
+msgstr ""
+
+#: accounts/forms.py:113
+msgid "Enter redirect URIs"
+msgstr ""
 
 #: accounts/templates/accounts/about.html:3
 #: accounts/templates/accounts/about.html:12
@@ -342,6 +350,8 @@ msgid "Update your personal information below:"
 msgstr ""
 
 #: accounts/templates/accounts/edit_profile.html:14
+#: accounts/templates/accounts/oauth2_register.html:15
+#: accounts/templates/accounts/oauth2_update.html:14
 msgid "Please correct the errors below:"
 msgstr ""
 
@@ -358,7 +368,7 @@ msgstr ""
 #: accounts/templates/accounts/edit_profile.html:36
 #: accounts/templates/accounts/profile.html:26
 #: accounts/templates/registration/password_reset_form.html:12
-#: payments/templates/payments/card.html:24
+#: payments/templates/payments/card.html:17
 msgid "Email:"
 msgstr ""
 
@@ -367,7 +377,49 @@ msgid "IBAN:"
 msgstr ""
 
 #: accounts/templates/accounts/edit_profile.html:44
+#: accounts/templates/accounts/oauth2_register.html:47
+#: accounts/templates/accounts/oauth2_update.html:49
 msgid "Save Changes"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:4
+msgid "Edit Application"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:10
+msgid "Save the Secret key now because once saved it will be encrypted "
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:11
+msgid "Register Application"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:30
+#: accounts/templates/accounts/oauth2_update.html:30
+msgid "Application Name:"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:34
+#: accounts/templates/accounts/oauth2_update.html:36
+msgid "Client ID:"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:38
+msgid "Client Secret:"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:42
+#: accounts/templates/accounts/oauth2_update.html:43
+msgid "Redirect URIs:"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_update.html:4
+#: accounts/templates/accounts/oauth2_update.html:9
+msgid "Edit Your Application"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_update.html:10
+msgid "Update your application details below:"
 msgstr ""
 
 #: accounts/templates/accounts/profile.html:3
@@ -736,8 +788,7 @@ msgid "Welcome!"
 msgstr ""
 
 #: accounts/templates/registration/register_done.html:7
-#, python-format
-msgid "Hello, %%s!"
+msgid "Hello, "
 msgstr ""
 
 #: accounts/templates/registration/register_done.html:8
@@ -813,34 +864,34 @@ msgid "Order ID:"
 msgstr ""
 
 #: payments/templates/payments/card.html:15
-msgid "Products:"
-msgstr ""
-
-#: payments/templates/payments/card.html:22
 msgid "Client Information:"
 msgstr ""
 
-#: payments/templates/payments/card.html:23
+#: payments/templates/payments/card.html:16
 msgid "Name:"
 msgstr ""
 
-#: payments/templates/payments/card.html:30
+#: payments/templates/payments/card.html:20
+msgid "Products:"
+msgstr ""
+
+#: payments/templates/payments/card.html:31
 msgid "Payment Details"
 msgstr ""
 
-#: payments/templates/payments/card.html:47
+#: payments/templates/payments/card.html:48
 msgid "Card Number"
 msgstr ""
 
-#: payments/templates/payments/card.html:53
+#: payments/templates/payments/card.html:54
 msgid "Expiry"
 msgstr ""
 
-#: payments/templates/payments/card.html:59
+#: payments/templates/payments/card.html:60
 msgid "CVV/CVC"
 msgstr ""
 
-#: payments/templates/payments/card.html:65
+#: payments/templates/payments/card.html:66
 msgid "Pay"
 msgstr ""
 

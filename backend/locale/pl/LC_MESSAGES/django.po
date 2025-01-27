@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 23:10+0000\n"
+"POT-Creation-Date: 2025-01-27 14:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,14 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: accounts/forms.py:108
+msgid "Enter application name"
+msgstr ""
+
+#: accounts/forms.py:113
+msgid "Enter redirect URIs"
+msgstr ""
 
 #: accounts/templates/accounts/about.html:3
 #: accounts/templates/accounts/about.html:12
@@ -404,6 +412,8 @@ msgid "Update your personal information below:"
 msgstr "Zaktualizuj swoje dane osobowe poniżej:"
 
 #: accounts/templates/accounts/edit_profile.html:14
+#: accounts/templates/accounts/oauth2_register.html:15
+#: accounts/templates/accounts/oauth2_update.html:14
 msgid "Please correct the errors below:"
 msgstr "Proszę poprawić poniższe błędy:"
 
@@ -420,7 +430,7 @@ msgstr "Nazwisko:"
 #: accounts/templates/accounts/edit_profile.html:36
 #: accounts/templates/accounts/profile.html:26
 #: accounts/templates/registration/password_reset_form.html:12
-#: payments/templates/payments/card.html:24
+#: payments/templates/payments/card.html:17
 msgid "Email:"
 msgstr "Email:"
 
@@ -429,8 +439,58 @@ msgid "IBAN:"
 msgstr "IBAN:"
 
 #: accounts/templates/accounts/edit_profile.html:44
+#: accounts/templates/accounts/oauth2_register.html:47
+#: accounts/templates/accounts/oauth2_update.html:49
 msgid "Save Changes"
 msgstr "Zapisz zmiany"
+
+#: accounts/templates/accounts/oauth2_register.html:4
+msgid "Edit Application"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:10
+msgid "Save the Secret key now because once saved it will be encrypted "
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:11
+#, fuzzy
+#| msgid "User Registration"
+msgid "Register Application"
+msgstr "Rejestracja użytkownika"
+
+#: accounts/templates/accounts/oauth2_register.html:30
+#: accounts/templates/accounts/oauth2_update.html:30
+msgid "Application Name:"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_register.html:34
+#: accounts/templates/accounts/oauth2_update.html:36
+#, fuzzy
+#| msgid "Client Information:"
+msgid "Client ID:"
+msgstr "Informacje o kliencie:"
+
+#: accounts/templates/accounts/oauth2_register.html:38
+#, fuzzy
+#| msgid "Client Information:"
+msgid "Client Secret:"
+msgstr "Informacje o kliencie:"
+
+#: accounts/templates/accounts/oauth2_register.html:42
+#: accounts/templates/accounts/oauth2_update.html:43
+msgid "Redirect URIs:"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_update.html:4
+#: accounts/templates/accounts/oauth2_update.html:9
+msgid "Edit Your Application"
+msgstr ""
+
+#: accounts/templates/accounts/oauth2_update.html:10
+#, fuzzy
+#| msgid "Update your personal information below:"
+msgid "Update your application details below:"
+msgstr "Zaktualizuj swoje dane osobowe poniżej:"
 
 #: accounts/templates/accounts/profile.html:3
 #: accounts/templates/accounts/profile.html:8
@@ -839,8 +899,9 @@ msgid "Welcome!"
 msgstr "Witaj!"
 
 #: accounts/templates/registration/register_done.html:7
-#, python-format
-msgid "Hello, %%s!"
+#, fuzzy
+#| msgid "Hello, %%s!"
+msgid "Hello, "
 msgstr "Witaj, %%s!"
 
 #: accounts/templates/registration/register_done.html:8
@@ -920,34 +981,34 @@ msgid "Order ID:"
 msgstr "ID zamówienia:"
 
 #: payments/templates/payments/card.html:15
-msgid "Products:"
-msgstr "Produkty:"
-
-#: payments/templates/payments/card.html:22
 msgid "Client Information:"
 msgstr "Informacje o kliencie:"
 
-#: payments/templates/payments/card.html:23
+#: payments/templates/payments/card.html:16
 msgid "Name:"
 msgstr "Imię:"
 
-#: payments/templates/payments/card.html:30
+#: payments/templates/payments/card.html:20
+msgid "Products:"
+msgstr "Produkty:"
+
+#: payments/templates/payments/card.html:31
 msgid "Payment Details"
 msgstr "Szczegóły płatności"
 
-#: payments/templates/payments/card.html:47
+#: payments/templates/payments/card.html:48
 msgid "Card Number"
 msgstr "Numer karty"
 
-#: payments/templates/payments/card.html:53
+#: payments/templates/payments/card.html:54
 msgid "Expiry"
 msgstr "Wygasa"
 
-#: payments/templates/payments/card.html:59
+#: payments/templates/payments/card.html:60
 msgid "CVV/CVC"
 msgstr "CVV/CVC"
 
-#: payments/templates/payments/card.html:65
+#: payments/templates/payments/card.html:66
 msgid "Pay"
 msgstr "Zapłać"
 

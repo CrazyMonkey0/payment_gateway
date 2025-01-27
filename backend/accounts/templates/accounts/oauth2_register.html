@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit Application" %}{% endblock %}
+
+{% block content %}
+<div class="edit-application-container">
+    <div class="edit-application-card">
+        <h1 class="application-title-attention">
+            {% trans "Save the Secret key now because once saved it will be encrypted " %}</h1>
+        <h1 class="edit-application-title">{% trans "Register Application" %}</h1>
+
+        {% if form.errors %}
+        <div class="edit-application-errors">
+            <h3>{% trans "Please correct the errors below:" %}</h3>
+            <ul>
+                {% for field in form %}
+                {% if field.errors %}
+                <li><strong>{{ field.label }}:</strong> {{ field.errors|join:", " }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <form method="post" class="edit-application-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">{% trans "Application Name:" %}</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.client_id.id_for_label }}">{% trans "Client ID:" %}</label>
+                {{ form.client_id }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.client_secret.id_for_label }}">{% trans "Client Secret:" %}</label>
+                {{ form.client_secret }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.redirect_uris.id_for_label }}">{% trans "Redirect URIs:" %}</label>
+                <textarea id="{{ form.redirect_uris.id_for_label }}" name="{{ form.redirect_uris.name }}" rows="4"
+                    class="redirect-uris-textarea"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn submit-btn">{% trans "Save Changes" %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
