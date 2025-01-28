@@ -1,18 +1,11 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load static i18n %}
 {% block title %}{% trans "Profile Information" %}{% endblock %}
 
 {% block content %}
 <div class="profile-container">
     <div class="profile-card">
         <h1 class="profile-title">{% trans "Profile Information" %}</h1>
-
-        {% if  profile.iban %}
-        <div class="empty-profile">
-            <p>{% trans "Your profile is incomplete." %}</p>
-            <a href="{% url 'edit_profile' %}" class="btn edit-profile-btn">{% trans "Edit Your Profile" %}</a>
-        </div>
-        {% else %}
         <div class="profile-info">
             <div class="profile-item">
                 <h3 class="profile-label">{% trans "First Name:" %}</h3>
@@ -34,7 +27,84 @@
         <div class="empty-profile">
             <a href="{% url 'edit_profile' %}" class="btn edit-profile-btn">{% trans "Edit Your Profile" %}</a>
         </div>
-        {% endif %}
+    </div>
+    <div class="transaction-summary-container">
+
+        <div class="profile-transaction">
+            <h2 class="transaction-summary-title">{% trans "Transaction Summary" %}</h2>
+            <p>{% trans "Balance" %}: {{ bank.balance}} zł</p>
+
+            <!-- Canvas container for the chart -->
+            <div class="chart-container">
+                <canvas id="TransactionChart" class="transaction-chart" style="width: 100%;"></canvas>
+            </div>
+        </div>
+
+        <!-- Inject transaction data into JavaScript -->
+        {{ transaction_data|json_script:"transaction-data" }}
+
     </div>
 </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Pass the translated labels from Django into JavaScript
+    const chartLabel = "{% trans 'Daily deposits to your account' %}";
+
+    // Fetch the transaction data from JSON
+    const transactionData = JSON.parse(document.getElementById('transaction-data').textContent);
+
+    // Prepare the data for the chart
+    const labels = transactionData.map(item => item.date);
+    const totals = transactionData.map(item => item.total);
+
+    // Create the Bar Chart with dynamic scaling for Y-axis
+    const ctx = document.getElementById('TransactionChart');
+    new Chart(ctx, {
+        type: 'bar', // Type of chart (bar chart)
+        data: {
+            labels: labels, // X-axis labels (dates)
+            datasets: [{
+                label: chartLabel, // Translated label for the dataset
+                data: totals, // Data for the Y-axis (totals)
+                backgroundColor: 'rgba(255, 0, 71)', // Bar background color
+                borderColor: 'rgba(255, 0, 71)', // Bar border color
+                borderWidth: 2, // Border width of the bars
+            }]
+        },
+        options: {
+            responsive: true, // Make the chart responsive to screen size
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top' // Position the legend at the top
+                },
+                tooltip: {
+                    callbacks: {
+                        // Custom tooltip content
+                        label: function (tooltipItem) {
+                            const total = tooltipItem.raw; // 'raw' gives the actual data value
+                            return total + ' zł'; // Append 'zł' to the total amount in the tooltip
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true, // Don't start Y-axis from 0
+                    ticks: {
+                        callback: function (value) {
+                            return value + ' zł'; // Append 'zł' to the ticks on the Y-axis
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
 {% endblock %}
