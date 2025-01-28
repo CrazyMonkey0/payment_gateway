@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-27 16:25+0000\n"
+"POT-Creation-Date: 2025-01-28 00:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,16 +20,16 @@ msgstr ""
 
 #: accounts/forms.py:108
 msgid "Enter application name"
-msgstr ""
+msgstr "Inserire il nome dell'applicazione"
 
 #: accounts/forms.py:113
 msgid "Enter redirect URIs"
-msgstr ""
+msgstr "Immettere gli URI di reindirizzamento"
 
 #: accounts/templates/accounts/about.html:3
 #: accounts/templates/accounts/about.html:12
 #: accounts/templates/accounts/dashboard.html:150
-#: accounts/templates/base.html:93 accounts/templates/base.html:219
+#: accounts/templates/base.html:90 accounts/templates/base.html:216
 msgid "About"
 msgstr "Informazioni"
 
@@ -154,8 +154,8 @@ msgstr "Nostro"
 
 #: accounts/templates/accounts/dashboard.html:95
 #: accounts/templates/accounts/services.html:3
-#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:96
-#: accounts/templates/base.html:220
+#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:93
+#: accounts/templates/base.html:217
 msgid "Services"
 msgstr "Servizi"
 
@@ -298,8 +298,8 @@ msgstr "Nostro"
 
 #: accounts/templates/accounts/dashboard.html:251
 #: accounts/templates/accounts/team.html:3
-#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:102
-#: accounts/templates/base.html:222
+#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:99
+#: accounts/templates/base.html:219
 msgid "Team"
 msgstr "Squadra"
 
@@ -414,17 +414,17 @@ msgid "Please correct the errors below:"
 msgstr "Si prega di correggere gli errori qui sotto:"
 
 #: accounts/templates/accounts/edit_profile.html:28
-#: accounts/templates/accounts/profile.html:18
+#: accounts/templates/accounts/profile.html:11
 msgid "First Name:"
 msgstr "Nome:"
 
 #: accounts/templates/accounts/edit_profile.html:32
-#: accounts/templates/accounts/profile.html:22
+#: accounts/templates/accounts/profile.html:15
 msgid "Last Name:"
 msgstr "Cognome:"
 
 #: accounts/templates/accounts/edit_profile.html:36
-#: accounts/templates/accounts/profile.html:26
+#: accounts/templates/accounts/profile.html:19
 #: accounts/templates/registration/password_reset_form.html:12
 #: payments/templates/payments/card.html:17
 msgid "Email:"
@@ -442,14 +442,13 @@ msgstr "Salva modifiche"
 
 #: accounts/templates/accounts/oauth2_register.html:4
 #: accounts/templates/accounts/oauth2_register.html:11
-#, fuzzy
-#| msgid "User Registration"
 msgid "Register Application"
 msgstr "Registra Applicazione"
 
 #: accounts/templates/accounts/oauth2_register.html:10
 msgid "Save the Secret key now because once saved it will be encrypted "
-msgstr "Salva ora la chiave segreta perché una volta salvata verrà crittografata"
+msgstr ""
+"Salva ora la chiave segreta perché una volta salvata verrà crittografata"
 
 #: accounts/templates/accounts/oauth2_register.html:30
 #: accounts/templates/accounts/oauth2_update.html:30
@@ -458,14 +457,10 @@ msgstr "Nome dell'applicazione:"
 
 #: accounts/templates/accounts/oauth2_register.html:34
 #: accounts/templates/accounts/oauth2_update.html:36
-#, fuzzy
-#| msgid "Client Information:"
 msgid "Client ID:"
 msgstr "ID Cliente:"
 
 #: accounts/templates/accounts/oauth2_register.html:38
-#, fuzzy
-#| msgid "Client Information:"
 msgid "Client Secret:"
 msgstr "Chiave segreta cliente:"
 
@@ -480,27 +475,38 @@ msgid "Edit Your Application"
 msgstr "Modifica la tua applicazione"
 
 #: accounts/templates/accounts/oauth2_update.html:10
-#, fuzzy
-#| msgid "Update your personal information below:"
 msgid "Update your application details below:"
 msgstr "Aggiorna i dettagli della tua applicazione qui sotto:"
+
+#: accounts/templates/accounts/oauth2_update.html:52
+msgid "If you need help with the application write to our support"
+msgstr ""
+"Se avete bisogno di aiuto con l'applicazione scrivete al nostro supporto"
 
 #: accounts/templates/accounts/profile.html:3
 #: accounts/templates/accounts/profile.html:8
 msgid "Profile Information"
 msgstr "Informazioni sul profilo"
 
-#: accounts/templates/accounts/profile.html:12
-msgid "Your profile is incomplete."
-msgstr "Il tuo profilo è incompleto."
+#: accounts/templates/accounts/profile.html:23
+msgid "Bank Account (IBAN):"
+msgstr "Conto bancario (IBAN):"
 
-#: accounts/templates/accounts/profile.html:13
+#: accounts/templates/accounts/profile.html:28
 msgid "Edit Your Profile"
 msgstr "Modifica il tuo profilo"
 
-#: accounts/templates/accounts/profile.html:30
-msgid "Bank Account (IBAN):"
-msgstr "Conto bancario (IBAN):"
+#: accounts/templates/accounts/profile.html:34
+msgid "Transaction Summary"
+msgstr "Transazioni"
+
+#: accounts/templates/accounts/profile.html:35
+msgid "Balance"
+msgstr "Equilibrio"
+
+#: accounts/templates/accounts/profile.html:55
+msgid "Daily deposits to your account"
+msgstr "Ora puoi accedere al tuo account."
 
 #: accounts/templates/accounts/services.html:15
 msgid ""
@@ -558,8 +564,8 @@ msgstr ""
 "nostro team di supporto dedicato è disponibile 24/7 per garantire "
 "un'esperienza di pagamento senza problemi."
 
-#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:99
-#: accounts/templates/base.html:221
+#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:96
+#: accounts/templates/base.html:218
 msgid "Why Us"
 msgstr "Perché scegliere"
 
@@ -617,8 +623,6 @@ msgstr ""
 
 #: accounts/templates/accounts/why.html:57
 #: accounts/templates/accounts/why.html:61
-#, fuzzy
-#| msgid "Customers"
 msgid "Happy Customers"
 msgstr "Clienti Felici"
 
@@ -638,59 +642,49 @@ msgid "Main panel"
 msgstr "Pannello principale"
 
 #: accounts/templates/base.html:71
-#, fuzzy
-#| msgid "Edit Profile"
 msgid "Profile"
 msgstr "Modifica profilo"
 
-#: accounts/templates/base.html:74
-#, fuzzy
-#| msgid "Edit Profile"
-msgid "Edit profile"
-msgstr "Modifica profilo"
-
-#: accounts/templates/base.html:79
-#, fuzzy
-#| msgid "Expert Management"
+#: accounts/templates/base.html:76
 msgid "Application management "
-msgstr "Gestione Esperta"
+msgstr "Gestione dell'applicazione"
 
-#: accounts/templates/base.html:84
+#: accounts/templates/base.html:81
 msgid "Log-out"
 msgstr "Disconnessione"
 
-#: accounts/templates/base.html:89 accounts/templates/base.html:218
+#: accounts/templates/base.html:86 accounts/templates/base.html:215
 msgid "Home"
 msgstr "Home"
 
-#: accounts/templates/base.html:106
+#: accounts/templates/base.html:103
 #: accounts/templates/registration/login.html:33
 #: accounts/templates/registration/password_reset_complete.html:10
 #: accounts/templates/registration/register_done.html:10
 msgid "Login"
 msgstr "Accedi"
 
-#: accounts/templates/base.html:175
+#: accounts/templates/base.html:172
 msgid "Address"
 msgstr "Indirizzo"
 
-#: accounts/templates/base.html:179
+#: accounts/templates/base.html:176
 msgid "Location"
 msgstr "Posizione"
 
-#: accounts/templates/base.html:183
+#: accounts/templates/base.html:180
 msgid "Call +00 000000000"
 msgstr "Chiama +00 000000000"
 
-#: accounts/templates/base.html:187
+#: accounts/templates/base.html:184
 msgid "demo@gmail.com"
 msgstr "demo@gmail.com"
 
-#: accounts/templates/base.html:208
+#: accounts/templates/base.html:205
 msgid "Info"
 msgstr "Informazioni"
 
-#: accounts/templates/base.html:209
+#: accounts/templates/base.html:206
 msgid ""
 "PayFlow provides secure and reliable payment solutions for businesses of all "
 "sizes. Enjoy seamless integration, real-time tracking, and 24/7 support."
@@ -699,19 +693,19 @@ msgstr ""
 "tutte le dimensioni. Goditi l'integrazione senza interruzioni, il "
 "monitoraggio in tempo reale e il supporto 24/7."
 
-#: accounts/templates/base.html:216
+#: accounts/templates/base.html:213
 msgid "Links"
 msgstr "Link"
 
-#: accounts/templates/base.html:227 accounts/templates/base.html:230
+#: accounts/templates/base.html:224 accounts/templates/base.html:227
 msgid "Subscribe"
 msgstr "Iscriviti"
 
-#: accounts/templates/base.html:229
+#: accounts/templates/base.html:226
 msgid "Enter email"
 msgstr "Inserisci email"
 
-#: accounts/templates/base.html:242
+#: accounts/templates/base.html:239
 msgid "All Rights Reserved By"
 msgstr "Tutti i diritti riservati da"
 
@@ -910,10 +904,8 @@ msgid "Welcome!"
 msgstr "Benvenuto!"
 
 #: accounts/templates/registration/register_done.html:7
-#, fuzzy
-#| msgid "Hello, %%s!"
 msgid "Hello, "
-msgstr "Ciao, %%s!"
+msgstr "Ciao, "
 
 #: accounts/templates/registration/register_done.html:8
 msgid "Your account has been created successfully."
@@ -948,8 +940,6 @@ msgid "German"
 msgstr "Tedesco"
 
 #: payments/forms.py:25
-#, fuzzy
-#| msgid "MM/YYYY"
 msgid "Expiry (MM/YYYY)"
 msgstr "Scadenza (MM/AAAA)"
 
@@ -978,8 +968,6 @@ msgid "There is no match between such a date and such a card"
 msgstr "Non c'è corrispondenza tra questa data e questa carta"
 
 #: payments/forms.py:105 payments/forms.py:109
-#, fuzzy
-#| msgid "Expiry"
 msgid "Wrong Expiry"
 msgstr "Scadenza errata"
 
@@ -1058,6 +1046,14 @@ msgstr "Ops! Qualcosa è andato storto."
 #: payments/templates/payments/error.html:11
 msgid "Back to Home"
 msgstr "Torna alla Home"
+
+#~ msgid "Your profile is incomplete."
+#~ msgstr "Il tuo profilo è incompleto."
+
+#, fuzzy
+#~| msgid "Edit Profile"
+#~ msgid "Edit profile"
+#~ msgstr "Modifica profilo"
 
 #~ msgid "Person Name"
 #~ msgstr "Nome Persona"

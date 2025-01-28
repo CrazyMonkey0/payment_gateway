@@ -1043,9 +1043,6 @@ a:focus {
 
 .profile-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
   padding: 20px;
   background-color: #f8f9fa;
   font-family: 'Montserrat', sans-serif;
@@ -1056,7 +1053,7 @@ a:focus {
   padding: 40px 30px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  max-width: 360px;
   width: 100%;
   text-align: center;
 }
@@ -1111,6 +1108,77 @@ a:focus {
   font-size: 1rem;
   color: #555;
   margin-top: 5px;
+}
+
+.transaction-summary-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-left: 20px;
+  background-color: #f8f9fa;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profile-transaction {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.transaction-summary-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.chart-container {
+  width: 100%;
+}
+
+.transaction-chart {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.transaction-summary-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 80%;
+}
+
+.profile-transaction {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .transaction-summary-container {
+    flex-direction: column;
+    /* Stack elements on smaller screens */
+  }
+
+  .profile-transaction {
+    width: 100%;
+    /* Ensure full width for the chart in small screens */
+    padding: 15px;
+  }
+
+  .transaction-summary-title {
+    font-size: 1.5rem;
+  }
+
+  .chart-container {
+    height: 300px;
+  }
 }
 
 .language-dropdown {
@@ -1247,5 +1315,3 @@ a:focus {
   font-size: 30px;
   padding-bottom: 10px;
 }
-
-/*# sourceMappingURL=style.css.map */

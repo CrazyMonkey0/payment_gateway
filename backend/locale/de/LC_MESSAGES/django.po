@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-27 16:25+0000\n"
+"POT-Creation-Date: 2025-01-28 00:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,16 +20,16 @@ msgstr ""
 
 #: accounts/forms.py:108
 msgid "Enter application name"
-msgstr ""
+msgstr "Name der Anwendung eingeben"
 
 #: accounts/forms.py:113
 msgid "Enter redirect URIs"
-msgstr ""
+msgstr "URIs für die Umleitung eingeben"
 
 #: accounts/templates/accounts/about.html:3
 #: accounts/templates/accounts/about.html:12
 #: accounts/templates/accounts/dashboard.html:150
-#: accounts/templates/base.html:93 accounts/templates/base.html:219
+#: accounts/templates/base.html:90 accounts/templates/base.html:216
 msgid "About"
 msgstr "Über"
 
@@ -157,8 +157,8 @@ msgstr "Unsere"
 
 #: accounts/templates/accounts/dashboard.html:95
 #: accounts/templates/accounts/services.html:3
-#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:96
-#: accounts/templates/base.html:220
+#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:93
+#: accounts/templates/base.html:217
 msgid "Services"
 msgstr "Dienstleistungen"
 
@@ -194,8 +194,6 @@ msgstr ""
 "Betrugsprävention und Verschlüsselung."
 
 #: accounts/templates/accounts/dashboard.html:131
-#, fuzzy
-#| msgid "Expert Support"
 msgid "24/7 Support"
 msgstr "24/7 Support"
 
@@ -220,8 +218,6 @@ msgstr ""
 "und nutzerorientierten Ansatz neu definieren."
 
 #: accounts/templates/accounts/dashboard.html:162
-#, fuzzy
-#| msgid "Your username:"
 msgid "Your Trusted Partner"
 msgstr "Ihr Benutzername:"
 
@@ -245,8 +241,6 @@ msgstr ""
 
 #: accounts/templates/accounts/dashboard.html:180
 #: accounts/templates/accounts/why.html:12
-#, fuzzy
-#| msgid "Why Us"
 msgid "Why Choose"
 msgstr "Warum wir"
 
@@ -275,8 +269,6 @@ msgstr ""
 "Betrugspräventionssystemen, die Ihnen bei jeder Transaktion Sicherheit geben."
 
 #: accounts/templates/accounts/dashboard.html:216
-#, fuzzy
-#| msgid "Secure and reliable"
 msgid "Fast and Reliable"
 msgstr "Sicher und zuverlässig"
 
@@ -289,8 +281,6 @@ msgstr ""
 "Sie sich auf das Wichtigste konzentrieren können: Ihr Geschäft auszubauen."
 
 #: accounts/templates/accounts/dashboard.html:229
-#, fuzzy
-#| msgid "Happy Customers"
 msgid "Satisfied Customers"
 msgstr "Zufriedene Kunden"
 
@@ -310,8 +300,8 @@ msgstr "Unser"
 
 #: accounts/templates/accounts/dashboard.html:251
 #: accounts/templates/accounts/team.html:3
-#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:102
-#: accounts/templates/base.html:222
+#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:99
+#: accounts/templates/base.html:219
 msgid "Team"
 msgstr "Team"
 
@@ -426,17 +416,17 @@ msgid "Please correct the errors below:"
 msgstr "Bitte korrigieren Sie die Fehler unten:"
 
 #: accounts/templates/accounts/edit_profile.html:28
-#: accounts/templates/accounts/profile.html:18
+#: accounts/templates/accounts/profile.html:11
 msgid "First Name:"
 msgstr "Vorname:"
 
 #: accounts/templates/accounts/edit_profile.html:32
-#: accounts/templates/accounts/profile.html:22
+#: accounts/templates/accounts/profile.html:15
 msgid "Last Name:"
 msgstr "Nachname:"
 
 #: accounts/templates/accounts/edit_profile.html:36
-#: accounts/templates/accounts/profile.html:26
+#: accounts/templates/accounts/profile.html:19
 #: accounts/templates/registration/password_reset_form.html:12
 #: payments/templates/payments/card.html:17
 msgid "Email:"
@@ -454,14 +444,14 @@ msgstr "Änderungen speichern"
 
 #: accounts/templates/accounts/oauth2_register.html:4
 #: accounts/templates/accounts/oauth2_register.html:11
-#, fuzzy
-#| msgid "User Registration"
 msgid "Register Application"
 msgstr "Anwendung registrieren"
 
 #: accounts/templates/accounts/oauth2_register.html:10
 msgid "Save the Secret key now because once saved it will be encrypted "
-msgstr "Speichern Sie den geheimen Schlüssel jetzt, da er nach dem Speichern verschlüsselt wird"
+msgstr ""
+"Speichern Sie den geheimen Schlüssel jetzt, da er nach dem Speichern "
+"verschlüsselt wird"
 
 #: accounts/templates/accounts/oauth2_register.html:30
 #: accounts/templates/accounts/oauth2_update.html:30
@@ -470,14 +460,10 @@ msgstr "Anwendungsname:"
 
 #: accounts/templates/accounts/oauth2_register.html:34
 #: accounts/templates/accounts/oauth2_update.html:36
-#, fuzzy
-#| msgid "Client Information:"
 msgid "Client ID:"
 msgstr "Client-ID:"
 
 #: accounts/templates/accounts/oauth2_register.html:38
-#, fuzzy
-#| msgid "Client Information:"
 msgid "Client Secret:"
 msgstr "Client-Geheimnis:"
 
@@ -492,27 +478,38 @@ msgid "Edit Your Application"
 msgstr "Ihre Anwendung bearbeiten"
 
 #: accounts/templates/accounts/oauth2_update.html:10
-#, fuzzy
-#| msgid "Update your personal information below:"
 msgid "Update your application details below:"
 msgstr "Aktualisieren Sie unten Ihre persönlichen Informationen:"
+
+#: accounts/templates/accounts/oauth2_update.html:52
+msgid "If you need help with the application write to our support"
+msgstr ""
+"Wenn Sie Hilfe bei der Bewerbung benötigen, schreiben Sie an unseren Support"
 
 #: accounts/templates/accounts/profile.html:3
 #: accounts/templates/accounts/profile.html:8
 msgid "Profile Information"
 msgstr "Profilinformationen"
 
-#: accounts/templates/accounts/profile.html:12
-msgid "Your profile is incomplete."
-msgstr "Ihr Profil ist unvollständig."
+#: accounts/templates/accounts/profile.html:23
+msgid "Bank Account (IBAN):"
+msgstr "Bankkonto (IBAN):"
 
-#: accounts/templates/accounts/profile.html:13
+#: accounts/templates/accounts/profile.html:28
 msgid "Edit Your Profile"
 msgstr "Bearbeiten Sie Ihr Profil"
 
-#: accounts/templates/accounts/profile.html:30
-msgid "Bank Account (IBAN):"
-msgstr "Bankkonto (IBAN):"
+#: accounts/templates/accounts/profile.html:34
+msgid "Transaction Summary"
+msgstr "Transaktionen"
+
+#: accounts/templates/accounts/profile.html:35
+msgid "Balance"
+msgstr "Bilanz"
+
+#: accounts/templates/accounts/profile.html:55
+msgid "Daily deposits to your account"
+msgstr "Sie können sich jetzt in Ihr Konto einloggen."
 
 #: accounts/templates/accounts/services.html:15
 msgid ""
@@ -570,8 +567,8 @@ msgstr ""
 "Unser engagiertes Support-Team ist rund um die Uhr verfügbar, um ein "
 "reibungsloses Zahlungserlebnis zu gewährleisten."
 
-#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:99
-#: accounts/templates/base.html:221
+#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:96
+#: accounts/templates/base.html:218
 msgid "Why Us"
 msgstr "Warum wir"
 
@@ -651,52 +648,46 @@ msgstr "Hauptpanel"
 msgid "Profile"
 msgstr "Profil"
 
-#: accounts/templates/base.html:74
-msgid "Edit profile"
-msgstr "Profil bearbeiten"
-
-#: accounts/templates/base.html:79
-#, fuzzy
-#| msgid "Expert Management"
+#: accounts/templates/base.html:76
 msgid "Application management "
-msgstr "Experten-Management"
+msgstr "Verwaltung der Anwendungen"
 
-#: accounts/templates/base.html:84
+#: accounts/templates/base.html:81
 msgid "Log-out"
 msgstr "Abmelden"
 
-#: accounts/templates/base.html:89 accounts/templates/base.html:218
+#: accounts/templates/base.html:86 accounts/templates/base.html:215
 msgid "Home"
 msgstr "Startseite"
 
-#: accounts/templates/base.html:106
+#: accounts/templates/base.html:103
 #: accounts/templates/registration/login.html:33
 #: accounts/templates/registration/password_reset_complete.html:10
 #: accounts/templates/registration/register_done.html:10
 msgid "Login"
 msgstr "Anmelden"
 
-#: accounts/templates/base.html:175
+#: accounts/templates/base.html:172
 msgid "Address"
 msgstr "Adresse"
 
-#: accounts/templates/base.html:179
+#: accounts/templates/base.html:176
 msgid "Location"
 msgstr "Standort"
 
-#: accounts/templates/base.html:183
+#: accounts/templates/base.html:180
 msgid "Call +00 000000000"
 msgstr "Rufen Sie +00 000000000 an"
 
-#: accounts/templates/base.html:187
+#: accounts/templates/base.html:184
 msgid "demo@gmail.com"
 msgstr "demo@gmail.com"
 
-#: accounts/templates/base.html:208
+#: accounts/templates/base.html:205
 msgid "Info"
 msgstr "Info"
 
-#: accounts/templates/base.html:209
+#: accounts/templates/base.html:206
 msgid ""
 "PayFlow provides secure and reliable payment solutions for businesses of all "
 "sizes. Enjoy seamless integration, real-time tracking, and 24/7 support."
@@ -705,19 +696,19 @@ msgstr ""
 "aller Größen. Genießen Sie nahtlose Integration, Echtzeit-Tracking und 24/7-"
 "Support."
 
-#: accounts/templates/base.html:216
+#: accounts/templates/base.html:213
 msgid "Links"
 msgstr "Links"
 
-#: accounts/templates/base.html:227 accounts/templates/base.html:230
+#: accounts/templates/base.html:224 accounts/templates/base.html:227
 msgid "Subscribe"
 msgstr "Abonnieren"
 
-#: accounts/templates/base.html:229
+#: accounts/templates/base.html:226
 msgid "Enter email"
 msgstr "E-Mail eingeben"
 
-#: accounts/templates/base.html:242
+#: accounts/templates/base.html:239
 msgid "All Rights Reserved By"
 msgstr "Alle Rechte vorbehalten von"
 
@@ -916,10 +907,8 @@ msgid "Welcome!"
 msgstr "Willkommen!"
 
 #: accounts/templates/registration/register_done.html:7
-#, fuzzy
-#| msgid "Hello, %%s!"
 msgid "Hello, "
-msgstr "Hallo, %%s!"
+msgstr "Hallo, "
 
 #: accounts/templates/registration/register_done.html:8
 msgid "Your account has been created successfully."
@@ -954,8 +943,6 @@ msgid "German"
 msgstr "Deutsch"
 
 #: payments/forms.py:25
-#, fuzzy
-#| msgid "MM/YYYY"
 msgid "Expiry (MM/YYYY)"
 msgstr "Ablaufdatum (MM/JJJJ)"
 
@@ -984,8 +971,6 @@ msgid "There is no match between such a date and such a card"
 msgstr "Es gibt keine Übereinstimmung zwischen diesem Datum und dieser Karte"
 
 #: payments/forms.py:105 payments/forms.py:109
-#, fuzzy
-#| msgid "Expiry"
 msgid "Wrong Expiry"
 msgstr "Falsches Ablaufdatum"
 
@@ -1064,6 +1049,12 @@ msgstr "Ups! Etwas ist schief gelaufen."
 #: payments/templates/payments/error.html:11
 msgid "Back to Home"
 msgstr "Zurück zur Startseite"
+
+#~ msgid "Your profile is incomplete."
+#~ msgstr "Ihr Profil ist unvollständig."
+
+#~ msgid "Edit profile"
+#~ msgstr "Profil bearbeiten"
 
 #~ msgid "Person Name"
 #~ msgstr "Personenname"
