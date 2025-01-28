@@ -35,7 +35,6 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     # Adding an application here to use your own templates
     'accounts.apps.AccountsConfig',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,7 +48,9 @@ INSTALLED_APPS = [
     'oauth2_provider',
     # CORS
     'corsheaders',
+    'channels',
     # Myapp
+    'support.apps.SupportConfig',
     'payments.apps.PaymentsConfig',
     'bank.apps.BankConfig',
 ]
