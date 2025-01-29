@@ -13,11 +13,11 @@ services:
     build: .
     working_dir: /code/backend
     entrypoint: /entrypoint.sh
-    command: python manage.py runserver_plus --cert-file cert.pem 0.0.0.0:8000
+    command: daphne -e ssl:443:privateKey=key.pem:certKey=cert.pem payment_gateway.asgi:application
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - "8000:443"
     environment:
       - POSTGRES_DB=payment_gateway
       - POSTGRES_USER=postgres

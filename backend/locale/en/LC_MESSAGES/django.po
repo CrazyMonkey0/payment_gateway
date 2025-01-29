@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 00:08+0000\n"
+"POT-Creation-Date: 2025-01-29 03:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,7 @@ msgstr ""
 #: accounts/templates/accounts/about.html:12
 #: accounts/templates/accounts/dashboard.html:150
 #: accounts/templates/base.html:90 accounts/templates/base.html:216
+#: support/templates/chat/chat.html:3
 msgid "About"
 msgstr ""
 
@@ -808,27 +809,27 @@ msgstr ""
 msgid "You can now login to your account."
 msgstr ""
 
-#: payment_gateway/settings.py:141
+#: payment_gateway/settings.py:143
 msgid "Polish"
 msgstr ""
 
-#: payment_gateway/settings.py:142
+#: payment_gateway/settings.py:144
 msgid "English"
 msgstr ""
 
-#: payment_gateway/settings.py:143
+#: payment_gateway/settings.py:145
 msgid "Spanish"
 msgstr ""
 
-#: payment_gateway/settings.py:144
+#: payment_gateway/settings.py:146
 msgid "French"
 msgstr ""
 
-#: payment_gateway/settings.py:145
+#: payment_gateway/settings.py:147
 msgid "Italian"
 msgstr ""
 
-#: payment_gateway/settings.py:146
+#: payment_gateway/settings.py:148
 msgid "German"
 msgstr ""
 
