@@ -1,17 +1,20 @@
 import os
-from django.urls import path
 from django.core.asgi import get_asgi_application
-from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
-from support import consumers
+from channels.routing import ProtocolTypeRouter, URLRouter
+
+
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'payment_gateway.settings')
+django_asgi_app = get_asgi_application()
+
+import support.routing 
 
 application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
+    'http': django_asgi_app,
     "websocket": AuthMiddlewareStack(
-        URLRouter([
-            path("ws/chat/", consumers.ChatConsumer.as_asgi()),
-        ])
+        URLRouter(
+            support.routing.websocket_urlpatterns
+        )
     ),
 })

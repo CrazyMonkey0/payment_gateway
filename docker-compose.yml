@@ -22,6 +22,8 @@ services:
       - POSTGRES_DB=payment_gateway
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - PYTHONPATH=/code/backend
+      - DJANGO_SETTINGS_MODULE=payment_gateway.settings
     depends_on:
       - db
     networks:

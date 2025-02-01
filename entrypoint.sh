@@ -13,5 +13,5 @@ django-admin makemessages -l it
 django-admin makemessages -l de
 
 django-admin compilemessages
-
+# python manage.py collectstatic
 exec "$@"

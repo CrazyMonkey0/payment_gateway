@@ -206,7 +206,7 @@ REST_FRAMEWORK = {
 
 # Model used for authentication
 AUTH_USER_MODEL = 'accounts.Profile'
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
 
 # Session settings
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -243,3 +243,5 @@ CHANNEL_LAYERS = {
         },
     },
 }
+import django 
+django.setup()  
