@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 05:42+0000\n"
+"POT-Creation-Date: 2025-02-03 05:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr "Introducir URI de redireccionamiento"
 #: accounts/templates/accounts/about.html:3
 #: accounts/templates/accounts/about.html:12
 #: accounts/templates/accounts/dashboard.html:150
-#: accounts/templates/base.html:91 accounts/templates/base.html:217
+#: accounts/templates/base.html:94 accounts/templates/base.html:220
 msgid "About"
 msgstr "Acerca de"
 
@@ -156,8 +156,8 @@ msgstr "Nuestros"
 
 #: accounts/templates/accounts/dashboard.html:95
 #: accounts/templates/accounts/services.html:3
-#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:94
-#: accounts/templates/base.html:218
+#: accounts/templates/accounts/services.html:12 accounts/templates/base.html:97
+#: accounts/templates/base.html:221
 msgid "Services"
 msgstr "Servicios"
 
@@ -301,8 +301,8 @@ msgstr "Nuestro"
 
 #: accounts/templates/accounts/dashboard.html:251
 #: accounts/templates/accounts/team.html:3
-#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:100
-#: accounts/templates/base.html:220
+#: accounts/templates/accounts/team.html:11 accounts/templates/base.html:103
+#: accounts/templates/base.html:223
 msgid "Team"
 msgstr "Equipo"
 
@@ -565,8 +565,8 @@ msgstr ""
 "equipo de soporte dedicado está disponible 24/7 para asegurar una "
 "experiencia de pago fluida."
 
-#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:97
-#: accounts/templates/base.html:219
+#: accounts/templates/accounts/why.html:3 accounts/templates/base.html:100
+#: accounts/templates/base.html:222
 msgid "Why Us"
 msgstr "Por qué Nosotros"
 
@@ -651,42 +651,48 @@ msgstr "Perfil"
 msgid "Application management "
 msgstr "Gestión de la aplicación"
 
-#: accounts/templates/base.html:82
+#: accounts/templates/base.html:80
+#, fuzzy
+#| msgid "24/7 Support"
+msgid "Support"
+msgstr "Soporte 24/7"
+
+#: accounts/templates/base.html:85
 msgid "Log-out"
 msgstr "Cerrar sesión"
 
-#: accounts/templates/base.html:87 accounts/templates/base.html:216
+#: accounts/templates/base.html:90 accounts/templates/base.html:219
 msgid "Home"
 msgstr "Inicio"
 
-#: accounts/templates/base.html:104
+#: accounts/templates/base.html:107
 #: accounts/templates/registration/login.html:33
 #: accounts/templates/registration/password_reset_complete.html:10
 #: accounts/templates/registration/register_done.html:10
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: accounts/templates/base.html:173
+#: accounts/templates/base.html:176
 msgid "Address"
 msgstr "Dirección"
 
-#: accounts/templates/base.html:177
+#: accounts/templates/base.html:180
 msgid "Location"
 msgstr "Ubicación"
 
-#: accounts/templates/base.html:181
+#: accounts/templates/base.html:184
 msgid "Call +00 000000000"
 msgstr "Llame al +00 000000000"
 
-#: accounts/templates/base.html:185
+#: accounts/templates/base.html:188
 msgid "demo@gmail.com"
 msgstr "demo@gmail.com"
 
-#: accounts/templates/base.html:206
+#: accounts/templates/base.html:209
 msgid "Info"
 msgstr "Información"
 
-#: accounts/templates/base.html:207
+#: accounts/templates/base.html:210
 msgid ""
 "PayFlow provides secure and reliable payment solutions for businesses of all "
 "sizes. Enjoy seamless integration, real-time tracking, and 24/7 support."
@@ -695,19 +701,19 @@ msgstr ""
 "todos los tamaños. Disfrute de integración perfecta, seguimiento en tiempo "
 "real y soporte 24/7."
 
-#: accounts/templates/base.html:214
+#: accounts/templates/base.html:217
 msgid "Links"
 msgstr "Enlaces"
 
-#: accounts/templates/base.html:225 accounts/templates/base.html:228
+#: accounts/templates/base.html:228 accounts/templates/base.html:231
 msgid "Subscribe"
 msgstr "Suscribirse"
 
-#: accounts/templates/base.html:227
+#: accounts/templates/base.html:230
 msgid "Enter email"
 msgstr "Ingrese correo electrónico"
 
-#: accounts/templates/base.html:240
+#: accounts/templates/base.html:243
 msgid "All Rights Reserved By"
 msgstr "Todos los derechos reservados por"
 
@@ -1048,6 +1054,54 @@ msgstr "¡Ups! Algo salió mal."
 #: payments/templates/payments/error.html:11
 msgid "Back to Home"
 msgstr "Volver al Inicio"
+
+#: support/templates/support/chats.html:3
+msgid "Chat Rooms"
+msgstr "Salas de Chat"
+
+#: support/templates/support/chats.html:15
+msgid "Rooms"
+msgstr "Salas"
+
+#: support/templates/support/chats.html:16
+msgid "Create Room"
+msgstr "Crear Sala"
+
+#: support/templates/support/chats.html:25
+msgid "No rooms available"
+msgstr "No hay salas disponibles"
+
+#: support/templates/support/chats.html:32
+msgid "Select a Room"
+msgstr "Seleccionar una Sala"
+
+#: support/templates/support/chats.html:39
+msgid "Type a message"
+msgstr "Escribe un mensaje"
+
+#: support/templates/support/chats.html:40
+msgid "Send"
+msgstr "Enviar"
+
+#: support/templates/support/chats.html:53
+msgid "Create a New Support Room"
+msgstr "Crear una Nueva Sala de Soporte"
+
+#: support/templates/support/chats.html:57
+msgid "Enter room name"
+msgstr "Introduzca el nombre de la sala"
+
+#: support/templates/support/chats.html:60
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: support/templates/support/chats.html:61
+msgid "Create"
+msgstr "Crear"
+
+#: support/templates/support/chats.html:84
+msgid "Room name cannot be empty!"
+msgstr "¡El nombre de la sala no puede estar vacío!"
 
 #~ msgid "Your profile is incomplete."
 #~ msgstr "Su perfil está incompleto."

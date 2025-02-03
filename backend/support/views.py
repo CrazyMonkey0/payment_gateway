@@ -13,7 +13,7 @@ def chats(request):
     rooms = SupportRoom.objects.filter(user=user)
 
     # Przekazywanie pokoji do szablonu
-    return render(request, 'support/chats.html', {'rooms': rooms})
+    return render(request, 'support/chats.html', {'section': 'support', 'rooms': rooms})
 
 
 @csrf_exempt

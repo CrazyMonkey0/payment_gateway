@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load static %}
-{% block title %}Chat Rooms{% endblock %}
+{% load static i18n %} <!-- Załaduj tagi do tłumaczeń -->
+{% block title %}{% trans "Chat Rooms" %}{% endblock %}
 
 {% block extra_css %}
 <link href="{% static 'css/chat.css' %}" rel="stylesheet" />
@@ -12,8 +12,8 @@
         <div class="col-md-4">
             <div class="room-list p-3 border rounded shadow">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h5>Rooms</h5>
-                    <button id="create-room-btn" class="btn btn-success btn-sm">Create Room</button>
+                    <h5>{% trans "Rooms" %}</h5>
+                    <button id="create-room-btn" class="btn btn-success btn-sm">{% trans "Create Room" %}</button>
                 </div>
                 <ul id="rooms" class="list-group">
                     {% for room in rooms %}
@@ -22,22 +22,22 @@
                         {{ room.title }} <span class="room-status">{{ room.status }}</span>
                     </li>
                     {% empty %}
-                    <li class="list-group-item text-muted">No rooms available</li>
+                    <li class="list-group-item text-muted">{% trans "No rooms available" %}</li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
         <div class="col-md-8">
             <div class="chat-header p-3 bg-light">
-                <h5 id="room-title" class="mb-0">Select a Room</h5>
+                <h5 id="room-title" class="mb-0">{% trans "Select a Room" %}</h5>
             </div>
             <div class="chat-box">
                 <div id="messages" class="messages"></div>
                 <div class="chat-input">
                     <div class="input-group">
-                        <input type="text" id="message-input" class="form-control" placeholder="Type a message"
-                            disabled>
-                        <button id="send-button" class="btn btn-primary" disabled>Send</button>
+                        <input type="text" id="message-input" class="form-control"
+                            placeholder="{% trans 'Type a message' %}" disabled>
+                        <button id="send-button" class="btn btn-primary" disabled>{% trans 'Send' %}</button>
                     </div>
                 </div>
             </div>
@@ -45,19 +45,20 @@
     </div>
 </div>
 
-
+<!-- Modal do tworzenia pokoju -->
 <div id="create-room-modal" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Create a New Support Room</h5>
+                <h5 class="modal-title">{% trans "Create a New Support Room" %}</h5>
             </div>
             <div class="modal-body">
-                <input type="text" id="room-name-input" class="form-control" placeholder="Enter room name">
+                <input type="text" id="room-name-input" class="form-control"
+                    placeholder="{% trans 'Enter room name' %}">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" id="save-room-btn" class="btn btn-primary">Create</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Cancel" %}</button>
+                <button type="button" id="save-room-btn" class="btn btn-primary">{% trans "Create" %}</button>
             </div>
         </div>
     </div>
@@ -80,7 +81,7 @@
         const roomName = roomNameInput.value.trim();
 
         if (!roomName) {
-            alert("Room name cannot be empty!");
+            alert("{% trans 'Room name cannot be empty!' %}");
             return;
         }
 
@@ -116,14 +117,12 @@
             .catch(error => console.error('Error:', error));
     });
 
-
     // Closing the modal when the "Cancel" button is clicked
     document.querySelector('[data-bs-dismiss="modal"]').addEventListener('click', function () {
         const modal = new bootstrap.Modal(document.getElementById('create-room-modal'));
         modal.hide(); // Hide the modal
         document.getElementById('room-name-input').value = ''; // Clear the input field
     });
-
 
     // Function to handle selecting a chat room
     function selectRoom(roomId, roomTitle) {

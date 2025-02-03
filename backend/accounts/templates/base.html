@@ -76,6 +76,9 @@
                                 <a class="nav-link"
                                     href="{% url 'manage_application' %}">{% trans "Application management " %}</a>
                             </li>
+                            <li class="{% if section == 'support' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'chats' %}">{% trans "Support" %}</a>
+                            </li>
                             <li class="nav-item">
                                 <form method="post" action="{% url 'logout' %}">
                                     {% csrf_token %}
