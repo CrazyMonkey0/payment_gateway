@@ -34,8 +34,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     # Adding an application here to use your own templates
+    'daphne',
     'accounts.apps.AccountsConfig',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'oauth2_provider',
     # CORS
     'corsheaders',
+    'channels',
     # Myapp
+    'support.apps.SupportConfig',
     'payments.apps.PaymentsConfig',
     'bank.apps.BankConfig',
 ]
@@ -163,6 +165,8 @@ LOCALE_PATHS = [
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -202,7 +206,7 @@ REST_FRAMEWORK = {
 
 # Model used for authentication
 AUTH_USER_MODEL = 'accounts.Profile'
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
 
 # Session settings
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -227,3 +231,17 @@ CACHES = {
         "KEY_PREFIX": "payment_gateway_session"
     }
 }
+
+ASGI_APPLICATION = "payment_gateway.asgi.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('redis', 6379)], 
+
+        },
+    },
+}
+import django 
+django.setup()  

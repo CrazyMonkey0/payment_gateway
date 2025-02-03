@@ -23,6 +23,7 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accounts.urls')),
+    path('support/', include('support.urls')),
     path('payment/', include('payments.urls')),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('api-auth/', include('rest_framework.urls')),
@@ -31,5 +32,5 @@ urlpatterns = [
     
 ] 
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
