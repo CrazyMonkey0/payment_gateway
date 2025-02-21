@@ -117,15 +117,6 @@ a:focus {
   z-index: -1;
 }
 
-.hero_area .hero_bg_box .bg_img_box {
-  min-width: 100%;
-  min-height: 100%;
-}
-
-.hero_area .hero_bg_box img {
-  min-width: 100%;
-  min-height: 100%;
-}
 
 .sub_page .hero_area {
   min-height: auto;
@@ -265,6 +256,7 @@ a:focus {
   align-items: center;
   position: relative;
   padding: 45px 0 145px 0;
+  background-color: #000;
 }
 
 .slider_section .row {
@@ -345,6 +337,8 @@ a:focus {
 
 .slider_section .img-box img {
   width: 100%;
+  max-height: 400px;
+  border-radius: 15px;
   -webkit-animation: upDown 5s infinite;
   animation: upDown 5s infinite;
 }
@@ -493,7 +487,7 @@ a:focus {
 }
 
 .about_section {
-  background-color: #00204a;
+  background-color: #000000;
   color: #ffffff;
 }
 
@@ -557,7 +551,7 @@ a:focus {
   min-width: 120px;
   min-height: 120px;
   border-radius: 100%;
-  border: 5px solid #00204a;
+  border: 5px solid #000000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -612,7 +606,7 @@ a:focus {
 /*team section */
 .team_section {
   text-align: center;
-  background-color: #00204a;
+  background-color: #000000;
   color: #ffffff;
 }
 
@@ -633,8 +627,7 @@ a:focus {
   -webkit-transition: all .1s;
   transition: all .1s;
   margin-top: 45px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#002759), to(#000));
-  background: linear-gradient(to bottom, #002759, #000);
+  background: linear-gradient(to bottom, #000a0d, #242424)
 }
 
 .team_section .team_container .box .img-box {
@@ -782,7 +775,7 @@ a:focus {
 
 /* client section end */
 .info_section {
-  background-color: #00204a;
+  background-color: #000000;
   color: #ffffff;
   padding: 45px 0 15px 0;
 }

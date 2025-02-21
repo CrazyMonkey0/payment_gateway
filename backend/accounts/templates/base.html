@@ -81,6 +81,15 @@
                                 <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Home" %} <span
                                         class="sr-only">(current)</span></a>
                             </li>
+                            <li class="{% if section == 'about' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
+                            </li>
+                            <li class="{% if section == 'services' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'services' %}">{% trans "Services" %}</a>
+                            </li>
+                            <li class="{% if section == 'why_us' %}nav-item active{% else %}nav-item{% endif %}">
+                                <a class="nav-link" href="{% url 'why_us' %}">{% trans "Why Us" %}</a>
+                            </li>
                             <li class="{% if section == 'team' %}nav-item active{% else %}nav-item{% endif %}">
                                 <a class="nav-link" href="{% url 'team' %}">{% trans "Team" %}</a>
                             </li>
@@ -169,7 +178,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-6 col-lg-3 info_col">
+                    <div class="col-md-6 col-lg-6 info_col">
                         <div class="info_detail">
                             <h4>{% trans "Info" %}</h4>
                             <p>{% trans "PayFlowZ provides secure and reliable payment solutions for businesses of all sizes. Enjoy seamless integration, real-time tracking, and 24/7 support." %}

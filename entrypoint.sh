@@ -13,5 +13,5 @@ python manage.py migrate
 # django-admin makemessages -l de
 
 # django-admin compilemessages
-# python manage.py collectstatic
+python manage.py collectstatic --noinput
 exec "$@"
