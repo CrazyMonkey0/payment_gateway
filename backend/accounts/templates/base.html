@@ -3,14 +3,12 @@
 
 <!DOCTYPE html>
 <html>
+    <!-- Template by HTML Design - https://html.design -->
 
     <head>
-        <!-- Basic -->
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!-- Site Metas -->
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -18,41 +16,34 @@
 
         <title>{% block title %}{% endblock %}</title>
 
-        <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- fonts style -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-        <!--owl slider stylesheet -->
         <link rel="stylesheet" type="text/css"
             href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-        <!-- font awesome style -->
         <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
         <link href="{% static 'css/authorization.css' %}" rel="stylesheet" />
         {% block extra_css %}{% endblock %}
 
-        <!-- Custom styles for this template -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 
 
-
-        <!-- responsive style -->
         <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
     </head>
 
     <body>
-        <!-- header section starts -->
+        <!-- header -->
         <header class="header_section">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg custom_nav-container">
-                    <a class="navbar-brand" href="/">
+                    <a class="navbar-brand" href="{% url 'dashboard' %}">
                         <span>
-                            PayFlow
+                            PayFlowZ
                         </span>
                     </a>
 
@@ -87,17 +78,8 @@
                             </li>
                             {% else %}
                             <li class="{% if section == 'home' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="/">{% trans "Home" %} <span
+                                <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Home" %} <span
                                         class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="{% if section == 'about' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
-                            </li>
-                            <li class="{% if section == 'services' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'services' %}">{% trans "Services" %}</a>
-                            </li>
-                            <li class="{% if section == 'why_us' %}nav-item active{% else %}nav-item{% endif %}">
-                                <a class="nav-link" href="{% url 'why_us' %}">{% trans "Why Us" %}</a>
                             </li>
                             <li class="{% if section == 'team' %}nav-item active{% else %}nav-item{% endif %}">
                                 <a class="nav-link" href="{% url 'team' %}">{% trans "Team" %}</a>
@@ -173,79 +155,40 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-3 info_col">
                         <div class="info_contact">
-                            <h4>{% trans "Address" %}</h4>
+                            <h4>{% trans "Contact" %}</h4>
                             <div class="contact_link_box">
-                                <a href="">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <span>{% trans "Location" %}</span>
-                                </a>
                                 <a href="">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                     <span>{% trans "Call +00 000000000" %}</span>
                                 </a>
                                 <a href="">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>{% trans "demo@gmail.com" %}</span>
+                                    <span>{% trans "@gmail.com" %}</span>
                                 </a>
                             </div>
                         </div>
-                        <div class="info_social">
-                            <a href="">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                        </div>
+
                     </div>
                     <div class="col-md-6 col-lg-3 info_col">
                         <div class="info_detail">
                             <h4>{% trans "Info" %}</h4>
-                            <p>{% trans "PayFlow provides secure and reliable payment solutions for businesses of all sizes. Enjoy seamless integration, real-time tracking, and 24/7 support." %}
+                            <p>{% trans "PayFlowZ provides secure and reliable payment solutions for businesses of all sizes. Enjoy seamless integration, real-time tracking, and 24/7 support." %}
                             </p>
                         </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-2 mx-auto info_col">
-                        <div class="info_link_box">
-                            <h4>{% trans "Links" %}</h4>
-                            <div class="info_links">
-                                <a class="active" href="index.html">{% trans "Home" %}</a>
-                                <a href="about.html">{% trans "About" %}</a>
-                                <a href="service.html">{% trans "Services" %}</a>
-                                <a href="why.html">{% trans "Why Us" %}</a>
-                                <a href="team.html">{% trans "Team" %}</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 info_col ">
-                        <h4>{% trans "Subscribe" %}</h4>
-                        <form action="#">
-                            <input type="text" placeholder="{% trans 'Enter email' %}" />
-                            <button type="submit">{% trans "Subscribe" %}</button>
-                        </form>
                     </div>
                 </div>
             </div>
         </section>
         <!-- end info section -->
 
-        <!-- footer section -->
         <section class="footer_section">
             <div class="container">
                 <p>
-                    &copy; <span id="displayYear"></span> {% trans "All Rights Reserved By" %}
-                    <a href="/">PayFlow</a>
+                    &copy; <span id="displayYear"></span> All Rights Reserved By
+                    <a href="https://html.design/">Free Html Templates</a>
                 </p>
             </div>
         </section>
-        <!-- footer section -->
 
         <!-- jQuery -->
         <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
