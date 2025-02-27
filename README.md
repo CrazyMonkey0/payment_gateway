@@ -8,6 +8,9 @@ This project is a robust payment gateway application built with Django and Djang
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Docker](#docker)
+- [Token Acquisition](#token-acquisition)
+- [Client Application Configuration](#client-application-configuration)
+- [Docker](#docker)
 - [API Endpoints](#api-endpoints)
 - [WebSocket Endpoints](#websocket-endpoints)
 - [License](#license)
@@ -115,6 +118,77 @@ To ensure the security of user sessions, the application requires the use of SSL
 3. Admin - Login: demo  Password: demo
 
 4. Access the application at `https://127.0.0.1:8000`.
+
+## Token Acquisition
+
+To communicate with the application, you need to acquire an authentication token. You can obtain the token by making a POST request to the following endpoint:
+
+### Token Endpoint
+
+    ```
+    POST https://127.0.0.1:8000/o/token/
+    ```
+**Request Body**:
+```json
+{
+    "username": "your_username",
+    "password": "your_password",
+    "grant_type": "password",
+    "client_id": "your_client_id",
+    "client_secret": "your_client_secret"
+}
+```
+
+**Response**:
+
+```json
+{
+    "access_token": "your_access_token",
+    "token_type": "Bearer",
+    "expires_in": 3600
+}
+```
+
+## Client Application Configuration
+
+To configure your application and get the client_id and client_secret, you need to create a client application. This can be done at the following endpoint:
+Application Management Endpoint
+
+    ```
+    GET https://127.0.0.1:8000/application/manage/
+    ```
+
+### Redirect URI
+
+When creating the client application, you should specify a redirect URI. This URI should point to the client application's API, which, upon receiving the ID of a given order and payment information, will send a link to the payment gateway. The gateway will then redirect the user after a successful payment.
+Example of POST Endpoint for Client Application
+
+```python
+def post(self, request):
+    try:
+        order = Order.objects.get(pk=request.data.get('order_id'))
+    except Order.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if order.paid:
+        return Response({'detail': 'Order is already paid.'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    serializer = OrderSerializer(order, data=request.data)
+
+    if serializer.is_valid():
+        order.paid = request.data.get('is_paid', False)
+        serializer.save()
+        return Response({
+            'detail': 'Successful payment',
+            'redirect_link': f"https://kowalskidev.pl/shop/orders/paid/{request.data.get('order_id')}/"
+        }, status=status.HTTP_200_OK)
+       
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+```
+### Example of a Redirect URI
+```bash
+https://your-shop.com/api/paid/
+```
 
 ## API Endpoints
 
@@ -225,6 +299,4 @@ socket.onclose = function(event) {
 ## License
 
 This project is licensed under the [MIT License](LICENSE.txt).
-
-
 
