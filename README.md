@@ -131,9 +131,7 @@ To communicate with the application, you need to acquire an authentication token
 **Request Body**:
 ```json
 {
-    "username": "your_username",
-    "password": "your_password",
-    "grant_type": "password",
+    "grant_type": "client_credentials",
     "client_id": "your_client_id",
     "client_secret": "your_client_secret"
 }
