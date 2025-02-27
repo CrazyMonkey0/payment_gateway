@@ -3,7 +3,7 @@
 python manage.py makemigrations
 python manage.py migrate
 # Uncomment on when it was your first time firing up the app
-#python manage.py loaddata data.json
+python manage.py loaddata data.json
 
 # django-admin makemessages -l en
 # django-admin makemessages -l pl
