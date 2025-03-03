@@ -110,9 +110,12 @@
                 roomList.appendChild(newRoomItem);
 
                 // Closing the modal after successfully creating the room
-                const modal = new bootstrap.Modal(document.getElementById('create-room-modal'));
-                modal.hide(); // Hide the modal
-                roomNameInput.value = ''; // Clear the input field
+                const modalElement = document.getElementById('create-room-modal');
+                const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                if (modalInstance) {
+                    modalInstance.hide(); // Ukrycie istniejącego modalu
+                }
+                roomNameInput.value = ''; // Wyczyść pole
             })
             .catch(error => console.error('Error:', error));
     });
