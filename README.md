@@ -1,4 +1,5 @@
 # Payment Gateway
+![Payment Gateway](backend/accounts/static/images/payment-gateway.gif)
 
 This project is a robust payment gateway application built with Django and Django REST Framework. It enables businesses to manage orders, process payments securely, and interact with customers via a WebSocket-based support chat. The application supports multiple payment providers and is designed to be easily integrated with external systems.
 
