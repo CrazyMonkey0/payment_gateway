@@ -1,0 +1,14 @@
+[run]
+# Exclude files that we do not want to include in coverage
+omit =
+    */migrations/*
+    */__init__.py
+    */tests/*
+
+[report]
+# Lines that coverage ignores in the report
+exclude_lines =
+    if __name__ == .__main__.:
+    import .*
+    from .* import .*
+    ^\s*#.*$

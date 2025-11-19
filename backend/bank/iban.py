@@ -16,7 +16,7 @@ def de_iban():
 
     # Poland - PLkk BBBB BBBB MMMM MMMM MMMM MMMM MMMM.
     # The first 2 digits are check digits. The next 8 digits are the bank-branch identifier. The last 16 are the account number.
-    return f"PL{x}87654321{y}"
+    return f"DE{x}87654321{y}"
 
 
 def gb_iban():
