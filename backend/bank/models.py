@@ -102,13 +102,22 @@ class Transaction(models.Model):
     )
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
-    transaction_type = models.CharField(max_length=50, choices=TRANSACTION_TYPES)
+    transaction_type = models.CharField(
+        max_length=50,
+        choices=TRANSACTION_TYPES,
+    )
     amount = models.DecimalField(max_digits=15, decimal_places=2)
     iban = models.CharField(max_length=32)
-    date = models.DateTimeField(auto_now_add=True, verbose_name="Transaction date")
+    date = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Transaction date",
+    )
 
     def __str__(self) -> str:
-        return f"Name: {self.first_name} {self.last_name} | ID bank: {self.iban} | Amount: {self.amount}$"
+        return (
+            f"Name: {self.first_name} {self.last_name} |"
+            f"ID bank: {self.iban} | Amount: {self.amount}$"
+        )
 
     def save(self, *args, **kwargs):
         # Calculate new balances
