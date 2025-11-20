@@ -22,114 +22,115 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=u&uaz44$&!&j2ehx%*onx3s95y!4pkzqp&)-a=%ttffb!!egd'
+SECRET_KEY = "django-insecure-=u&uaz44$&!&j2ehx%*onx3s95y!4pkzqp&)-a=%ttffb!!egd"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     # Adding an application here to use your own templates
-    'daphne',
-    'accounts.apps.AccountsConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_extensions', 
+    "daphne",
+    "accounts.apps.AccountsConfig",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django_extensions",
     # DJANGO REST FRAMEWORK
-    'rest_framework',
+    "rest_framework",
     # Oauth2
-    'oauth2_provider',
+    "oauth2_provider",
     # CORS
-    'corsheaders',
-    'channels',
+    "corsheaders",
+    "channels",
     # Myapp
-    'support.apps.SupportConfig',
-    'payments.apps.PaymentsConfig',
-    'bank.apps.BankConfig',
+    "support.apps.SupportConfig",
+    "payments.apps.PaymentsConfig",
+    "bank.apps.BankConfig",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-      # CORS middleware
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'oauth2_provider.middleware.OAuth2TokenMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    # CORS middleware
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "oauth2_provider.middleware.OAuth2TokenMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'payment_gateway.urls'
+ROOT_URLCONF = "payment_gateway.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.i18n',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.i18n",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'payment_gateway.wsgi.application'
+WSGI_APPLICATION = "payment_gateway.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # SQL Lite
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# # PostgreSQL
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("DATABASE_NAME", "test_db"),
+        "USER": os.environ.get("DATABASE_USER", "postgres"),
+        "PASSWORD": os.environ.get("DATABASE_PASSWORD", "postgres"),
+        "HOST": os.environ.get("DATABASE_HOST", "postgres"),
+        "PORT": os.environ.get("DATABASE_PORT", 5432),
     }
 }
 
-# # PostgreSQL
-# DATABASES = {
-#     "default": {
-#         'HOST': 'db',
-#         'PORT': 5432,
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('POSTGRES_DB'),
-#         'USER': os.environ.get('POSTGRES_USER'),
-#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -137,88 +138,88 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
 LANGUAGES = [
-    ('pl', _('Polish')), 
-    ('en', _('English')),     
-    ('es', _('Spanish')),    
-    ('fr', _('French')),   
-    ('it', _('Italian')),   
-    ('de', _('German')),    
+    ("pl", _("Polish")),
+    ("en", _("English")),
+    ("es", _("Spanish")),
+    ("fr", _("French")),
+    ("it", _("Italian")),
+    ("de", _("German")),
 ]
 
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
 USE_TZ = True
 
 LOCALE_PATHS = [
-    BASE_DIR / 'locale',
+    BASE_DIR / "locale",
 ]
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # SMTP backend django server
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-LOGIN_REDIRECT_URL = 'dashboard'
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = "dashboard"
+LOGIN_URL = "login"
+LOGOUT_URL = "logout"
 
 # OAuth2
 OAUTH2_PROVIDER = {
-    'ACCESS_TOKEN_EXPIRE_SECONDS': 3600,  # 1 hour
-    'SCOPES': { 
-        'read': 'Read access',
-        'write': 'Write access',
+    "ACCESS_TOKEN_EXPIRE_SECONDS": 3600,  # 1 hour
+    "SCOPES": {
+        "read": "Read access",
+        "write": "Write access",
     },
-    'ROTATE_REFRESH_TOKENS': False,
+    "ROTATE_REFRESH_TOKENS": False,
 }
 
 
 # DRF
 REST_FRAMEWORK = {
     # Authentication
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+    "DEFAULT_AUTHENTICATION_CLASSES": [
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ],
     # Permission
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
     ],
 }
 
 # Model used for authentication
-AUTH_USER_MODEL = 'accounts.Profile'
+AUTH_USER_MODEL = "accounts.Profile"
 
 
 # Session settings
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = 'default'
-SESSION_COOKIE_SAMESITE = 'Lax'  
-SESSION_COOKIE_SECURE = True # Set to True in production
-CSRF_COOKIE_SECURE = True # Set to True in production
-SESSION_COOKIE_HTTPONLY = True # Set to True in production
+SESSION_CACHE_ALIAS = "default"
+SESSION_COOKIE_SAMESITE = "Lax"
+SESSION_COOKIE_SECURE = True  # Set to True in production
+CSRF_COOKIE_SECURE = True  # Set to True in production
+SESSION_COOKIE_HTTPONLY = True  # Set to True in production
 SESSION_COOKIE_AGE = 86400  # 1 day
-SESSION_COOKIE_NAME = 'payment_gateway_sessionid'
-CSRF_COOKIE_NAME = 'payment_gateway_csrftoken'
-SECURE_SSL_REDIRECT = True # http -> https
+SESSION_COOKIE_NAME = "payment_gateway_sessionid"
+CSRF_COOKIE_NAME = "payment_gateway_csrftoken"
+SECURE_SSL_REDIRECT = True  # http -> https
 
 # using redis database from App shop
 CACHES = {
@@ -228,20 +229,20 @@ CACHES = {
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         },
-        "KEY_PREFIX": "payment_gateway_session"
+        "KEY_PREFIX": "payment_gateway_session",
     }
 }
 
 ASGI_APPLICATION = "payment_gateway.asgi.application"
 
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('redis', 6379)], 
-
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("redis", 6379)],
         },
     },
 }
-import django 
-django.setup()  
+import django
+
+django.setup()
