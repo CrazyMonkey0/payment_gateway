@@ -4,9 +4,9 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=payment_gateway
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - DATABASE_NAME=payment_gateway
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
     networks:
       - backend_network
   web:
@@ -22,6 +22,8 @@ services:
       - POSTGRES_DB=payment_gateway
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
       - PYTHONPATH=/code/backend
       - DJANGO_SETTINGS_MODULE=payment_gateway.settings
     depends_on:
