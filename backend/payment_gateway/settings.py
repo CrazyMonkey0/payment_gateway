@@ -106,14 +106,15 @@ WSGI_APPLICATION = "payment_gateway.wsgi.application"
 # # PostgreSQL
 DATABASES = {
     "default": {
-        "HOST": "db",
-        "PORT": 5432,
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "NAME": os.environ.get("DATABASE_NAME", "test_db"),
+        "USER": os.environ.get("DATABASE_USER", "postgres"),
+        "PASSWORD": os.environ.get("DATABASE_PASSWORD", "postgres"),
+        "HOST": os.environ.get("DATABASE_HOST", "postgres"),
+        "PORT": os.environ.get("DATABASE_PORT", 5432),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
