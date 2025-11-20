@@ -167,8 +167,7 @@ class Card(models.Model):
     cvc = models.CharField(
         max_length=3,
         validators=[
-            RegexValidator(r"^[0-9]*$"),
-            MinLengthValidator(16),
+            RegexValidator(r"^\d{3}$"),
         ],
     )
     valid_until = models.CharField(
