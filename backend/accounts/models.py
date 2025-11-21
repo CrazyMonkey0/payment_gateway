@@ -4,6 +4,10 @@ from django.core.validators import RegexValidator
 
 
 class Profile(AbstractUser):
-    iban = models.CharField(max_length=32, default="", validators=[
-                            RegexValidator(r'^[A-Z]{2}[0-9]*$')])
-    url_feedback = models.SlugField(default="")
+    iban = models.CharField(
+        max_length=32, default="", validators=[RegexValidator(r"^[A-Z]{2}[0-9]*$")]
+    )
+    url_feedback = models.SlugField(
+        default="",
+        validators=[RegexValidator(r"^[a-z0-9_-]+$", "Enter a valid slug.")],
+    )
