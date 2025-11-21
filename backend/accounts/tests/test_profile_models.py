@@ -19,9 +19,7 @@ def create_profile():
         }
         defaults.update(kwargs)
 
-        profile = Profile.objects.create(**defaults)
-        profile.set_password(password)
-        profile.save()
+        profile = Profile.objects.create_user(password=password, **defaults)
         return profile
 
     return _create_profile
@@ -30,6 +28,8 @@ def create_profile():
 @pytest.mark.django_db
 def test_profile_creation(create_profile):
     profile = create_profile(username="test", url_feedback="test-feedback")
+    assert profile is not None
+    assert profile.id is not None
     assert profile.username == "test"
     assert profile.first_name == "John"
     assert profile.last_name == "Doe"
@@ -39,11 +39,18 @@ def test_profile_creation(create_profile):
 
 
 @pytest.mark.django_db
-def test_profile_password(create_profile):
-    profile = create_profile(username="secureuser", password="securepass456")
-    assert profile.check_password("securepass456") is True
+@pytest.mark.parametrize(
+    "password",
+    [
+        ("securepass456"),
+        (""),
+    ],
+)
+def test_profile_password(create_profile, password):
+    profile = create_profile(username="secureuser", password=password)
+    assert profile.check_password(password) is True
     assert profile.check_password("wrongpass") is False
-    assert profile.check_password("") is False
+    assert profile.check_password("123") is False
 
 
 @pytest.mark.django_db
