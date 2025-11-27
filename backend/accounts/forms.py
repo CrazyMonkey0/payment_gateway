@@ -26,21 +26,32 @@ class UserRegistrationForm(forms.ModelForm):
     def clean_password2(self):
         """
         Checks whether the passwords entered in the 'password' and 'password2' fields are identical.
+        
+        Uses cd.get() to safely retrieve values, ensuring robustness even if
+        the required fields validation hasn't run yet or a field is missing.
         """
         cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
+        password = cd.get('password')
+        password2 = cd.get('password2')
+
+        if password and password2 and password != password2:
             raise forms.ValidationError('Passwords are not identical.')
-        return cd['password2']
+        
+        return password2
 
     def clean_email(self):
         """
-        Checks if there is an account with the same email address.
+        Checks if there is an account with the same email address (case-insensitive)
+        and normalizes the email to lowercase.
         """
         cd = self.cleaned_data
-        if Profile.objects.filter(email=cd['email']).exists():
+        email = cd['email'].lower()
+        
+        if Profile.objects.filter(email__iexact=email).exists():
             raise forms.ValidationError(
                 'An account with such an email already exists.')
-        return cd['email']
+        
+        return email
 
 
 class ProfileForm(forms.ModelForm):
