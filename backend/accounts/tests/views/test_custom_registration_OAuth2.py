@@ -9,41 +9,6 @@ from oauth2_provider.models import Application
 User = get_user_model()
 
 
-@pytest.fixture
-def authenticated_client(db):
-    """
-    Fixture: Create an authenticated test client with a test user.
-
-    Returns:
-        tuple: (client, user) - Client object and associated User instance.
-    """
-    user = User.objects.create_user(username='testuser', password='testpass123')
-    client = Client()
-    client.force_login(user)
-    return client, user
-
-
-@pytest.fixture
-def user_with_application(db):
-    """
-    Fixture: Create a user with an existing OAuth2 application.
-
-    Returns:
-        tuple: (user, application) - User instance and associated Application.
-    """
-    user = User.objects.create_user(username='appuser', password='apppass123')
-    app = Application.objects.create(
-        user=user,
-        name='Existing App',
-        client_id='app-client-id-12345',
-        client_secret='app-client-secret-67890',
-        client_type=Application.CLIENT_PUBLIC,
-        authorization_grant_type=Application.GRANT_AUTHORIZATION_CODE,
-        redirect_uris='http://localhost:8000/callback'
-    )
-    return user, app
-
-
 @pytest.mark.django_db
 class TestCustomRegistrationOAuth2GetRequest:
     """Test suite for GET requests to the OAuth2 registration view."""

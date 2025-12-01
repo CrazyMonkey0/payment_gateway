@@ -1,12 +1,3 @@
-"""
-Pytest configuration and shared fixtures for the payment_gateway project.
-
-This module provides:
-- Test database fixtures
-- Mocking of Redis/external services for tests
-- Custom Django settings override for testing
-"""
-
 import os
 import pytest
 from django.conf import settings

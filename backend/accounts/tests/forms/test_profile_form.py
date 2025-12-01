@@ -4,69 +4,6 @@ from accounts.models import Profile
 from bank.models import Bank
 
 
-# ===== FIXTURES =====
-
-@pytest.fixture
-def form_data_factory():
-    """
-    Factory fixture to create form data with configurable values.
-    
-    Returns:
-        function: A function that creates form data dictionaries with defaults
-                 that can be overridden via kwargs.
-    """
-    def _make_form_data(**kwargs):
-        default = {
-            "first_name": "John",
-            "last_name": "Doe",
-            "email": "john@example.com",
-            "iban": "PL12345678901234567890",
-        }
-        default.update(kwargs)
-        return default
-    return _make_form_data
-
-
-# If you don't have create_bank in main conftest.py, define it here:
-@pytest.fixture
-def create_bank(db):
-    """
-    Factory fixture to create Bank instances.
-    
-    Args:
-        iban (str): The IBAN for the bank account
-        balance (float): Initial balance, defaults to 1000.00
-        
-    Returns:
-        Bank: Created bank instance
-    """
-    def _create(iban, balance=1000.00):
-        return Bank.objects.create(iban=iban, balance=balance)
-    return _create
-
-
-@pytest.fixture
-def user_factory(db):
-    """
-    Factory fixture to create user profiles.
-    
-    Returns:
-        function: A function that creates Profile instances with defaults
-                 that can be overridden via kwargs.
-    """
-    def _create_user(**kwargs):
-        defaults = {
-            'username': 'testuser',
-            'email': 'test@example.com',
-            'password': 'TestPass123!@#'
-        }
-        defaults.update(kwargs)
-        return Profile.objects.create_user(**defaults)
-    return _create_user
-
-
-# ===== TESTS =====
-
 @pytest.mark.django_db
 @pytest.mark.parametrize(
     "first_name, last_name, email, iban",

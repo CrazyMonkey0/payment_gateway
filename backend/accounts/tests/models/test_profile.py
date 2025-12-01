@@ -3,28 +3,6 @@ from django.core.exceptions import ValidationError
 from accounts.models import Profile
 
 
-@pytest.fixture
-def create_profile():
-    def _create_profile(**kwargs):
-        """
-        Create and return a Profile instance with given attributes.
-        """
-        password = kwargs.pop("password", "testpass123")
-        defaults = {
-            "username": "testuser",
-            "first_name": "John",
-            "last_name": "Doe",
-            "iban": "DE89370400440532013000",
-            "url_feedback": "default-feedback",
-        }
-        defaults.update(kwargs)
-
-        profile = Profile.objects.create_user(password=password, **defaults)
-        return profile
-
-    return _create_profile
-
-
 @pytest.mark.django_db
 def test_profile_creation(create_profile):
     profile = create_profile(username="test", url_feedback="test-feedback")

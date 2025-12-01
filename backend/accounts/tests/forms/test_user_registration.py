@@ -3,49 +3,6 @@ from accounts.forms import UserRegistrationForm
 from accounts.models import Profile
 
 
-@pytest.fixture
-def create_registration_form():
-    """
-    Factory fixture to create UserRegistrationForm instances with default valid data.
-    It returns a factory function that accepts keyword arguments (**kwargs) to override
-    the default data when called inside a test.
-    
-    Usage in test: form = create_registration_form(email='new@test.com', password='new_pass')
-    """
-    def _factory(**kwargs):
-        data = {
-            "username": "testuser_base",
-            "first_name": "John",
-            "last_name": "Doe",
-            "email": "base_test@test.com",
-            "password": "SecurePass123!@#",
-            "password2": "SecurePass123!@#",
-        }
-        # Override default data with arguments passed during the call
-        data.update(kwargs)
-
-        return UserRegistrationForm(data=data)
-    
-    # The fixture returns the factory function
-    return _factory
-
-
-@pytest.fixture
-def valid_form_data():
-    """
-    Fixture providing complete valid data specifically for save tests,
-    ensuring they use unique, predictable data. (Kept for compatibility with save tests).
-    """
-    return {
-        "username": "save_testuser",
-        "first_name": "John",
-        "last_name": "Doe",
-        "email": "save_test@test.com",
-        "password": "SecurePass123!@#",
-        "password2": "SecurePass123!@#",
-    }
-
-
 # This test still uses direct form_data because it relies on @parametrize for full data sets.
 @pytest.mark.django_db
 @pytest.mark.parametrize(
