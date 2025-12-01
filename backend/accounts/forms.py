@@ -78,7 +78,7 @@ class ProfileForm(forms.ModelForm):
             str: Valid IBAN.
         """
         cd = self.cleaned_data
-        if re.match(r'^[A-Z]{2}[0-9]*$', cd['iban']):
+        if re.match(r'^[A-Z]{2}[0-9]+$', cd['iban']):
             try:
                 Bank.objects.get(iban=cd['iban'])
             except Bank.DoesNotExist:
