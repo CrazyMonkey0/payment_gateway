@@ -91,39 +91,136 @@ class ProfileForm(forms.ModelForm):
 class CustomRegistrationFormOAuth2(forms.ModelForm):
     """
     OAuth2 Application Registration Form.
-
-    Attributes:
-        name (CharField): A field for entering the application's name.
-        client_id (CharField): A field for entering the OAuth2 client ID.
-        client_secret (CharField): A field for entering the OAuth2 client secret.
-        redirect_uris (CharField): A field for entering redirect URIs.
-
-    Methods:
-        __init__(self): Initializes the form with the appropriate attributes and placeholders.
+    
+    Security approach:
+    - client_id and client_secret are VISIBLE but DISABLED (read-only)
+    - Generated on first save, then shown to user
+    - User can only edit: name and redirect_uris
+    
+    Flow:
+    1. User fills name + redirect_uris → SUBMIT
+    2. View generates client_id + client_secret
+    3. Form shows SUCCESS page with client_id + client_secret (ONE TIME!)
+    4. On edit: client_id + client_secret are VISIBLE but DISABLED
     """
     
+    # Override fields to make them read-only when needed
+    client_id = forms.CharField(
+        label=_('Client ID'),
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'readonly': 'readonly',  # HTML5 readonly
+        }),
+        help_text=_('Your application\'s client ID. Use this to authenticate.')
+    )
+    
+    client_secret = forms.CharField(
+        label=_('Client Secret'),
+        required=False,
+        widget=forms.TextInput(attrs={  # NOT PasswordInput - user needs to COPY it!
+            'class': 'form-control',
+            'readonly': 'readonly',
+        }),
+        help_text=_('⚠️ Keep this secret! Copy it now - you won\'t see it again.')
+    )
+    
     class Meta:
-        model = Application  # Linking the form to the Application model
+        model = Application
         fields = ['name', 'client_id', 'client_secret', 'redirect_uris']
-        
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': _('My Application'),
+            }),
+            'redirect_uris': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': _('http://localhost:8000/callback\nhttp://example.com/oauth/callback'),
+                'rows': 4,
+            }),
+        }
+        help_texts = {
+            'name': _('A user-friendly name for your application.'),
+            'redirect_uris': _('Enter one URI per line. These are allowed callback URLs.'),
+        }
+    
     def __init__(self, *args, **kwargs):
-        """
-        Initializes the form and sets the appropriate field attributes.
-
-        It also adds placeholders and sets the default values for 'client_type' and 'authorization_grant_type'.
-        """
         super().__init__(*args, **kwargs)
-
-        # Adding placeholder for 'name' field
+        
+        # Add placeholders
         self.fields['name'].widget.attrs.update({
-            'placeholder': _('Enter application name'),  # Placeholder translated
+            'placeholder': _('Enter application name'),
         })
-
-        # Adding placeholder for 'redirect_uris' field
         self.fields['redirect_uris'].widget.attrs.update({
-            'placeholder': _('Enter redirect URIs'),  # Placeholder translated
+            'placeholder': _('Enter redirect URIs'),
         })
-
-        # Setting default values for 'client_type' and 'authorization_grant_type'
-        self.instance.client_type = Application.CLIENT_PUBLIC
-        self.instance.authorization_grant_type = Application.CLIENT_CONFIDENTIAL
+        
+        # Logic for new vs existing applications
+        if self.instance.pk:
+            # EDIT MODE: Application already exists
+            # client_id and client_secret are read-only
+            self.fields['client_id'].disabled = True
+            self.fields['client_secret'].disabled = True
+            
+            # Show current values
+            self.fields['client_id'].initial = self.instance.client_id
+            self.fields['client_secret'].initial = self.instance.client_secret
+            
+        else:
+            # CREATE MODE: New application
+            # Hide fields (will be filled after save)
+            self.fields['client_id'].widget = forms.HiddenInput()
+            self.fields['client_secret'].widget = forms.HiddenInput()
+            
+            # Set defaults for new application
+            self.instance.client_type = Application.CLIENT_PUBLIC
+            self.instance.authorization_grant_type = Application.GRANT_AUTHORIZATION_CODE  
+    
+    def clean_client_id(self):
+        """
+        Security: client_id cannot be changed by the user.
+        Always return the value from the instance.
+        """
+        if self.instance.pk:
+            return self.instance.client_id
+        return self.cleaned_data.get('client_id', '')
+    
+    def clean_client_secret(self):
+        """
+        Security: client_secret cannot be changed by the user.
+        Always return the value from the instance.
+        """
+        if self.instance.pk:
+            return self.instance.client_secret
+        return self.cleaned_data.get('client_secret', '')
+    
+    def clean_redirect_uris(self):
+        """Validate the format of redirect URIs."""
+        redirect_uris = self.cleaned_data.get('redirect_uris', '')
+        
+        if not redirect_uris.strip():
+            raise forms.ValidationError(_('At least one redirect URI is required.'))
+        
+        # Validate each URI
+        uris = [uri.strip() for uri in redirect_uris.split('\n') if uri.strip()]
+        
+        for uri in uris:
+            if not uri.startswith(('http://', 'https://')):
+                raise forms.ValidationError(
+                    _('Invalid URI: "%(uri)s". Must start with http:// or https://'),
+                    params={'uri': uri}
+                )
+        
+        return redirect_uris
+    
+    def clean_name(self):
+        """Validate the application name."""
+        name = self.cleaned_data.get('name', '').strip()
+        
+        if not name:
+            raise forms.ValidationError(_('Application name is required.'))
+        
+        if len(name) < 3:
+            raise forms.ValidationError(_('Application name must be at least 3 characters.'))
+        
+        return name

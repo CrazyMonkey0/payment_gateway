@@ -7,7 +7,7 @@
 <div class="edit-application-container">
     <div class="edit-application-card">
         <h1 class="application-title-attention">
-            {% trans "Save the Secret key now because once saved it will be encrypted " %}</h1>
+            {% trans "The secret key and client id will be displayed after registration." %}</h1>
         <h1 class="edit-application-title">{% trans "Register Application" %}</h1>
 
         {% if form.errors %}
@@ -29,14 +29,6 @@
             <div class="form-group">
                 <label for="{{ form.name.id_for_label }}">{% trans "Application Name:" %}</label>
                 {{ form.name }}
-            </div>
-            <div class="form-group">
-                <label for="{{ form.client_id.id_for_label }}">{% trans "Client ID:" %}</label>
-                {{ form.client_id }}
-            </div>
-            <div class="form-group">
-                <label for="{{ form.client_secret.id_for_label }}">{% trans "Client Secret:" %}</label>
-                {{ form.client_secret }}
             </div>
             <div class="form-group">
                 <label for="{{ form.redirect_uris.id_for_label }}">{% trans "Redirect URIs:" %}</label>

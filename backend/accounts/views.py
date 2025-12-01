@@ -10,10 +10,10 @@ from .models import Profile
 from .forms import UserRegistrationForm, ProfileForm, CustomRegistrationFormOAuth2
 
 
-
 class CustomRegistrationOAuth2(ApplicationRegistration):
     template_name_create = "accounts/oauth2_register.html"
     template_name_edit = "accounts/oauth2_update.html"
+    template_name_success = "accounts/oauth2_success.html"
 
     def get(self, request, *args, **kwargs):
         app = Application.objects.filter(user=request.user).first()
@@ -39,7 +39,15 @@ class CustomRegistrationOAuth2(ApplicationRegistration):
                 instance.client_secret = generate_client_secret()
                 instance.user = request.user
                 instance.save()
-                return render(request, self.template_name_edit, {'form': form, 'section': 'manage_application'})
+                return render(
+                    request,
+                    self.template_name_success,
+                    {
+                        'client_id': instance.client_id,
+                        'client_secret': instance.client_secret,
+                        'section': 'manage_application',
+                    }
+                )
 
         if form.is_valid():
             instance = form.save(commit=False)
@@ -48,7 +56,6 @@ class CustomRegistrationOAuth2(ApplicationRegistration):
 
         template_name = self.template_name_edit if app else self.template_name_create
         return render(request, template_name, {'form': form, 'section': 'manage_application'})
-
 
 
 def register(request):
