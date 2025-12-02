@@ -38,3 +38,11 @@ class TestServicesView:
         """Test that DELETE method is not allowed for services view."""
         response = client.delete(reverse('services'))
         assert response.status_code == 405
+    
+    def test_services_view_multiple_requests(self, client):
+        """Test that the services view returns consistent responses for multiple requests."""
+        for _ in range(13):
+            response = client.get(reverse('services'))
+            assert response.status_code == 200
+            assert 'accounts/services.html' in [t.name for t in response.templates]
+            assert response.context['section'] == 'services'

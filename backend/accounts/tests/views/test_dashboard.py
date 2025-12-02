@@ -38,3 +38,11 @@ class TestDashboardView:
         """Test that DELETE method is not allowed for dashboard view."""
         response = client.delete(reverse('dashboard'))
         assert response.status_code == 405
+    
+    def test_dashboard_view_multiple_requests(self, client):
+        """Test that the dashboard view returns consistent responses for multiple requests."""
+        for _ in range(13):
+            response = client.get(reverse('dashboard'))
+            assert response.status_code == 200
+            assert 'accounts/dashboard.html' in [t.name for t in response.templates]
+            assert response.context['section'] == 'dashboard'

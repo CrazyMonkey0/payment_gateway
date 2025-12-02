@@ -38,3 +38,11 @@ class TestTeamView:
         """Test that DELETE method is not allowed for team view."""
         response = client.delete(reverse('team'))
         assert response.status_code == 405
+
+    def test_team_view_multiple_requests(self, client):
+        """Test that the team view returns consistent responses for multiple requests."""
+        for _ in range(13):
+            response = client.get(reverse('team'))
+            assert response.status_code == 200
+            assert 'accounts/team.html' in [t.name for t in response.templates]
+            assert response.context['section'] == 'team'
