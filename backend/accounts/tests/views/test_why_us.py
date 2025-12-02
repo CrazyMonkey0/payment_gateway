@@ -41,7 +41,7 @@ class TestWhyUsView:
 
     def test_why_us_view_multiple_requests(self, client):
         """Test that the why_us view returns consistent responses for multiple requests."""
-        for _ in range(3):
+        for _ in range(13):
             response = client.get(reverse('why_us'))
             assert response.status_code == 200
             assert 'accounts/why.html' in [t.name for t in response.templates]
