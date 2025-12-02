@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+from django.views.decorators.http import require_http_methods
 from oauth2_provider.views.application import ApplicationRegistration
 from oauth2_provider.models import Application
 from oauth2_provider.models import generate_client_id, generate_client_secret
@@ -90,42 +91,35 @@ def register(request):
                   {'user_form': user_form})
 
 
-def dashboard(request):
-    """
-    View displaying the user's dashboard.
-
-    Accessible only to authenticated users. Redirects to the login page
-    if the user is not authenticated.
-
-    Parameters:
-    - request (HttpRequest): The request object.
-
-    Returns:
-    - HttpResponse: Rendered HTML response for the user's dashboard.
-    """
-    return render(request,
-                  'accounts/dashboard.html',
-                  {'section': 'dashboard'})
-
-
+@require_http_methods(["GET"])
 def about(request):
     return render(request,
                   'accounts/about.html',
                   {'section': 'about'})
 
 
+@require_http_methods(["GET"])
+def dashboard(request):
+    return render(request,
+                  'accounts/dashboard.html',
+                  {'section': 'dashboard'})
+
+
+@require_http_methods(["GET"])
 def services(request):
     return render(request,
                   'accounts/services.html',
                   {'section': 'services'})
 
 
+@require_http_methods(["GET"])
 def why_us(request):
     return render(request,
                   'accounts/why.html',
                   {'section': 'why_us'})
 
 
+@require_http_methods(["GET"])
 def team(request):
     return render(request,
                   'accounts/team.html',
