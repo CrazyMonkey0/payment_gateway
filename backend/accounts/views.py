@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from django.views.decorators.http import require_http_methods
+from django.db.models.functions import TruncDate
 from oauth2_provider.views.application import ApplicationRegistration
 from oauth2_provider.models import Application
 from oauth2_provider.models import generate_client_id, generate_client_secret
@@ -128,47 +129,32 @@ def team(request):
 
 @login_required
 def show_profile(request):
-    """
-    Display the profile information for the logged-in user 
-    and aggregated daily transaction totals for deposits.
+    profile = get_object_or_404(Profile, pk=request.user.pk)
 
-    Returns:
-        HttpResponse: Rendered 'accounts/profile.html' template with:
-            - Profile details for the current user.
-            - Aggregated transaction data for deposits grouped by day.
-    """
-    profile = get_object_or_404(Profile, id=request.user.id) 
-    bank = Bank.find_by_iban(profile.iban)  
-    transactions = Transaction.objects.filter(bank=bank)  
+    bank = None
+    if profile.iban:
+        bank = Bank.find_by_iban(profile.iban)
 
-    # Aggregate deposit transactions by date
-    transaction_data = [
-        {
-            'date': item['date'].strftime('%Y-%m-%d'), 
-            'total': float(item['total']) 
-        }
-        for item in transactions
-        .filter(transaction_type='DEPOSIT')  # Filter only deposits
-        .values('date')  # Group by date
-        .annotate(total=Sum('amount'))  # Sum amounts for each date
-        .order_by('date')  # Sort by date
+    transaction_data = (
+        Transaction.objects
+        .filter(bank=bank, transaction_type='DEPOSIT')  # ← Correct filter
+        .annotate(day=TruncDate('date'))
+        .values('day')
+        .annotate(total=Sum('amount'))
+        .order_by('day')
+    )
+
+    formatted = [
+        {"date": item["day"].strftime("%Y-%m-%d"), "total": float(item["total"])}
+        for item in transaction_data
     ]
 
-    # Combine totals for the same date
-    transaction_data_day = []
-    for item in transaction_data:
-        if not transaction_data_day or transaction_data_day[-1]['date'] != item['date']:
-            transaction_data_day.append({'date': item['date'], 'total': item['total']})
-        else:
-            transaction_data_day[-1]['total'] += item['total']
-
     return render(request, 'accounts/profile.html', {
-        'section': 'show_profile',  
-        'profile': profile, 
+        'section': 'show_profile',
+        'profile': profile,
         'bank': bank,
-        'transaction_data': transaction_data_day  
+        'transaction_data': formatted,
     })
-
 
 
 @login_required

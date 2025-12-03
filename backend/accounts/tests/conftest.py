@@ -218,7 +218,7 @@ def create_bank(db):
     Returns:
         function: Factory function that creates Bank instances
     """
-    def _create(iban, balance=1000.00):
+    def _create(iban="PL12345678901234567890123456", balance=1000.00):
         return Bank.objects.create(iban=iban, balance=balance)
     
     return _create
