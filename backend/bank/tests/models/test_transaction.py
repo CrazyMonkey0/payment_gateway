@@ -69,9 +69,12 @@ def test_transfer_insufficient_funds(create_bank, create_transaction):
     sender = create_bank("John", "Doe", "PL", balance=100)
     receiver = create_bank("Alice", "Smith", "PL", balance=200)
 
+    # Remove all transactions to start fresh
+    Transaction.objects.all().delete()
+
     # attempt transfer with insufficient funds
     with pytest.raises(ValidationError):
-        create_transaction(
+        transaciton = create_transaction(
             bank=sender,
             transaction_type="TRANSFER",
             amount=300,

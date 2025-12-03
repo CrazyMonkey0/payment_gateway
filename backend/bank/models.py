@@ -120,12 +120,17 @@ class Transaction(models.Model):
         )
 
     def save(self, *args, **kwargs):
-        # Calculate new balances
         if self.transaction_type == "TRANSFER":
             from_account = self.bank
             to_account = Bank.find_by_iban(self.iban)
+            
+            # Validate before any database changes
+            if from_account == to_account:
+                raise ValidationError("Cannot transfer to the same account")
             if from_account.balance < self.amount:
                 raise ValidationError("Insufficient funds for transfer")
+            
+            # Only proceed if validation passes
             with transaction.atomic():
                 from_account.balance -= self.amount
                 from_account.save()
@@ -135,12 +140,21 @@ class Transaction(models.Model):
                     last_name=self.first_name,
                     transaction_type="DEPOSIT",
                     amount=self.amount,
-                    iban=from_account.iban,
+                    iban=to_account.iban,
                 )
+            super().save(*args, **kwargs)
+            return  # Exit after handling transfer
 
         if self.transaction_type == "DEPOSIT":
             acc = self.bank
             acc.balance += self.amount
+            acc.save()
+
+        if self.transaction_type == "WITHDRAWAL":
+            acc = self.bank
+            if acc.balance < self.amount:
+                raise ValidationError("Insufficient funds for withdrawal")
+            acc.balance -= self.amount
             acc.save()
 
         super().save(*args, **kwargs)
