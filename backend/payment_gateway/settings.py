@@ -96,24 +96,24 @@ WSGI_APPLICATION = "payment_gateway.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # SQL Lite
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# # PostgreSQL
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("DATABASE_NAME", "test_db"),
-        "USER": os.environ.get("DATABASE_USER", "postgres"),
-        "PASSWORD": os.environ.get("DATABASE_PASSWORD", "postgres"),
-        "HOST": os.environ.get("DATABASE_HOST", "postgres"),
-        "PORT": os.environ.get("DATABASE_PORT", 5432),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+# # # PostgreSQL
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": os.environ.get("DATABASE_NAME", "test_db"),
+#         "USER": os.environ.get("DATABASE_USER", "postgres"),
+#         "PASSWORD": os.environ.get("DATABASE_PASSWORD", "postgres"),
+#         "HOST": os.environ.get("DATABASE_HOST", "postgres"),
+#         "PORT": os.environ.get("DATABASE_PORT", 5432),
+#     }
+# }
 
 
 # Password validation

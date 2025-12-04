@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+from django.views.decorators.http import require_http_methods
+from django.db.models.functions import TruncDate
 from oauth2_provider.views.application import ApplicationRegistration
 from oauth2_provider.models import Application
 from oauth2_provider.models import generate_client_id, generate_client_secret
@@ -10,10 +12,10 @@ from .models import Profile
 from .forms import UserRegistrationForm, ProfileForm, CustomRegistrationFormOAuth2
 
 
-
 class CustomRegistrationOAuth2(ApplicationRegistration):
     template_name_create = "accounts/oauth2_register.html"
     template_name_edit = "accounts/oauth2_update.html"
+    template_name_success = "accounts/oauth2_success.html"
 
     def get(self, request, *args, **kwargs):
         app = Application.objects.filter(user=request.user).first()
@@ -39,7 +41,15 @@ class CustomRegistrationOAuth2(ApplicationRegistration):
                 instance.client_secret = generate_client_secret()
                 instance.user = request.user
                 instance.save()
-                return render(request, self.template_name_edit, {'form': form, 'section': 'manage_application'})
+                return render(
+                    request,
+                    self.template_name_success,
+                    {
+                        'client_id': instance.client_id,
+                        'client_secret': instance.client_secret,
+                        'section': 'manage_application',
+                    }
+                )
 
         if form.is_valid():
             instance = form.save(commit=False)
@@ -48,7 +58,6 @@ class CustomRegistrationOAuth2(ApplicationRegistration):
 
         template_name = self.template_name_edit if app else self.template_name_create
         return render(request, template_name, {'form': form, 'section': 'manage_application'})
-
 
 
 def register(request):
@@ -83,42 +92,35 @@ def register(request):
                   {'user_form': user_form})
 
 
-def dashboard(request):
-    """
-    View displaying the user's dashboard.
-
-    Accessible only to authenticated users. Redirects to the login page
-    if the user is not authenticated.
-
-    Parameters:
-    - request (HttpRequest): The request object.
-
-    Returns:
-    - HttpResponse: Rendered HTML response for the user's dashboard.
-    """
-    return render(request,
-                  'accounts/dashboard.html',
-                  {'section': 'dashboard'})
-
-
+@require_http_methods(["GET"])
 def about(request):
     return render(request,
                   'accounts/about.html',
                   {'section': 'about'})
 
 
+@require_http_methods(["GET"])
+def dashboard(request):
+    return render(request,
+                  'accounts/dashboard.html',
+                  {'section': 'dashboard'})
+
+
+@require_http_methods(["GET"])
 def services(request):
     return render(request,
                   'accounts/services.html',
                   {'section': 'services'})
 
 
+@require_http_methods(["GET"])
 def why_us(request):
     return render(request,
                   'accounts/why.html',
                   {'section': 'why_us'})
 
 
+@require_http_methods(["GET"])
 def team(request):
     return render(request,
                   'accounts/team.html',
@@ -127,47 +129,32 @@ def team(request):
 
 @login_required
 def show_profile(request):
-    """
-    Display the profile information for the logged-in user 
-    and aggregated daily transaction totals for deposits.
+    profile = get_object_or_404(Profile, pk=request.user.pk)
 
-    Returns:
-        HttpResponse: Rendered 'accounts/profile.html' template with:
-            - Profile details for the current user.
-            - Aggregated transaction data for deposits grouped by day.
-    """
-    profile = get_object_or_404(Profile, id=request.user.id) 
-    bank = Bank.find_by_iban(profile.iban)  
-    transactions = Transaction.objects.filter(bank=bank)  
+    bank = None
+    if profile.iban:
+        bank = Bank.find_by_iban(profile.iban)
 
-    # Aggregate deposit transactions by date
-    transaction_data = [
-        {
-            'date': item['date'].strftime('%Y-%m-%d'), 
-            'total': float(item['total']) 
-        }
-        for item in transactions
-        .filter(transaction_type='DEPOSIT')  # Filter only deposits
-        .values('date')  # Group by date
-        .annotate(total=Sum('amount'))  # Sum amounts for each date
-        .order_by('date')  # Sort by date
+    transaction_data = (
+        Transaction.objects
+        .filter(bank=bank, transaction_type='DEPOSIT')  # ← Correct filter
+        .annotate(day=TruncDate('date'))
+        .values('day')
+        .annotate(total=Sum('amount'))
+        .order_by('day')
+    )
+
+    formatted = [
+        {"date": item["day"].strftime("%Y-%m-%d"), "total": float(item["total"])}
+        for item in transaction_data
     ]
 
-    # Combine totals for the same date
-    transaction_data_day = []
-    for item in transaction_data:
-        if not transaction_data_day or transaction_data_day[-1]['date'] != item['date']:
-            transaction_data_day.append({'date': item['date'], 'total': item['total']})
-        else:
-            transaction_data_day[-1]['total'] += item['total']
-
     return render(request, 'accounts/profile.html', {
-        'section': 'show_profile',  
-        'profile': profile, 
+        'section': 'show_profile',
+        'profile': profile,
         'bank': bank,
-        'transaction_data': transaction_data_day  
+        'transaction_data': formatted,
     })
-
 
 
 @login_required

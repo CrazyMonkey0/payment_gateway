@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Success Your Application" %}{% endblock %}
+
+{% block content %}
+<div class="edit-application-container">
+    <div class="edit-application-card">
+        <h1 class="success-application-title">{% trans "Success" %}</h1>
+        <br>
+        <h1 class="application-title-note">Note: The Client Secret appears only once. </h1>
+        <h3 class="application-title-attention">
+            {% trans "Your application has been successfully registered. Below are your Client ID and Client Secret. Please save them securely. For security reasons, the Client Secret appears only once. If you lose it, please contact support." %}
+        </h3>
+
+        {% if form.errors %}
+        <div class="edit-application-errors">
+            <h3>{% trans "Please correct the errors below:" %}</h3>
+            <ul>
+                {% for field in form %}
+                {% if field.errors %}
+                <li><strong>{{ field.label }}:</strong> {{ field.errors|join:", " }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label>{% trans "Client ID:" %}</label>
+            <input type="text" value="{{ client_id }}" readonly class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>{% trans "Client Secret:" %}</label>
+            <input type="text" value="{{ client_secret }}" readonly class="form-control" />
+        </div>
+
+        <h5>{% trans "If you need help with the application write to our support" %} </h5>
+    </div>
+</div>
+{% endblock %}
